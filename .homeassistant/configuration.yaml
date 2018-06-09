@@ -73,17 +73,17 @@ mqtt:
   # discovery: true
 
 switch:
-  - platform: mqtt
-    name: "Licht Wohnzimmer"
-    state_topic: "stat/sonoff-wohnzimmer/POWER"
-    command_topic: "cmnd/sonoff-wohnzimmer/POWER"
-    qos: 2
-    retain: true
+  # - platform: mqtt
+  #   name: "Licht Wohnzimmer"
+  #   state_topic: "stat/sonoff-wohnzimmer/POWER"
+  #   command_topic: "cmnd/sonoff-wohnzimmer/POWER"
+  #   qos: 2
+  #   retain: true
   - platform: mqtt
     name: "Licht Bad"
-    state_topic: "stat/sonoff-bad/POWER"
+    state_topic: "stat/sonoff-bad/POWER1"
     command_topic: "cmnd/sonoff-bad/POWER"
-    qos: 2
+    # qos: 2
     retain: true
 
 # sensor:
