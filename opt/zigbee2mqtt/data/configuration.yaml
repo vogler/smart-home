@@ -1,5 +1,5 @@
 # Home Assistant integration (MQTT discovery)
-homeassistant: false
+homeassistant: true
 
 # allow new devices to join
 permit_join: true
@@ -18,3 +18,38 @@ mqtt:
 serial:
   # Location of CC2531 USB sniffer
   port: /dev/ttyACM0
+  disable_led: true
+# advanced:
+  # log_level: debug
+  # cache_state: false # home assistant requires all attributes in MQTT messages, disable cache to just get the original zigbee message with only the changed attributes
+devices:
+  '0x00158d00027419e4':
+    friendly_name: Aqara_Temp_Bad
+    retain: false
+  '0x00158d000243567e':
+    friendly_name: Aqara_Door_Bad
+    retain: false
+  '0x00158d0002b5306c':
+    friendly_name: Aqara_Door_Apt
+    retain: false
+  '0x00158d0002c5bf49':
+    friendly_name: Aqara_Door_WZ
+    retain: false
+  '0x00158d0002b127f4':
+    friendly_name: Aqara_Vibration
+    retain: false
+  '0x000b57fffe321252':
+    friendly_name: Tradfri_WW_Kueche
+    retain: true
+  '0x90fd9ffffede386b':
+    friendly_name: Tradfri_WS_Bett
+    retain: true
+  '0x00124b0014d9e009':
+    friendly_name: '0x00124b0014d9e009'
+    retain: false
+  '0x0017880103283554':
+    friendly_name: Hue_Motion_WZ
+    retain: true
+  '0x001788010328d8bc':
+    friendly_name: Hue_Motion_Bad
+    retain: true
