@@ -70,7 +70,16 @@ tts:
 
 # my stuff
 mqtt:
-  # discovery: true
+  broker: localhost
+  # username: homeassistant
+  # password: !secret http_password
+  discovery: true
+  birth_message: # for zigbee2mqtt
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
 
 switch:
   # - platform: mqtt
@@ -81,10 +90,10 @@ switch:
   #   retain: true
   - platform: mqtt
     name: "Licht Bad"
-    state_topic: "stat/sonoff-bad/POWER1"
+    state_topic: "stat/sonoff-bad/POWER"
     command_topic: "cmnd/sonoff-bad/POWER"
     # qos: 2
-    retain: true
+    # retain: true
 
 # sensor:
 #   - platform: plex
@@ -102,7 +111,7 @@ device_tracker:
 group:
   mobile:
     entities:
-      - device_tracker.nexus6p
+      - device_tracker.pixel2xl
   # lights: # this also does not work for light_group :(
   #   entities:
   #     - switch.licht_wohnzimmer
@@ -137,5 +146,27 @@ recorder:
 # end my stuff
 
 # group: !include groups.yaml
-automation: !include automations.yaml
+# automation: !include automations.yaml
+automation:
+  - alias: 'Bad-Licht an bei Bewegung'
+    trigger:
+      platform: mqtt
+      topic: 'zigbee2mqtt/Hue_Motion_Bad'
+    condition:
+      condition: template
+      value_template: '{{ true == trigger.payload_json.occupancy }}'
+    action:
+      entity_id: switch.licht_bad
+      service: switch.turn_on
+  - alias: 'Bad-Licht aus ohne Bewegung'
+    trigger:
+      platform: mqtt
+      topic: 'zigbee2mqtt/Hue_Motion_Bad'
+    condition:
+      condition: template
+      value_template: '{{ false == trigger.payload_json.occupancy }}'
+    action:
+      entity_id: switch.licht_bad
+      service: switch.turn_off
+
 script: !include scripts.yaml
