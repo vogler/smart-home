@@ -44,9 +44,6 @@ devices:
   '0x90fd9ffffede386b':
     friendly_name: Tradfri_WS_Bett
     retain: true
-  '0x00124b0014d9e009':
-    friendly_name: '0x00124b0014d9e009'
-    retain: false
   '0x0017880103283554':
     friendly_name: Hue_Motion_WZ
     retain: true
