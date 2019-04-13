@@ -50,3 +50,9 @@ devices:
   '0x001788010328d8bc':
     friendly_name: Hue_Motion_Bad
     retain: true
+  '0x00158d0002ca364e':
+    friendly_name: Aqara_Door_Balkon
+    retain: false
+  '0x00158d000312f723':
+    friendly_name: Aqara_Door_Fridge
+    retain: false
