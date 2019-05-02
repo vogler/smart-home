@@ -13,6 +13,7 @@ devices:
   '0x00158d00027419e4':
     friendly_name: Aqara_Temp_Bad
     retain: false
+    debounce: 1
   '0x00158d000243567e':
     friendly_name: Aqara_Door_Bad
     retain: false
@@ -43,3 +44,7 @@ devices:
   '0x00158d000312f723':
     friendly_name: Aqara_Door_Fridge
     retain: false
+  '0x00158d00032b69d1':
+    friendly_name: Aqara_Door_WC
+    retain: false
+    # debounce: 1
