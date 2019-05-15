@@ -37,6 +37,10 @@ devices:
     friendly_name: Aqara_Temp_Bath
     retain: false
     debounce: 1
+  '0x00158d00023280c7':
+    friendly_name: Aqara_Temp_Balcony
+    retain: false
+    debounce: 1
   '0x001788010328d8bc':
     friendly_name: Hue_Motion_Bath
     retain: false
