@@ -4,11 +4,13 @@ mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://localhost'
 serial:
-  port: /dev/ttyACM0 # Location of CC2531 USB sniffer
+  # port: /dev/ttyACM0 # CC2531 USB sniffer
+  port: /dev/ttyUSB1 # CC2530 via ch341-uart USB adapter (originally for ESP-01), firmware: CC2530_20190425
   disable_led: true
-# advanced:
+advanced:
   # log_level: debug
   # cache_state: false # home assistant requires all attributes in MQTT messages, disable cache to just get the original zigbee message with only the changed attributes
+  rtscts: false
 devices:
   '0x00158d00027419e4':
     friendly_name: Aqara_Temp_Bad
