@@ -12,41 +12,40 @@ advanced:
   # cache_state: false # home assistant requires all attributes in MQTT messages, disable cache to just get the original zigbee message with only the changed attributes
   rtscts: false
 devices:
-  '0x00158d00027419e4':
-    friendly_name: Aqara_Temp_Bad
-    retain: false
-    debounce: 1
-  '0x00158d000243567e':
-    friendly_name: Aqara_Door_Bad
-    retain: false
   '0x00158d0002b5306c':
     friendly_name: Aqara_Door_Apt
     retain: false
-  '0x00158d0002c5bf49':
-    friendly_name: Aqara_Door_WZ
-    retain: false
-  '0x00158d0002b127f4':
-    friendly_name: Aqara_Vibration
-    retain: false
-  # '0x000b57fffe321252':
-  #   friendly_name: Tradfri_WW_Kueche
-  #   retain: true
-  # '0x90fd9ffffede386b':
-  #   friendly_name: Tradfri_WS_Bett
-  #   retain: true
-  '0x0017880103283554':
-    friendly_name: Hue_Motion_WZ
-    retain: false
-  '0x001788010328d8bc':
-    friendly_name: Hue_Motion_Bad
-    retain: false
-  '0x00158d0002ca364e':
-    friendly_name: Aqara_Door_Balkon
-    retain: false
-  '0x00158d000312f723':
-    friendly_name: Aqara_Door_Fridge
+  '0x00158d000243567e':
+    friendly_name: Aqara_Door_Bath
     retain: false
   '0x00158d00032b69d1':
     friendly_name: Aqara_Door_WC
     retain: false
-    # debounce: 1
+  '0x00158d000312f723':
+    friendly_name: Aqara_Door_Fridge
+    retain: false
+  '0x00158d0002c5bf49':
+    friendly_name: Aqara_Door_Living
+    retain: false
+  '0x00158d0002ca364e':
+    friendly_name: Aqara_Door_Balcony
+    retain: false
+  '0x00158d0002b127f4':
+    friendly_name: Aqara_Vibration_Bed
+    retain: false
+  '0x00158d00027419e4':
+    friendly_name: Aqara_Temp_Bath
+    retain: false
+    debounce: 1
+  '0x001788010328d8bc':
+    friendly_name: Hue_Motion_Bath
+    retain: false
+  '0x0017880103283554':
+    friendly_name: Hue_Motion_Living
+    retain: false
+  # '0x000b57fffe321252':
+  #   friendly_name: Tradfri_WW_Kitchen
+  #   retain: true
+  # '0x90fd9ffffede386b':
+  #   friendly_name: Tradfri_WS_Bed
+  #   retain: true
