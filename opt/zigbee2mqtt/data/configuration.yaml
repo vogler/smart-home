@@ -53,6 +53,9 @@ devices:
   '0x90fd9ffffee0c769':
     friendly_name: Tradfri_Button_Bed
     retain: false
+  '0x000d6ffffe1e0f1d':
+    friendly_name: Tradfri_WS_Kitchen
+    retain: false
   # '0x000b57fffe321252':
   #   friendly_name: Tradfri_WW_Kitchen
   #   retain: true
