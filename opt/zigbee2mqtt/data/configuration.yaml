@@ -44,6 +44,9 @@ devices:
   '0x001788010328d8bc':
     friendly_name: Hue_Motion_Bath
     retain: false
+  '0x001788010213554f':
+    friendly_name: Hue_Motion_Kitchen
+    retain: false
   '0x0017880103283554':
     friendly_name: Hue_Motion_Living
     retain: false
