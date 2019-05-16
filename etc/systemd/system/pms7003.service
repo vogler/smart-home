@@ -1,0 +1,13 @@
+[Unit]
+Description=PMS7003 Particle Sensor (MQTT)
+After=mosquitto.service
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/bin/bash -c '/usr/bin/python ~/pms7003/python-pms7003/pms7003.py'
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

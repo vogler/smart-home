@@ -1,0 +1,13 @@
+[Unit]
+Description=MH-Z19 CO2 Sensor (MQTT)
+After=mosquitto.service
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/bin/bash -c 'exec /usr/bin/python ~/mh-z19/mh_z19.py --mqtt'
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

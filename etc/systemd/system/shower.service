@@ -1,0 +1,13 @@
+[Unit]
+Description=Shower-Water-Meter
+After=mosquitto.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/bin/bash -c 'cd /home/pi; exec mosquitto_sub -t 'sensors/shower/#' -v | ts | tee -a shower.log'
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
