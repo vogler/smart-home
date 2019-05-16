@@ -5,7 +5,7 @@ After=network-online.target
 [Service]
 Type=simple
 User=root
-ExecStart=/bin/bash -c 'cd /home/pi; exec stdbuf -o 0 /usr/bin/python -u dash.py 2>&1 | tee -a dash.log'
+ExecStart=/bin/bash -c 'cd /home/pi; exec stdbuf -o 0 /usr/bin/python3 -u dash.py 2>&1 | tee -a dash.log'
 Restart=always
 RestartSec=5
 

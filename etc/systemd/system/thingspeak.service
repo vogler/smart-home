@@ -5,7 +5,7 @@ After=network-online.target
 [Service]
 Type=simple
 User=pi
-ExecStart=/bin/bash -c 'cd /home/pi/sensors; exec /usr/bin/python thingspeak.py 2>&1 | tee -a thingspeak.log'
+ExecStart=/bin/bash -c 'cd /home/pi/sensors; exec /usr/bin/python3 thingspeak.py 2>&1 | tee -a thingspeak.log'
 Restart=always
 RestartSec=5
 

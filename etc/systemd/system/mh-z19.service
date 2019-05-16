@@ -5,7 +5,7 @@ After=mosquitto.service
 [Service]
 Type=simple
 User=pi
-ExecStart=/bin/bash -c 'exec /usr/bin/python ~/mh-z19/mh_z19.py --mqtt'
+ExecStart=/bin/bash -c 'exec /usr/bin/python3 ~/mh-z19/mh_z19.py --mqtt'
 Restart=always
 RestartSec=5
 
