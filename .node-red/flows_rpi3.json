@@ -2281,134 +2281,6 @@
         ]
     },
     {
-        "id": "d1362a5a.969bb8",
-        "type": "hue-motion",
-        "z": "b635b24c.eee61",
-        "name": "Küche Sensor",
-        "bridge": "7cf0578.b836da8",
-        "sensorid": "15",
-        "x": 100,
-        "y": 440,
-        "wires": [
-            [
-                "d9fa044b.b920b8"
-            ]
-        ]
-    },
-    {
-        "id": "d9fa044b.b920b8",
-        "type": "switch",
-        "z": "b635b24c.eee61",
-        "name": "",
-        "property": "payload.motion",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "true"
-            },
-            {
-                "t": "false"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 250,
-        "y": 440,
-        "wires": [
-            [
-                "96a61f3d.3dc4d"
-            ],
-            [
-                "53c7f839.e3c188"
-            ]
-        ]
-    },
-    {
-        "id": "96a61f3d.3dc4d",
-        "type": "trigger",
-        "z": "b635b24c.eee61",
-        "op1": "{\"state\": \"ON\"}",
-        "op2": "{\"state\": \"OFF\"}",
-        "op1type": "json",
-        "op2type": "json",
-        "duration": "90",
-        "extend": true,
-        "units": "s",
-        "reset": "",
-        "bytopic": "all",
-        "name": "",
-        "x": 410,
-        "y": 440,
-        "wires": [
-            [
-                "94552f70.1b769",
-                "7045236a.d9086c"
-            ]
-        ]
-    },
-    {
-        "id": "53c7f839.e3c188",
-        "type": "debug",
-        "z": "b635b24c.eee61",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "x": 350,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "7045236a.d9086c",
-        "type": "mqtt out",
-        "z": "b635b24c.eee61",
-        "name": "",
-        "topic": "zigbee2mqtt/Tradfri_WS_Kitchen/set",
-        "qos": "2",
-        "retain": "true",
-        "broker": "75898696.612e28",
-        "x": 670,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "94552f70.1b769",
-        "type": "debug",
-        "z": "b635b24c.eee61",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "x": 550,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "5c5d5a00.acee74",
-        "type": "inject",
-        "z": "b635b24c.eee61",
-        "name": "",
-        "topic": "",
-        "payload": "{\"state\": \"OFF\"}",
-        "payloadType": "json",
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "x": 400,
-        "y": 400,
-        "wires": [
-            [
-                "7045236a.d9086c"
-            ]
-        ]
-    },
-    {
         "id": "35332e07.9c9c62",
         "type": "function",
         "z": "b635b24c.eee61",
@@ -2430,8 +2302,8 @@
         "z": "b635b24c.eee61",
         "name": "",
         "scope": null,
-        "x": 740,
-        "y": 340,
+        "x": 1000,
+        "y": 80,
         "wires": [
             [
                 "34538f7.d9ac37"
@@ -2448,8 +2320,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 890,
-        "y": 340,
+        "x": 1150,
+        "y": 80,
         "wires": []
     },
     {
@@ -2462,8 +2334,8 @@
         "console": false,
         "tostatus": true,
         "complete": "true",
-        "x": 890,
-        "y": 380,
+        "x": 1150,
+        "y": 120,
         "wires": []
     },
     {
@@ -2474,8 +2346,8 @@
         "topic": "zigbee2mqtt/#",
         "qos": "2",
         "broker": "75898696.612e28",
-        "x": 750,
-        "y": 380,
+        "x": 1010,
+        "y": 120,
         "wires": [
             [
                 "192941c9.f6dc9e"
@@ -2636,7 +2508,7 @@
         "datatype": "auto",
         "broker": "75898696.612e28",
         "x": 110,
-        "y": 600,
+        "y": 460,
         "wires": [
             [
                 "dc8bfee7.b6068"
@@ -2652,7 +2524,7 @@
         "outputs": 2,
         "noerr": 0,
         "x": 290,
-        "y": 600,
+        "y": 460,
         "wires": [
             [
                 "ce7417c0.e807e8"
@@ -2675,7 +2547,7 @@
         "bytopic": "all",
         "name": "",
         "x": 450,
-        "y": 580,
+        "y": 440,
         "wires": [
             [
                 "5c483681.6157c8"
@@ -2691,8 +2563,8 @@
         "qos": "2",
         "retain": "true",
         "broker": "75898696.612e28",
-        "x": 810,
-        "y": 560,
+        "x": 990,
+        "y": 400,
         "wires": []
     },
     {
@@ -2704,7 +2576,7 @@
         "lightid": "12",
         "colornamer": true,
         "x": 750,
-        "y": 620,
+        "y": 480,
         "wires": [
             []
         ]
@@ -2718,10 +2590,10 @@
         "outputs": 2,
         "noerr": 0,
         "x": 590,
-        "y": 600,
+        "y": 460,
         "wires": [
             [
-                "5056dd69.ed4434"
+                "f483f486.169348"
             ],
             [
                 "9b66caf8.dc9b68"
@@ -2741,7 +2613,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 450,
-        "y": 640,
+        "y": 500,
         "wires": [
             [
                 "5c483681.6157c8"
@@ -2761,7 +2633,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 450,
-        "y": 680,
+        "y": 540,
         "wires": [
             [
                 "5c483681.6157c8"
@@ -2774,12 +2646,85 @@
         "z": "b635b24c.eee61",
         "name": "",
         "scope": null,
-        "x": 740,
-        "y": 300,
+        "x": 1000,
+        "y": 40,
         "wires": [
             [
                 "34538f7.d9ac37"
             ]
         ]
+    },
+    {
+        "id": "4b2d208c.7ca83",
+        "type": "mqtt in",
+        "z": "b635b24c.eee61",
+        "name": "",
+        "topic": "zigbee2mqtt/Tradfri_WS_Kitchen",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "75898696.612e28",
+        "x": 330,
+        "y": 380,
+        "wires": [
+            [
+                "8cbb2459.2de188",
+                "22cbbadc.0a8d76"
+            ]
+        ]
+    },
+    {
+        "id": "f483f486.169348",
+        "type": "trigger",
+        "z": "b635b24c.eee61",
+        "op1": "",
+        "op2": "0",
+        "op1type": "pay",
+        "op2type": "str",
+        "duration": "-10",
+        "extend": false,
+        "units": "s",
+        "reset": "reset",
+        "bytopic": "all",
+        "name": "",
+        "x": 730,
+        "y": 400,
+        "wires": [
+            [
+                "5056dd69.ed4434"
+            ]
+        ]
+    },
+    {
+        "id": "8cbb2459.2de188",
+        "type": "template",
+        "z": "b635b24c.eee61",
+        "name": "reset",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "reset",
+        "output": "str",
+        "x": 550,
+        "y": 380,
+        "wires": [
+            [
+                "f483f486.169348"
+            ]
+        ]
+    },
+    {
+        "id": "22cbbadc.0a8d76",
+        "type": "debug",
+        "z": "b635b24c.eee61",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 570,
+        "y": 340,
+        "wires": []
     }
 ]
