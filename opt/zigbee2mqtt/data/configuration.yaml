@@ -9,7 +9,7 @@ serial:
   disable_led: true
 advanced:
   # log_level: debug
-  # cache_state: false # home assistant requires all attributes in MQTT messages, disable cache to just get the original zigbee message with only the changed attributes
+  cache_state: false # home assistant requires all attributes in MQTT messages, disable cache to just get the original zigbee message with only the changed attributes
   rtscts: false
 devices:
   '0x00158d0002b5306c':
