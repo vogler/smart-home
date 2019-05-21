@@ -2520,16 +2520,15 @@
         "type": "function",
         "z": "b635b24c.eee61",
         "name": "occupancy",
-        "func": "// node.log(msg.payload);\nvar p = JSON.parse(msg.payload);\nflow.set('motion-kitchen', p.occupancy);\nif(p.occupancy){\n    node.status({fill:\"red\", shape:\"ring\", text:\"motion\"});\n    return [{payload: p}, null];\n} else {\n    node.status({fill:\"green\", shape:\"dot\", text:\"no motion\"});\n    return [null, {reset: true}];\n}",
-        "outputs": 2,
+        "func": "// node.log(msg.payload);\nvar p = JSON.parse(msg.payload);\nflow.set('motion-kitchen', p.occupancy);\nif(p.occupancy === undefined) return; // if state_cache is off, the field does not need to be included\nif(p.occupancy){\n    node.status({fill:\"red\", shape:\"ring\", text:\"motion\"});\n} else {\n    node.status({fill:\"green\", shape:\"dot\", text:\"no motion\"});\n}\nreturn {payload: p.occupancy};",
+        "outputs": 1,
         "noerr": 0,
         "x": 290,
         "y": 460,
         "wires": [
             [
-                "ce7417c0.e807e8"
-            ],
-            []
+                "5c483681.6157c8"
+            ]
         ]
     },
     {
@@ -2540,7 +2539,7 @@
         "op2": "false",
         "op1type": "bool",
         "op2type": "bool",
-        "duration": "90",
+        "duration": "60",
         "extend": true,
         "units": "s",
         "reset": "",
@@ -2549,9 +2548,7 @@
         "x": 450,
         "y": 440,
         "wires": [
-            [
-                "5c483681.6157c8"
-            ]
+            []
         ]
     },
     {
