@@ -2634,5 +2634,38 @@
                 "cb449346.11208"
             ]
         ]
+    },
+    {
+        "id": "4399278d.1a68f8",
+        "type": "mqtt in",
+        "z": "b635b24c.eee61",
+        "name": "",
+        "topic": "sensors/shower/flow",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "75898696.612e28",
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "f5d79d86.b0845"
+            ]
+        ]
+    },
+    {
+        "id": "f5d79d86.b0845",
+        "type": "function",
+        "z": "b635b24c.eee61",
+        "name": "> 100",
+        "func": "var flow = msg.payload.flow;\nif(flow > 100){\n    node.status({fill:\"red\", shape:\"ring\", text:flow+\" ml\"});\n    return msg;\n} else {\n    node.status({fill:\"green\", shape:\"dot\", text:flow+\" ml\"});\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "a1e67a5.fc05788"
+            ]
+        ]
     }
 ]
