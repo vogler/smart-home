@@ -1,5 +1,5 @@
 ![Chronograf dashboard](https://i.imgur.com/KdjZi8j.png)
-![node-red light automation](https://i.imgur.com/U0ncjU3.png)
+![node-red light automation](https://i.imgur.com/qlGAEON.png)
 
 - Raspberry Pi 3 B
   - First used [home-assistant](https://www.home-assistant.io/), now only [node-red](https://nodered.org/).
