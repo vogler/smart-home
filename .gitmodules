@@ -1,0 +1,3 @@
+[submodule "sensors"]
+	path = sensors
+	url = https://github.com/vogler/sensors.git
