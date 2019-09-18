@@ -9,8 +9,8 @@ from sys import stdout
 # fake server: https://github.com/ide/dash-button/issues/59
 # maybe set google as primary dns and rpi as secondary: https://medium.com/@tombatossals/cheating-the-amazon-dash-iot-button-the-almost-easy-way-e5bc62f93f8c
 macs = {
-  "ac:63:be:ea:5b:1b": "PC", # kleenex (Schreibtisch)
-  "ac:63:be:ba:2f:85": "Dusche", # oral-b (Bad)
+  "ac:63:be:ea:5b:1b": "Dusche", # kleenex (Bad)
+  "ac:63:be:ba:2f:85": "Dusche", # oral-b (Bad) battery empty
   "68:37:e9:bc:f3:90": "Wäsche", # ariel (Schrank)
   "18:74:2e:3b:3c:09": "Rasur", # gillette (Bad)
   "18:74:2e:53:74:54": "Purex", # nivea-men (Schrank)
