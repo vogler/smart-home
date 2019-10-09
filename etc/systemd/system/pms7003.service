@@ -5,7 +5,7 @@ After=mosquitto.service
 [Service]
 Type=simple
 User=pi
-ExecStart=/bin/bash -c '/usr/bin/python3 ~/sensors/python-pms7003/pms7003.py'
+ExecStart=/bin/bash -c 'exec /usr/bin/python3 ~/sensors/python-pms7003/pms7003.py --noprint'
 Restart=always
 RestartSec=5
 
