@@ -7,4 +7,7 @@
 # -P --partial (keep partially transferred files) --progress (show progress)
 # with -a `stat dash.log` shows 'Change' (ctime of inode?) as time of copy, but also has a field 'Birth' which shows the original create time
 # https://unix.stackexchange.com/questions/2464/timestamp-modification-time-and-created-time-of-a-file
-rsync -avzP pi@rpi3.local:~/ rpi/
+dir=${1-"home/pi"}
+target=rpi/$dir/
+mkdir -p $target
+rsync -avzP pi@rpi3.local:/$dir/ $target
