@@ -2,6 +2,8 @@
 # https://unix.stackexchange.com/questions/61586/how-to-tell-rsync-to-preserve-time-stamp-on-files-when-source-tree-has-a-mounted
 # -a implies -t for times, macOS rsync also has option -N/--crtimes to 'preserve create times (newnewss)' but that leads to an error of unknown option when rsyncing from rpi b/c its rsync doesn't have that option (despite being the same version)
 # -a archive mode; equals -rlptgoD (no -H,-A,-X)
+# skip -H (--hard-links) because it's expensive, can use fdupes to hard-link duplicates, see https://news.ycombinator.com/item?id=8305545
+# skip -X (extended attributes, see https://en.wikipedia.org/wiki/Chattr#Attributes)
 # -v verbose
 # -z compress file data during transfer
 # -P --partial (keep partially transferred files) --progress (show progress)
