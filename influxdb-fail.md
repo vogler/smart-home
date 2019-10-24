@@ -11,13 +11,13 @@ mac $ # check /usr/local/var/log/influxdb.log
 mac $ brew services stop influxdb
 mac $ rsync --delete -avhzP --stats --rsync-path="sudo rsync" /usr/local/var/influxdb/ pi@rpi3.local:/var/lib/influxdb/
 rpi $ sudo chown -R influxdb:influxdb /var/lib/influxdb
-rpi $ rpi $ sudo systemctl start chronograf telegraf influxdb
+rpi $ sudo systemctl start chronograf telegraf influxdb
 ~~~
 
 Paths:
 - config:
-  - rpi: /etc/influxdb/influxdb.conf -> /home/pi/smart-home/etc/influxdb/influxdb.conf
-  - mac: /usr/local/etc/influxdb.conf
+  - rpi: `/etc/influxdb/influxdb.conf` -> `/home/pi/smart-home/etc/influxdb/influxdb.conf`
+  - mac: `/usr/local/etc/influxdb.conf`
 
 
 ## Log
