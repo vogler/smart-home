@@ -8,4 +8,5 @@
     - Aqara door sensors, Hue motion sensors, Hue and Ikea Tradfri lights
     - First used CC2531 USB stick, now CC2530 via UART USB because of supposed better range.
   - [Sensors](https://github.com/vogler/sensors) -> [MQTT](https://mosquitto.org/) -> [Telegraf](https://github.com/influxdata/telegraf) -> [InfluxDB](https://github.com/influxdata/influxdb) -> [Chronograf](https://github.com/influxdata/chronograf)
+    - InfluxDB is not reliable on 32 bit OS, fails to allocate memory and somehow crashes the RPi every couple of days (see [issue](https://github.com/influxdata/influxdb/issues/11339#issuecomment-525500034)), maybe fixed by 64 bit Debian on RPi4, meanwhile copy to MBP, see [influxdb-fail.md](influxdb-fail.md).
 - Wemos D1 mini: [FlowMeter](https://github.com/vogler/FlowMeter) for shower usage
