@@ -69,3 +69,5 @@ ts=2019-10-23T23:24:24.305424Z lvl=info msg="Finished compacting files" log_id=0
 ts=2019-10-23T23:24:24.305449Z lvl=info msg="TSM compaction (end)" log_id=0Ifjmivl000 engine=tsm1 tsm1_strategy=full tsm1_optimize=false trace_id=0IfjoHrG000 op_name=tsm1_compact_group op_event=end op_elapsed=6040.604ms
 ts=2019-10-23T23:24:25.276000Z lvl=info msg="Snapshot for path written" log_id=0Ifjmivl000 engine=tsm1 trace_id=0IfjnvPG000 op_name=tsm1_cache_snapshot path=/usr/local/var/influxdb/data/telegraf/autogen/77 duration=13014.679ms
 ~~~
+
+Chronograf said that InfluxDB was down on 2019-11-22 when I checked at 9:34. Did the copy-to-MBP-and-back procedure above and was running again at 10:40. Noticed afterwards that last data in DB before is from 2019-11-18 1:40, i.e., lost data from Mo-Fr despite Chronograf displaying data normally during that time.
