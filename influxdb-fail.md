@@ -9,6 +9,7 @@ mac $ mv rpi/var/lib/influxdb /usr/local/var
 mac $ brew services run influxdb
 mac $ # check /usr/local/var/log/influxdb.log
 mac $ brew services stop influxdb
+rpi $ sudo mv /var/lib/influxdb influxdb-rpi
 mac $ rsync --delete -avhzP --stats --rsync-path="sudo rsync" /usr/local/var/influxdb/ pi@rpi3.local:/var/lib/influxdb/
 rpi $ sudo chown -R influxdb:influxdb /var/lib/influxdb
 rpi $ sudo systemctl start chronograf telegraf influxdb
