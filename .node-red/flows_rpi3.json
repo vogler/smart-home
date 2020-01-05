@@ -2219,11 +2219,14 @@
         "id": "a3f1b8b2.5c8418",
         "type": "http request",
         "z": "eb78f2d0.07849",
-        "name": "i5-6600:3000/standby",
+        "name": "i5-6600:3000/suspend",
         "method": "GET",
         "ret": "txt",
-        "url": "http://i5-6600:3000/standby",
+        "paytoqs": false,
+        "url": "http://i5-6600:3000/suspend",
         "tls": "",
+        "proxy": "",
+        "authType": "",
         "x": 640,
         "y": 180,
         "wires": [
@@ -2237,7 +2240,7 @@
         "type": "debug",
         "z": "eb78f2d0.07849",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -2824,7 +2827,8 @@
             [
                 "f93fbd23.16915",
                 "219acea1.b75e02",
-                "93370b45.bf1d68"
+                "93370b45.bf1d68",
+                "526d7ac9.9e4124"
             ]
         ]
     },
@@ -2849,7 +2853,7 @@
         "name": "Bettlampe",
         "topic": "",
         "x": 300,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
                 "dedc535f.bf4bb"
@@ -2866,7 +2870,55 @@
         "retain": "true",
         "broker": "75898696.612e28",
         "x": 540,
-        "y": 260,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "526d7ac9.9e4124",
+        "type": "amazon-echo-device",
+        "z": "eb78f2d0.07849",
+        "name": "Monitor",
+        "topic": "",
+        "x": 300,
+        "y": 240,
+        "wires": [
+            [
+                "26096220.9e46ce"
+            ]
+        ]
+    },
+    {
+        "id": "26096220.9e46ce",
+        "type": "http request",
+        "z": "eb78f2d0.07849",
+        "name": "i5-6600:3000/display-*",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "http://i5-6600:3000/display-{{{payload}}}",
+        "tls": "",
+        "proxy": "",
+        "authType": "",
+        "x": 500,
+        "y": 240,
+        "wires": [
+            [
+                "4222918a.b7bbf"
+            ]
+        ]
+    },
+    {
+        "id": "4222918a.b7bbf",
+        "type": "debug",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 690,
+        "y": 240,
         "wires": []
     }
 ]
