@@ -2823,7 +2823,8 @@
         "wires": [
             [
                 "f93fbd23.16915",
-                "219acea1.b75e02"
+                "219acea1.b75e02",
+                "93370b45.bf1d68"
             ]
         ]
     },
@@ -2840,5 +2841,32 @@
                 "82f3b4aa.922b68"
             ]
         ]
+    },
+    {
+        "id": "93370b45.bf1d68",
+        "type": "amazon-echo-device",
+        "z": "eb78f2d0.07849",
+        "name": "Bettlampe",
+        "topic": "",
+        "x": 300,
+        "y": 260,
+        "wires": [
+            [
+                "dedc535f.bf4bb"
+            ]
+        ]
+    },
+    {
+        "id": "dedc535f.bf4bb",
+        "type": "mqtt out",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "topic": "zigbee2mqtt/Tradfri_WS_Bed/set",
+        "qos": "2",
+        "retain": "true",
+        "broker": "75898696.612e28",
+        "x": 540,
+        "y": 260,
+        "wires": []
     }
 ]
