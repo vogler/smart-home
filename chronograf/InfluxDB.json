@@ -2429,14 +2429,20 @@
 		"templates": [
 			{
 				"tempVar": ":host:",
-				"values": [],
+				"values": [
+					{
+						"value": "rpi4",
+						"type": "tagValue",
+						"selected": true
+					}
+				],
 				"id": "f1d2e42a-6f26-4812-a5e4-cb2d67e407e2",
 				"type": "tagValues",
 				"label": "",
 				"query": {
 					"influxql": "SHOW TAG VALUES ON :database: FROM :measurement: WITH KEY=:tagKey:",
 					"db": "telegraf",
-					"measurement": "influxdb_database",
+					"measurement": "cpu",
 					"tagKey": "host",
 					"fieldKey": ""
 				},

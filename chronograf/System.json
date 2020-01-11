@@ -1488,7 +1488,13 @@
 		"templates": [
 			{
 				"tempVar": ":host:",
-				"values": [],
+				"values": [
+					{
+						"value": "rpi4",
+						"type": "tagValue",
+						"selected": true
+					}
+				],
 				"id": "a3b46f38-da91-47ab-b302-200795b21534",
 				"type": "tagValues",
 				"label": "",

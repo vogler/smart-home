@@ -511,7 +511,7 @@
 				"name": "Free (GB)",
 				"queries": [
 					{
-						"query": "SELECT mean(\"free\")/1024/1024/1024 AS \"mean_free\" FROM \"telegraf\".\"autogen\".\"disk\" WHERE time > :dashboardTime: AND \"host\"='rpi3' AND \"path\"='/' GROUP BY time(:interval:), \"path\" FILL(previous)",
+						"query": "SELECT mean(\"free\")/1024/1024/1024 AS \"mean_free\" FROM \"telegraf\".\"autogen\".\"disk\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"path\"='/' GROUP BY time(:interval:), \"path\" FILL(previous)",
 						"queryConfig": {
 							"database": "",
 							"measurement": "",
@@ -523,7 +523,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": false,
-							"rawText": "SELECT mean(\"free\")/1024/1024/1024 AS \"mean_free\" FROM \"telegraf\".\"autogen\".\"disk\" WHERE time > :dashboardTime: AND \"host\"='rpi3' AND \"path\"='/' GROUP BY time(:interval:), \"path\" FILL(previous)",
+							"rawText": "SELECT mean(\"free\")/1024/1024/1024 AS \"mean_free\" FROM \"telegraf\".\"autogen\".\"disk\" WHERE time > :dashboardTime: AND \"host\"=:host: AND \"path\"='/' GROUP BY time(:interval:), \"path\" FILL(previous)",
 							"range": null,
 							"shifts": null
 						},
@@ -2943,7 +2943,7 @@
 				"tempVar": ":host:",
 				"values": [
 					{
-						"value": "rpi3",
+						"value": "rpi4",
 						"type": "tagValue",
 						"selected": true
 					}
