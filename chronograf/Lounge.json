@@ -1,0 +1,386 @@
+{
+	"meta": {
+		"chronografVersion": "1.7.14",
+		"sources": {
+			"1": {
+				"name": "Influx 1",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": 4,
+		"cells": [
+			{
+				"i": "2a89d4f9-eeb0-4a5b-9cc6-d0c4dd96dd27",
+				"x": 0,
+				"y": 8,
+				"w": 12,
+				"h": 6,
+				"name": "Untitled Graph",
+				"queries": [
+					{
+						"query": "SELECT mean(\"co2\") AS \"mean_co2\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND \"topic\"='sensors/mh-z19b' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "mqtt_consumer",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_co2",
+									"args": [
+										{
+											"value": "co2",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"topic": [
+									"sensors/mh-z19b"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "bf22fc5e-bb94-4aea-9436-c8526cd311b8",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "89317347-2799-403e-aa4e-4c3ce3a44db0",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/4/cells/2a89d4f9-eeb0-4a5b-9cc6-d0c4dd96dd27"
+				}
+			},
+			{
+				"i": "05f38363-adbb-42e1-9a4a-050045142cd8",
+				"x": 0,
+				"y": 0,
+				"w": 12,
+				"h": 8,
+				"name": "Untitled Graph",
+				"queries": [
+					{
+						"query": "SELECT mean(\"Count0.3\") AS \"mean_Count0.3\", mean(\"Count0.5\") AS \"mean_Count0.5\", mean(\"Count1.0\") AS \"mean_Count1.0\", mean(\"Count10\") AS \"mean_Count10\", mean(\"Count2.5\") AS \"mean_Count2.5\", mean(\"Count5.0\") AS \"mean_Count5.0\", mean(\"PM1.0\") AS \"mean_PM1.0\", mean(\"PM10\") AS \"mean_PM10\", mean(\"PM2.5\") AS \"mean_PM2.5\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "mqtt_consumer",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_Count0.3",
+									"args": [
+										{
+											"value": "Count0.3",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_Count0.5",
+									"args": [
+										{
+											"value": "Count0.5",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_Count1.0",
+									"args": [
+										{
+											"value": "Count1.0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_Count10",
+									"args": [
+										{
+											"value": "Count10",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_Count2.5",
+									"args": [
+										{
+											"value": "Count2.5",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_Count5.0",
+									"args": [
+										{
+											"value": "Count5.0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_PM1.0",
+									"args": [
+										{
+											"value": "PM1.0",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_PM10",
+									"args": [
+										{
+											"value": "PM10",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								},
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_PM2.5",
+									"args": [
+										{
+											"value": "PM2.5",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": false,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "de8bff90-de7d-4ba5-9454-f4fea5498acb",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "bf22fc5e-bb94-4aea-9436-c8526cd311b8",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "89317347-2799-403e-aa4e-4c3ce3a44db0",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/4/cells/05f38363-adbb-42e1-9a4a-050045142cd8"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Lounge",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/4",
+			"cells": "/chronograf/v1/dashboards/4/cells",
+			"templates": "/chronograf/v1/dashboards/4/templates"
+		}
+	}
+}
