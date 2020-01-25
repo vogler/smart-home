@@ -6,7 +6,7 @@ After=mosquitto.service
 Type=simple
 User=root
 # ts format: systemd replaces %m by machine ID and %H by host name, so we need to escape the %:
-ExecStart=/bin/bash -c 'cd /home/pi; exec mosquitto_sub -t "sensors/shower/#" -v | ts "%Y-%%m-%d %%H:%M:%S" | tee -a shower.log'
+ExecStart=/bin/sh -c 'mosquitto_sub -t "sensors/shower/#" -v | ts "%Y-%%m-%d %%H:%M:%S" | tee -a /home/pi/shower.log'
 Restart=always
 RestartSec=5
 
