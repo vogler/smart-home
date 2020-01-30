@@ -4,7 +4,7 @@ After=mosquitto.service
 
 [Service]
 Type=simple
-User=root
+User=pi
 # ts format: systemd replaces %m by machine ID and %H by host name, so we need to escape the %.
 # Beware changing quoting: using double quotes inside, it did not write out anything.
 ExecStart=/bin/sh -c 'mosquitto_sub -t sensors/shower/# -v | ts \'%Y-%%m-%d %%H:%M:%S\' | tee -a /home/pi/shower.log'
