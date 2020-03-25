@@ -317,6 +317,23 @@
         }
     },
     {
+        "id": "c4597d9.54e398",
+        "type": "alexa-remote-account",
+        "z": "",
+        "name": "",
+        "authMethod": "proxy",
+        "proxyOwnIp": "rpi3",
+        "proxyPort": "3456",
+        "cookieFile": "/home/pi/.node-red/.alexa-remote2.auth.json",
+        "refreshInterval": "3",
+        "alexaServiceHost": "layla.amazon.de",
+        "amazonPage": "amazon.de",
+        "acceptLanguage": "de-DE",
+        "userAgent": "",
+        "useWsMqtt": "on",
+        "autoInit": "on"
+    },
+    {
         "id": "37f45842.c145b8",
         "type": "mqtt in",
         "z": "fd431505.e8a028",
@@ -2828,7 +2845,8 @@
                 "f93fbd23.16915",
                 "219acea1.b75e02",
                 "93370b45.bf1d68",
-                "526d7ac9.9e4124"
+                "526d7ac9.9e4124",
+                "8fdd8e8c.f5e27"
             ]
         ]
     },
@@ -2920,5 +2938,280 @@
         "x": 690,
         "y": 240,
         "wires": []
+    },
+    {
+        "id": "26f6ccd.157cd34",
+        "type": "alexa-remote-event",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "account": "c4597d9.54e398",
+        "event": "ws-device-activity",
+        "x": 330,
+        "y": 740,
+        "wires": [
+            [
+                "877fdb0b.c5cc18"
+            ]
+        ]
+    },
+    {
+        "id": "cf3e12aa.82fee",
+        "type": "alexa-remote-routine",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "account": "c4597d9.54e398",
+        "routineNode": {
+            "type": "speak",
+            "payload": {
+                "type": "regular",
+                "text": {
+                    "type": "str",
+                    "value": "Hallo"
+                },
+                "devices": [
+                    "G090LF1072021P6R"
+                ]
+            }
+        },
+        "x": 520,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "877fdb0b.c5cc18",
+        "type": "debug",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 510,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "ea6310ba.2ecb7",
+        "type": "inject",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 300,
+        "y": 680,
+        "wires": [
+            [
+                "cf3e12aa.82fee"
+            ]
+        ]
+    },
+    {
+        "id": "8fdd8e8c.f5e27",
+        "type": "amazon-echo-device",
+        "z": "eb78f2d0.07849",
+        "name": "CO2",
+        "topic": "",
+        "x": 290,
+        "y": 420,
+        "wires": [
+            [
+                "b1bcd0b.e21393",
+                "d3dd9738.81b808"
+            ]
+        ]
+    },
+    {
+        "id": "b1bcd0b.e21393",
+        "type": "function",
+        "z": "eb78f2d0.07849",
+        "name": "on/off -> co2/0",
+        "func": "msg.payload = msg.payload == 'on' ? 'co2' : '0';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 480,
+        "y": 420,
+        "wires": [
+            [
+                "4221d209.c2a0ac"
+            ]
+        ]
+    },
+    {
+        "id": "4221d209.c2a0ac",
+        "type": "mqtt out",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "topic": "lights/WS2812B-8",
+        "qos": "2",
+        "retain": "true",
+        "broker": "75898696.612e28",
+        "x": 670,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "ff3838e6.4fcf98",
+        "type": "mqtt in",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "topic": "sensors/mh-z19b",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "75898696.612e28",
+        "x": 100,
+        "y": 540,
+        "wires": [
+            [
+                "207c8923.8c4e06"
+            ]
+        ]
+    },
+    {
+        "id": "207c8923.8c4e06",
+        "type": "function",
+        "z": "eb78f2d0.07849",
+        "name": "store, ventilated enough?",
+        "func": "const co2 = msg.payload.co2;\nflow.set('co2', co2);\nnode.status({fill:\"green\", shape:\"dot\", text:co2});\nconst balcony_open = !flow.get('contact-balcony');\nif (co2 <= 450 && balcony_open && !flow.get('ventilated')) {\n  flow.set('ventilated', true);\n  return msg;\n} else if (co2 >= 600 && !balcony_open) {\n  flow.set('ventilated', false);\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 310,
+        "y": 540,
+        "wires": [
+            [
+                "36e9087b.e10748"
+            ]
+        ]
+    },
+    {
+        "id": "73814078.09fdd",
+        "type": "alexa-remote-routine",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "account": "c4597d9.54e398",
+        "routineNode": {
+            "type": "speak",
+            "payload": {
+                "type": "regular",
+                "text": {
+                    "type": "msg",
+                    "value": "co2"
+                },
+                "devices": [
+                    "G090LF1072021P6R"
+                ]
+            }
+        },
+        "x": 640,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d3dd9738.81b808",
+        "type": "function",
+        "z": "eb78f2d0.07849",
+        "name": "on -> co2",
+        "func": "if (msg.payload == 'on') {\n    msg.co2 = flow.get('co2').toString();\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 480,
+        "wires": [
+            [
+                "73814078.09fdd"
+            ]
+        ]
+    },
+    {
+        "id": "38e06429.60584c",
+        "type": "mqtt in",
+        "z": "eb78f2d0.07849",
+        "name": "Aqara_Door_Balcony",
+        "topic": "zigbee2mqtt/Aqara_Door_Balcony",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "75898696.612e28",
+        "x": 120,
+        "y": 360,
+        "wires": [
+            [
+                "803c1529.e35288"
+            ]
+        ]
+    },
+    {
+        "id": "803c1529.e35288",
+        "type": "function",
+        "z": "eb78f2d0.07849",
+        "name": "store, on/off",
+        "func": "const c = msg.payload.contact;\nif(c === undefined) return;\nflow.set('contact-balcony', c);\nif(c){\n  node.status({fill:\"red\", shape:\"ring\", text:\"closed\"});\n} else {\n  node.status({fill:\"green\", shape:\"dot\", text:\"open\"});\n}\nmsg.payload = c ? 'off' : 'on';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 310,
+        "y": 360,
+        "wires": [
+            [
+                "b1bcd0b.e21393"
+            ]
+        ]
+    },
+    {
+        "id": "36e9087b.e10748",
+        "type": "alexa-remote-routine",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "account": "c4597d9.54e398",
+        "routineNode": {
+            "type": "speakAtVolume",
+            "payload": {
+                "type": "regular",
+                "text": {
+                    "type": "str",
+                    "value": "co2 level ok"
+                },
+                "volume": {
+                    "type": "num",
+                    "value": "90"
+                },
+                "mode": "set",
+                "devices": [
+                    "G090LF1072021P6R"
+                ]
+            }
+        },
+        "x": 550,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "655ce126.85cf5",
+        "type": "inject",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 360,
+        "y": 580,
+        "wires": [
+            [
+                "36e9087b.e10748"
+            ]
+        ]
     }
 ]
