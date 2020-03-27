@@ -35,6 +35,13 @@
         "info": ""
     },
     {
+        "id": "5579b405.ff7b4c",
+        "type": "tab",
+        "label": "TV",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "84605b6b.268ff8",
         "type": "subflow",
         "name": "Network Map",
@@ -332,6 +339,16 @@
         "userAgent": "",
         "useWsMqtt": "on",
         "autoInit": "on"
+    },
+    {
+        "id": "4b06aa47.bc1dc4",
+        "type": "samsung-tv",
+        "z": "",
+        "name": "UE55KS8090",
+        "model": "8001",
+        "ip": "192.168.178.24",
+        "mac": "C0:97:27:19:F8:7E",
+        "token": ""
     },
     {
         "id": "37f45842.c145b8",
@@ -2224,7 +2241,7 @@
         "timer": "",
         "oldrc": false,
         "name": "",
-        "x": 480,
+        "x": 1060,
         "y": 40,
         "wires": [
             [],
@@ -2860,7 +2877,7 @@
         "y": 40,
         "wires": [
             [
-                "82f3b4aa.922b68"
+                "e1fb6a89.88cbc8"
             ]
         ]
     },
@@ -3211,6 +3228,524 @@
         "wires": [
             [
                 "36e9087b.e10748"
+            ]
+        ]
+    },
+    {
+        "id": "e1fb6a89.88cbc8",
+        "type": "switch",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 40,
+        "wires": [
+            [
+                "be3b9a6a.85fed8"
+            ],
+            [
+                "3dd97e87.a8e772"
+            ]
+        ]
+    },
+    {
+        "id": "be3b9a6a.85fed8",
+        "type": "samsung-tv-turnon",
+        "z": "eb78f2d0.07849",
+        "device": "4b06aa47.bc1dc4",
+        "name": "",
+        "x": 640,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3dd97e87.a8e772",
+        "type": "samsung-tv-isalive",
+        "z": "eb78f2d0.07849",
+        "device": "4b06aa47.bc1dc4",
+        "name": "",
+        "x": 640,
+        "y": 60,
+        "wires": [
+            [
+                "10a27327.7109ed"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "10a27327.7109ed",
+        "type": "samsung-tv-send",
+        "z": "eb78f2d0.07849",
+        "device": "4b06aa47.bc1dc4",
+        "name": "",
+        "key": "KEY_POWER",
+        "x": 860,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8c2ea543.1f4e08",
+        "type": "comment",
+        "z": "eb78f2d0.07849",
+        "name": "TV does no longer reply to cec-client since some update :(",
+        "info": "",
+        "x": 1350,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9f15beac.00823",
+        "type": "samsung-tv-turnon",
+        "z": "5579b405.ff7b4c",
+        "device": "4b06aa47.bc1dc4",
+        "name": "",
+        "x": 280,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "57a0d667.df9448",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 200,
+        "wires": [
+            [
+                "9f15beac.00823"
+            ]
+        ]
+    },
+    {
+        "id": "223067d5.e8a638",
+        "type": "samsung-tv-send",
+        "z": "5579b405.ff7b4c",
+        "device": "4b06aa47.bc1dc4",
+        "name": "",
+        "key": "KEY_MUTE",
+        "x": 270,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "da1aaf1.54a155",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 280,
+        "wires": [
+            [
+                "223067d5.e8a638"
+            ]
+        ]
+    },
+    {
+        "id": "407d1ee0.990b4",
+        "type": "samsung-tv-getapps",
+        "z": "5579b405.ff7b4c",
+        "device": "4b06aa47.bc1dc4",
+        "name": "",
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "f8f72f28.67d78"
+            ]
+        ]
+    },
+    {
+        "id": "2cba60c3.a129c",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "407d1ee0.990b4"
+            ]
+        ]
+    },
+    {
+        "id": "f8f72f28.67d78",
+        "type": "debug",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 470,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "38e629da.1d3226",
+        "type": "samsung-tv-openapp",
+        "z": "5579b405.ff7b4c",
+        "device": "4b06aa47.bc1dc4",
+        "name": "open Netflix",
+        "appid": "11101200001",
+        "x": 250,
+        "y": 160,
+        "wires": [
+            [
+                "14affc8e.6f6253"
+            ]
+        ]
+    },
+    {
+        "id": "6a8bf555.ca9b4c",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "38e629da.1d3226"
+            ]
+        ]
+    },
+    {
+        "id": "14affc8e.6f6253",
+        "type": "debug",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 470,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "66922032.059bd",
+        "type": "samsung-tv-send",
+        "z": "5579b405.ff7b4c",
+        "device": "4b06aa47.bc1dc4",
+        "name": "",
+        "key": "KEY_POWER",
+        "x": 280,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "32901082.295a6",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 240,
+        "wires": [
+            [
+                "66922032.059bd"
+            ]
+        ]
+    },
+    {
+        "id": "530f540e.c78e0c",
+        "type": "samsung-tv-send",
+        "z": "5579b405.ff7b4c",
+        "device": "4b06aa47.bc1dc4",
+        "name": "",
+        "key": "KEY_HDMI",
+        "x": 270,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "48c37053.6f449",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 320,
+        "wires": [
+            [
+                "530f540e.c78e0c"
+            ]
+        ]
+    },
+    {
+        "id": "80f52736.f12808",
+        "type": "samsung-tv-send",
+        "z": "5579b405.ff7b4c",
+        "device": "4b06aa47.bc1dc4",
+        "name": "",
+        "key": "KEY_CHUP",
+        "x": 270,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a5420adb.4330f8",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 360,
+        "wires": [
+            [
+                "80f52736.f12808"
+            ]
+        ]
+    },
+    {
+        "id": "40664ecc.627d5",
+        "type": "samsung-tv-send",
+        "z": "5579b405.ff7b4c",
+        "device": "4b06aa47.bc1dc4",
+        "name": "",
+        "key": "KEY_TV",
+        "x": 840,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "14bd3c9.de7edc3",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 680,
+        "y": 80,
+        "wires": [
+            [
+                "40664ecc.627d5"
+            ]
+        ]
+    },
+    {
+        "id": "4e4a361f.80ccd8",
+        "type": "samsung-tv-send",
+        "z": "5579b405.ff7b4c",
+        "device": "4b06aa47.bc1dc4",
+        "name": "",
+        "key": "KEY_TV_MODE",
+        "x": 870,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eeafb789.3c11e8",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 680,
+        "y": 120,
+        "wires": [
+            [
+                "4e4a361f.80ccd8"
+            ]
+        ]
+    },
+    {
+        "id": "af71c9cb.6e22f8",
+        "type": "samsung-tv-send",
+        "z": "5579b405.ff7b4c",
+        "device": "4b06aa47.bc1dc4",
+        "name": "",
+        "key": "KEY_POWEROFF",
+        "x": 880,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1cb5ecbb.baae83",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 680,
+        "y": 160,
+        "wires": [
+            [
+                "af71c9cb.6e22f8"
+            ]
+        ]
+    },
+    {
+        "id": "86045c6b.fa3d9",
+        "type": "comment",
+        "z": "5579b405.ff7b4c",
+        "name": "unhandled keys:",
+        "info": "",
+        "x": 700,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "eca40eec.3f427",
+        "type": "samsung-tv-isalive",
+        "z": "5579b405.ff7b4c",
+        "device": "4b06aa47.bc1dc4",
+        "name": "",
+        "x": 280,
+        "y": 60,
+        "wires": [
+            [
+                "39bd4ea7.009542"
+            ],
+            [
+                "413b2b29.02c894"
+            ]
+        ]
+    },
+    {
+        "id": "39bd4ea7.009542",
+        "type": "debug",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 470,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "413b2b29.02c894",
+        "type": "debug",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 470,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d210e355.5b643",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 100,
+        "y": 60,
+        "wires": [
+            [
+                "eca40eec.3f427"
             ]
         ]
     }
