@@ -2964,7 +2964,7 @@
         "account": "c4597d9.54e398",
         "event": "ws-device-activity",
         "x": 330,
-        "y": 740,
+        "y": 800,
         "wires": [
             [
                 "877fdb0b.c5cc18"
@@ -2991,7 +2991,7 @@
             }
         },
         "x": 520,
-        "y": 680,
+        "y": 740,
         "wires": [
             []
         ]
@@ -3007,7 +3007,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 510,
-        "y": 740,
+        "y": 800,
         "wires": []
     },
     {
@@ -3023,7 +3023,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 300,
-        "y": 680,
+        "y": 740,
         "wires": [
             [
                 "cf3e12aa.82fee"
@@ -3084,7 +3084,7 @@
         "datatype": "json",
         "broker": "75898696.612e28",
         "x": 100,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
                 "207c8923.8c4e06"
@@ -3100,10 +3100,11 @@
         "outputs": 1,
         "noerr": 0,
         "x": 310,
-        "y": 540,
+        "y": 580,
         "wires": [
             [
-                "36e9087b.e10748"
+                "36e9087b.e10748",
+                "2e72f20c.dc1f8e"
             ]
         ]
     },
@@ -3205,8 +3206,8 @@
                 ]
             }
         },
-        "x": 550,
-        "y": 540,
+        "x": 590,
+        "y": 580,
         "wires": [
             []
         ]
@@ -3224,7 +3225,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 360,
-        "y": 580,
+        "y": 620,
         "wires": [
             [
                 "36e9087b.e10748"
@@ -3235,7 +3236,7 @@
         "id": "e1fb6a89.88cbc8",
         "type": "switch",
         "z": "eb78f2d0.07849",
-        "name": "",
+        "name": "on/off",
         "property": "payload",
         "propertyType": "msg",
         "rules": [
@@ -3746,6 +3747,29 @@
         "wires": [
             [
                 "eca40eec.3f427"
+            ]
+        ]
+    },
+    {
+        "id": "2e72f20c.dc1f8e",
+        "type": "delay",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "minutes",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 320,
+        "y": 540,
+        "wires": [
+            [
+                "b1bcd0b.e21393"
             ]
         ]
     }
