@@ -2964,7 +2964,7 @@
         "account": "c4597d9.54e398",
         "event": "ws-device-activity",
         "x": 330,
-        "y": 800,
+        "y": 760,
         "wires": [
             [
                 "877fdb0b.c5cc18"
@@ -2991,7 +2991,7 @@
             }
         },
         "x": 520,
-        "y": 740,
+        "y": 700,
         "wires": [
             []
         ]
@@ -3007,7 +3007,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 510,
-        "y": 800,
+        "y": 760,
         "wires": []
     },
     {
@@ -3023,7 +3023,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 300,
-        "y": 740,
+        "y": 700,
         "wires": [
             [
                 "cf3e12aa.82fee"
@@ -3040,8 +3040,8 @@
         "y": 420,
         "wires": [
             [
-                "b1bcd0b.e21393",
-                "d3dd9738.81b808"
+                "d3dd9738.81b808",
+                "b921292e.f6bc88"
             ]
         ]
     },
@@ -3053,7 +3053,7 @@
         "func": "msg.payload = msg.payload == 'on' ? 'co2' : '0';\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 480,
+        "x": 780,
         "y": 420,
         "wires": [
             [
@@ -3070,7 +3070,7 @@
         "qos": "2",
         "retain": "true",
         "broker": "75898696.612e28",
-        "x": 670,
+        "x": 970,
         "y": 420,
         "wires": []
     },
@@ -3084,7 +3084,7 @@
         "datatype": "json",
         "broker": "75898696.612e28",
         "x": 100,
-        "y": 580,
+        "y": 540,
         "wires": [
             [
                 "207c8923.8c4e06"
@@ -3100,11 +3100,10 @@
         "outputs": 1,
         "noerr": 0,
         "x": 310,
-        "y": 580,
+        "y": 540,
         "wires": [
             [
-                "36e9087b.e10748",
-                "2e72f20c.dc1f8e"
+                "36e9087b.e10748"
             ]
         ]
     },
@@ -3128,7 +3127,7 @@
             }
         },
         "x": 640,
-        "y": 480,
+        "y": 460,
         "wires": [
             []
         ]
@@ -3142,7 +3141,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 460,
-        "y": 480,
+        "y": 460,
         "wires": [
             [
                 "73814078.09fdd"
@@ -3178,7 +3177,7 @@
         "y": 360,
         "wires": [
             [
-                "b1bcd0b.e21393"
+                "b921292e.f6bc88"
             ]
         ]
     },
@@ -3206,8 +3205,8 @@
                 ]
             }
         },
-        "x": 590,
-        "y": 580,
+        "x": 570,
+        "y": 540,
         "wires": [
             []
         ]
@@ -3225,7 +3224,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 360,
-        "y": 620,
+        "y": 580,
         "wires": [
             [
                 "36e9087b.e10748"
@@ -3751,22 +3750,55 @@
         ]
     },
     {
-        "id": "2e72f20c.dc1f8e",
-        "type": "delay",
+        "id": "b921292e.f6bc88",
+        "type": "switch",
         "z": "eb78f2d0.07849",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "5",
-        "timeoutUnits": "minutes",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "x": 320,
-        "y": 540,
+        "name": "on/off",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "on",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 420,
+        "wires": [
+            [
+                "b1bcd0b.e21393",
+                "ba0f847f.6423d8"
+            ],
+            [
+                "b1bcd0b.e21393"
+            ]
+        ]
+    },
+    {
+        "id": "ba0f847f.6423d8",
+        "type": "trigger",
+        "z": "eb78f2d0.07849",
+        "op1": "",
+        "op2": "off",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "10",
+        "extend": true,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "name": "off after 10min",
+        "x": 600,
+        "y": 380,
         "wires": [
             [
                 "b1bcd0b.e21393"
