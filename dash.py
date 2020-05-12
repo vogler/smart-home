@@ -16,7 +16,7 @@ macs = {
   "18:74:2e:53:74:54": "Purex", # nivea-men (Schrank)
   "18:74:2e:5b:57:ec": "Trakt", # nivea (Sofatisch)
   "b4:7c:9c:48:a3:01": "Bier", # heineken (Kühlschrank)
-  "b4:7c:9c:e2:e8:5c": "Licht (Küche)", # afri-cola (Küche)
+  "b4:7c:9c:e2:e8:5c": "Townew T1 Mülleimer Beutel gewechselt", # afri-cola (Küche)
   "00:fc:8b:9d:7c:da": "Zahnbürstenkopf", # swiffer (Schrank)
   "6c:56:97:8a:32:7a": "Tassimo", # tassimo (Bett)
   "fc:a6:67:c9:b0:1e": "Senseo",
