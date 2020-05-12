@@ -59,6 +59,8 @@ devices:
   '0x000d6ffffe1e0f1d':
     friendly_name: Tradfri_WS_Kitchen
     retain: false
+  '0x7cb03eaa00a9e97e':
+    friendly_name: Osram_Strip_RGBW_Kitchen
   # '0x000b57fffe321252':
   #   friendly_name: Tradfri_WW_Kitchen
   #   retain: true
