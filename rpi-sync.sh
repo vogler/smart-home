@@ -17,7 +17,8 @@
 # --stats file-transfer stats
 # --rsync-path need sudo for some directories and don't want to login as root
 
-dir=${1-"home/pi"}
-target=rpi/$dir/
+host=${1-"rpi3"}
+dir=${2-"home/pi"}
+target=$host/$dir/
 mkdir -p $target
-rsync --delete -avhzP --stats --rsync-path="sudo rsync" pi@rpi3.local:/$dir/ $target
+rsync --delete -avhzP --stats --rsync-path="sudo rsync" pi@$host:/$dir/ $target
