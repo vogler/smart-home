@@ -3127,7 +3127,7 @@
             }
         },
         "x": 640,
-        "y": 460,
+        "y": 480,
         "wires": [
             []
         ]
@@ -3141,7 +3141,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 460,
-        "y": 460,
+        "y": 480,
         "wires": [
             [
                 "73814078.09fdd"
@@ -3779,7 +3779,7 @@
                 "ba0f847f.6423d8"
             ],
             [
-                "b1bcd0b.e21393"
+                "1531f082.ef689f"
             ]
         ]
     },
@@ -3798,7 +3798,30 @@
         "bytopic": "all",
         "name": "off after 10min",
         "x": 600,
-        "y": 380,
+        "y": 400,
+        "wires": [
+            [
+                "b1bcd0b.e21393"
+            ]
+        ]
+    },
+    {
+        "id": "1531f082.ef689f",
+        "type": "delay",
+        "z": "eb78f2d0.07849",
+        "name": "off after 10s",
+        "pauseType": "delay",
+        "timeout": "10",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 590,
+        "y": 440,
         "wires": [
             [
                 "b1bcd0b.e21393"
