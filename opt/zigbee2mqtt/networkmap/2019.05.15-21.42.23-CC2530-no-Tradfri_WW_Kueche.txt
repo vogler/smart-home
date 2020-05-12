@@ -1,0 +1,26 @@
+digraph G {
+node[shape=record];
+  "0x00124b001bb835e1" [style="bold", label="{0x00124b001bb835e1|Coordinator|No model information available|online}"];
+  "0x00158d0002b127f4" [style="rounded, dashed", label="{Aqara_Vibration_Bed|EndDevice|Xiaomi Aqara vibration sensor (DJT11LM)|online}"];
+  "0x00158d0002b127f4" -> "0x00124b001bb835e1" [label="70"]
+  "0x0017880103283554" [style="rounded, dashed", label="{Hue_Motion_Living|EndDevice|Philips Hue motion sensor (9290012607)|offline}"];
+  "0x0017880103283554" -> "0x00124b001bb835e1" [label="170"]
+  "0x001788010328d8bc" [style="rounded, dashed", label="{Hue_Motion_Bath|EndDevice|Philips Hue motion sensor (9290012607)|online}"];
+  "0x001788010328d8bc" -> "0x00124b001bb835e1" [label="20"]
+  "0x00158d0002ca364e" [style="rounded, dashed", label="{Aqara_Door_Balcony|EndDevice|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|online}"];
+  "0x00158d0002ca364e" -> "0x00124b001bb835e1" [label="113"]
+  "0x00158d0002c5bf49" [style="rounded, dashed", label="{Aqara_Door_Living|EndDevice|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|online}"];
+  "0x00158d0002c5bf49" -> "0x00124b001bb835e1" [label="90"]
+  "0x00158d000312f723" [style="rounded, dashed", label="{Aqara_Door_Fridge|EndDevice|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|online}"];
+  "0x00158d000312f723" -> "0x00124b001bb835e1" [label="44"]
+  "0x00158d0002b5306c" [style="rounded, dashed", label="{Aqara_Door_Apt|EndDevice|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|online}"];
+  "0x00158d0002b5306c" -> "0x00124b001bb835e1" [label="50"]
+  "0x00158d00032b69d1" [style="rounded, dashed", label="{Aqara_Door_WC|EndDevice|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|online}"];
+  "0x00158d00032b69d1" -> "0x00124b001bb835e1" [label="61"]
+  "0x00158d000243567e" [style="rounded, dashed", label="{Aqara_Door_Bath|EndDevice|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|online}"];
+  "0x00158d000243567e" -> "0x00124b001bb835e1" [label="55"]
+  "0x00158d00027419e4" [style="rounded, dashed", label="{Aqara_Temp_Bath|EndDevice|Xiaomi Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)|online}"];
+  "0x00158d00027419e4" -> "0x00124b001bb835e1" [label="40"]
+  "0x00158d00023280c7" [style="rounded, dashed", label="{Aqara_Temp_Balcony|EndDevice|Xiaomi Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)|online}"];
+  "0x00158d00023280c7" -> "0x00124b001bb835e1" [label="111"]
+}

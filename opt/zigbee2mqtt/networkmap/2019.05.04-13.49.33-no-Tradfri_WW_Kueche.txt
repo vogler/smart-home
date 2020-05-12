@@ -1,0 +1,28 @@
+digraph G {
+node[shape=record];
+  "0x00124b0014d9e009" [style="bold", label="{0x00124b0014d9e009|Coordinator|No model information available|online}"];
+  "0x00158d000243567e" [style="rounded, dashed", label="{Aqara_Door_Bad|EndDevice|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|online}"];
+  "0x00158d000243567e" -> "0x00124b0014d9e009" [label="34"]
+  "0x00158d00027419e4" [style="rounded, dashed", label="{Aqara_Temp_Bad|EndDevice|Xiaomi Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)|online}"];
+  "0x00158d00027419e4" -> "0x00124b0014d9e009" [label="17"]
+  "0x00158d0002b5306c" [style="rounded, dashed", label="{Aqara_Door_Apt|EndDevice|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|online}"];
+  "0x00158d0002b5306c" -> "0x00124b0014d9e009" [label="36"]
+  "0x00158d0002c5bf49" [style="rounded, dashed", label="{Aqara_Door_WZ|EndDevice|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|online}"];
+  "0x00158d0002c5bf49" -> "0x00124b0014d9e009" [label="50"]
+  "0x00158d0002b127f4" [style="rounded, dashed", label="{Aqara_Vibration|EndDevice|Xiaomi Aqara vibration sensor (DJT11LM)|online}"];
+  "0x00158d0002b127f4" -> "0x00124b0014d9e009" [label="97"]
+  "0x0017880103283554" [style="rounded, dashed", label="{Hue_Motion_WZ|EndDevice|Philips Hue motion sensor (9290012607)|online}"];
+  "0x0017880103283554" -> "0x00124b0014d9e009" [label="52"]
+  "0x001788010328d8bc" [style="rounded, dashed", label="{Hue_Motion_Bad|EndDevice|Philips Hue motion sensor (9290012607)|offline}"];
+  "0x001788010328d8bc" -> "0x00124b0014d9e009" [label="170"]
+  "0x000b57fffe321252" [style="rounded", label="{Tradfri_WW_Kueche|Router|IKEA TRADFRI LED bulb E27 1000 lumen, dimmable, opal white (LED1623G12)|offline}"];
+  "0x000b57fffe321252" -> "0x00124b0014d9e009" [style="dashed", label="0"]
+  "0x90fd9ffffede386b" [style="rounded", label="{Tradfri_WS_Bett|Router|IKEA TRADFRI LED bulb E26/E27 980 lumen, dimmable, white spectrum, opal white (LED1545G12)|offline}"];
+  "0x90fd9ffffede386b" -> "0x00124b0014d9e009" [style="dashed", label="0"]
+  "0x00158d0002ca364e" [style="rounded, dashed", label="{Aqara_Door_Balkon|EndDevice|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|online}"];
+  "0x00158d0002ca364e" -> "0x00124b0014d9e009" [label="72"]
+  "0x00158d000312f723" [style="rounded, dashed", label="{Aqara_Door_Fridge|EndDevice|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|online}"];
+  "0x00158d000312f723" -> "0x00124b0014d9e009" [label="23"]
+  "0x00158d00032b69d1" [style="rounded, dashed", label="{Aqara_Door_WC|EndDevice|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|online}"];
+  "0x00158d00032b69d1" -> "0x00124b0014d9e009" [label="50"]
+}
