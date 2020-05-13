@@ -2375,10 +2375,10 @@
         "name": "Tradfri_WS_Kitchen",
         "topic": "zigbee2mqtt/Tradfri_WS_Kitchen/set",
         "qos": "2",
-        "retain": "true",
+        "retain": "false",
         "broker": "75898696.612e28",
-        "x": 1000,
-        "y": 420,
+        "x": 770,
+        "y": 360,
         "wires": []
     },
     {
@@ -2386,15 +2386,17 @@
         "type": "function",
         "z": "b635b24c.eee61",
         "name": "on/off",
-        "func": "b1 = msg;\nb2 = {\"payload\": {\"state\": msg.payload ? \"ON\" : \"OFF\"}};\n// highest brightness for Osram_Strip_RGBW_Kitchen:\n// {\"brightness\": 255, \"color\": {\"hex\": \"#FFFFFF\"}, \"color_temp\": 230}\nreturn [b1, b2]",
+        "func": "const state = msg.payload ? \"ON\" : \"OFF\";\nmsg.payload = {\n  \"state\": state,\n};\nconst m2 = Object.assign({}, msg); // copy\nm2.payload = {\n  \"state\": state,\n  \"brightness\": 255,\n  \"color\": JSON.stringify({\"hex\": \"#FFFFFF\"}),\n  \"color_temp\": 230,\n}\n// highest brightness for Osram_Strip_RGBW_Kitchen:\n// {\"brightness\": 255, \"color\": {\"hex\": \"#FFFFFF\"}, \"color_temp\": 230}\nreturn [msg, m2];",
         "outputs": 2,
         "noerr": 0,
         "x": 590,
         "y": 380,
         "wires": [
-            [],
             [
-                "f483f486.169348"
+                "5056dd69.ed4434"
+            ],
+            [
+                "c0e4cc9e.6e723"
             ]
         ]
     },
@@ -2409,65 +2411,6 @@
         "wires": [
             [
                 "34538f7.d9ac37"
-            ]
-        ]
-    },
-    {
-        "id": "4b2d208c.7ca83",
-        "type": "mqtt in",
-        "z": "b635b24c.eee61",
-        "name": "Tradfri_WS_Kitchen",
-        "topic": "zigbee2mqtt/Tradfri_WS_Kitchen",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "75898696.612e28",
-        "x": 430,
-        "y": 420,
-        "wires": [
-            [
-                "8cbb2459.2de188"
-            ]
-        ]
-    },
-    {
-        "id": "f483f486.169348",
-        "type": "trigger",
-        "z": "b635b24c.eee61",
-        "op1": "",
-        "op2": "0",
-        "op1type": "pay",
-        "op2type": "str",
-        "duration": "-10",
-        "extend": false,
-        "units": "s",
-        "reset": "reset",
-        "bytopic": "all",
-        "name": "",
-        "x": 770,
-        "y": 400,
-        "wires": [
-            [
-                "5056dd69.ed4434",
-                "c0e4cc9e.6e723"
-            ]
-        ]
-    },
-    {
-        "id": "8cbb2459.2de188",
-        "type": "template",
-        "z": "b635b24c.eee61",
-        "name": "reset",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "plain",
-        "template": "reset",
-        "output": "str",
-        "x": 590,
-        "y": 420,
-        "wires": [
-            [
-                "f483f486.169348"
             ]
         ]
     },
@@ -3774,10 +3717,10 @@
         "name": "Osram_Strip_RGBW_Kitchen",
         "topic": "zigbee2mqtt/Osram_Strip_RGBW_Kitchen/set",
         "qos": "2",
-        "retain": "true",
+        "retain": "false",
         "broker": "75898696.612e28",
-        "x": 1030,
-        "y": 380,
+        "x": 800,
+        "y": 400,
         "wires": []
     },
     {
