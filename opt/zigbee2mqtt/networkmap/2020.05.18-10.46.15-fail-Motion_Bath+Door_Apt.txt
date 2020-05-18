@@ -1,0 +1,41 @@
+digraph G {
+node[shape=record];
+  "0x00124b001bb835e1" [style="bold, filled", fillcolor="#e04e5d", fontcolor="#ffffff", label="{Coordinator|0x00124b001bb835e1 (0)|2020-05-18T10:35:21+02:00}"];
+  "0x00124b001bb835e1" -> "0x7cb03eaa00a9e97e" [penwidth=0.5, weight=0, color="#994444", label="30"]
+  "0x00124b001bb835e1" -> "0x90fd9ffffede386b" [penwidth=0.5, weight=0, color="#994444", label="126"]
+  "0x00124b001bb835e1" -> "0x000d6ffffe1e0f1d" [penwidth=0.5, weight=0, color="#994444", label="119"]
+  "0x001788010328d8bc" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Hue_Motion_Bath|0x001788010328d8bc (31509)|Philips Hue motion sensor (9290012607)|2020-05-14T17:07:35+02:00}"];
+  "0x0017880103283554" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Hue_Motion_Living|0x0017880103283554 (57717)|Philips Hue motion sensor (9290012607)|2020-05-18T10:30:47+02:00}"];
+  "0x0017880103283554" -> "0x000d6ffffe1e0f1d" [penwidth=1, weight=0, color="#994444", label="141"]
+  "0x7cb03eaa00a9e97e" [style="rounded, filled", fillcolor="#4ea3e0", fontcolor="#ffffff", label="{Osram_Strip_RGBW_Kitchen|0x7cb03eaa00a9e97e (58209)|OSRAM Flex RGBW (4052899926110)|2020-05-18T10:31:15+02:00}"];
+  "0x7cb03eaa00a9e97e" -> "0x00124b001bb835e1" [penwidth=0.5, weight=0, color="#994444", label="15"]
+  "0x7cb03eaa00a9e97e" -> "0x90fd9ffffede386b" [penwidth=0.5, weight=0, color="#994444", label="52"]
+  "0x7cb03eaa00a9e97e" -> "0x000d6ffffe1e0f1d" [penwidth=0.5, weight=0, color="#994444", label="136"]
+  "0x90fd9ffffee0c769" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Tradfri_Button_Bed|0x90fd9ffffee0c769 (6787)|IKEA TRADFRI remote control (E1524/E1810)|2020-05-18T04:11:52+02:00}"];
+  "0x90fd9ffffee0c769" -> "0x90fd9ffffede386b" [penwidth=1, weight=0, color="#994444", label="253"]
+  "0x00158d0002ca364e" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Door_Balcony|0x00158d0002ca364e (14009)|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|2020-05-18T10:16:17+02:00}"];
+  "0x00158d0002ca364e" -> "0x00124b001bb835e1" [penwidth=1, weight=0, color="#994444", label="105"]
+  "0x00158d0002c5bf49" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Door_Living|0x00158d0002c5bf49 (52917)|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|2020-05-18T10:06:05+02:00}"];
+  "0x00158d0002c5bf49" -> "0x00124b001bb835e1" [penwidth=1, weight=0, color="#994444", label="78"]
+  "0x00158d000312f723" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Door_Fridge|0x00158d000312f723 (64607)|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|2020-05-18T10:00:13+02:00}"];
+  "0x00158d000312f723" -> "0x00124b001bb835e1" [penwidth=1, weight=0, color="#994444", label="54"]
+  "0x00158d0002b5306c" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Door_Apt|0x00158d0002b5306c (23015)|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|2020-05-12T12:10:01+02:00}"];
+  "0x00158d00032b69d1" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Door_WC|0x00158d00032b69d1 (29540)|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|2020-05-18T09:55:27+02:00}"];
+  "0x00158d00032b69d1" -> "0x00124b001bb835e1" [penwidth=1, weight=0, color="#994444", label="53"]
+  "0x00158d000243567e" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Door_Bath|0x00158d000243567e (56182)|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|2020-05-18T10:26:20+02:00}"];
+  "0x00158d000243567e" -> "0x00124b001bb835e1" [penwidth=1, weight=0, color="#994444", label="36"]
+  "0x00158d00027419e4" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Temp_Bath|0x00158d00027419e4 (4835)|Xiaomi Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)|2020-05-18T09:44:27+02:00}"];
+  "0x00158d00027419e4" -> "0x90fd9ffffede386b" [penwidth=1, weight=0, color="#994444", label="139"]
+  "0x00158d00023280c7" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Temp_Balcony|0x00158d00023280c7 (31549)|Xiaomi Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)|2020-05-18T10:26:01+02:00}"];
+  "0x00158d00023280c7" -> "0x00124b001bb835e1" [penwidth=1, weight=0, color="#994444", label="93"]
+  "0x90fd9ffffede386b" [style="rounded, filled", fillcolor="#4ea3e0", fontcolor="#ffffff", label="{Tradfri_WS_Bed|0x90fd9ffffede386b (36303)|IKEA TRADFRI LED bulb E26/E27 980 lumen, dimmable, white spectrum, opal white (LED1545G12)|2020-05-17T17:23:47+02:00}"];
+  "0x90fd9ffffede386b" -> "0x00124b001bb835e1" [penwidth=0.5, weight=0, color="#994444", label="60"]
+  "0x90fd9ffffede386b" -> "0x7cb03eaa00a9e97e" [penwidth=0.5, weight=0, color="#994444", label="22"]
+  "0x90fd9ffffede386b" -> "0x000d6ffffe1e0f1d" [penwidth=0.5, weight=0, color="#994444", label="122"]
+  "0x000d6ffffe1e0f1d" [style="rounded, filled", fillcolor="#4ea3e0", fontcolor="#ffffff", label="{Tradfri_WS_Kitchen|0x000d6ffffe1e0f1d (22467)|IKEA TRADFRI LED bulb E26/E27 980 lumen, dimmable, white spectrum, opal white (LED1545G12)|2020-05-18T10:06:55+02:00}"];
+  "0x000d6ffffe1e0f1d" -> "0x00124b001bb835e1" [penwidth=0.5, weight=0, color="#994444", label="59"]
+  "0x000d6ffffe1e0f1d" -> "0x7cb03eaa00a9e97e" [penwidth=0.5, weight=0, color="#994444", label="70"]
+  "0x000d6ffffe1e0f1d" -> "0x90fd9ffffede386b" [penwidth=0.5, weight=0, color="#994444", label="126"]
+  "0x001788010213554f" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Hue_Motion_Kitchen|0x001788010213554f (63023)|Philips Hue motion sensor (9290012607)|2020-05-18T10:11:54+02:00}"];
+  "0x001788010213554f" -> "0x90fd9ffffede386b" [penwidth=1, weight=0, color="#994444", label="143"]
+}
