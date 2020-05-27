@@ -68,3 +68,10 @@ enable_uart=1
 
 # Enable 64-bit kernel
 arm_64bit=1
+
+# disable LEDs (PWR red default input, ACT green default mmc0), https://www.jeffgeerling.com/blogs/jeff-geerling/controlling-pwr-act-leds-raspberry-pi
+# ACT (green) /sys/class/leds/led0/trigger default is mmc0
+dtparam=act_led_trigger=none
+# PWR (red) /sys/class/leds/led1/trigger default is input
+dtparam=pwr_led_trigger=none
+dtparam=pwr_led_activelow=off
