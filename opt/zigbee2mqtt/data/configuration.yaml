@@ -34,10 +34,13 @@ devices:
     debounce: 1
   '0x001788010328d8bc':
     friendly_name: Hue_Motion_Bath
+    occupancy_timeout: 10 # most precise, +60s context-dependent timeout in node-red
   '0x001788010213554f':
     friendly_name: Hue_Motion_Kitchen
+    occupancy_timeout: 60
   '0x0017880103283554':
     friendly_name: Hue_Motion_Living
+    occupancy_timeout: 30
     debounce: 1
   '0x90fd9ffffede386b':
     friendly_name: Tradfri_WS_Bed
