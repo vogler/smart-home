@@ -1,0 +1,13 @@
+[Unit]
+Description=news/videos http-server
+After=network.target
+
+[Service]
+User=pi
+ExecStart=npx http-server
+WorkingDirectory=/home/pi/news/videos
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target network.target
