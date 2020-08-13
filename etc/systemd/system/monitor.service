@@ -1,0 +1,13 @@
+[Unit]
+Description=Monitor Service
+After=network.target
+
+[Service]
+User=root
+ExecStart=/bin/bash /home/pi/monitor/monitor.sh  &
+WorkingDirectory=/home/pi/monitor
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target network.target
