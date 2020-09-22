@@ -7,7 +7,7 @@ Type=simple
 User=root
 ExecStart=/bin/bash -c 'cd /home/pi; exec stdbuf -o 0 /usr/bin/python3 -u dash.py 2>&1 | tee -a dash.log'
 Restart=always
-RestartSec=5
+RestartSec=30
 
 [Install]
 WantedBy=multi-user.target

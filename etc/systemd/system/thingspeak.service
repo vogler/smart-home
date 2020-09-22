@@ -7,7 +7,7 @@ Type=simple
 User=pi
 ExecStart=/bin/bash -c 'cd /home/pi/sensors; exec /usr/bin/python3 thingspeak.py 2>&1 | tee -a /home/pi/thingspeak.log'
 Restart=always
-RestartSec=5
+RestartSec=30
 
 [Install]
 WantedBy=multi-user.target
