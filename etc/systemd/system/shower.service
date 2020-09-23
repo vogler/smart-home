@@ -5,9 +5,9 @@ After=mosquitto.service
 [Service]
 Type=simple
 User=pi
-# ts format: systemd replaces %m by machine ID and %H by host name, so we need to escape the %.
+# ts format: systemd replaces specifiers %m by machine ID, %H by host name, %S by state dir. Since dist-upgrade to buster we need to escape all % by %%, otherwise it fails to resolve the unknown unit specifiers.
 # Beware changing quoting: using double quotes inside, it did not write out anything.
-ExecStart=/bin/sh -c 'mosquitto_sub -t sensors/shower/# -v | ts \'%Y-%%m-%d %%H:%M:%S\' | tee -a /home/pi/shower.log'
+ExecStart=/bin/sh -c 'mosquitto_sub -t sensors/shower/# -v | ts \'%%Y-%%m-%%d %%H:%%M:%%S\' | tee -a /home/pi/shower.log'
 Restart=always
 RestartSec=5
 
