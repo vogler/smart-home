@@ -14,7 +14,6 @@
         "node-red-contrib-bool-gate": "^1.0.2",
         "node-red-contrib-dsm": "^0.14.1",
         "node-red-contrib-gpio": "^0.14.0",
-        "node-red-contrib-home-assistant-websocket": "^0.26.1",
         "node-red-contrib-huemagic": "^1.9.0",
         "node-red-contrib-ibm-watson-iot": "^0.2.8",
         "node-red-contrib-light-scheduler": "0.0.11",
