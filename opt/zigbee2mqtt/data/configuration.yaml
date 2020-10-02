@@ -11,6 +11,10 @@ advanced:
   # log_level: debug
   cache_state: false # home assistant requires all attributes in MQTT messages, disable cache to just get the original zigbee message with only the changed attributes
   rtscts: false
+frontend:
+  port: 8080
+experimental:
+  new_api: true
 devices:
   '0x00158d0002b5306c':
     friendly_name: Aqara_Door_Apt
