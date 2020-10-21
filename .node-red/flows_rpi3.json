@@ -2418,9 +2418,11 @@
         "type": "function",
         "z": "b635b24c.eee61",
         "name": "on/off",
-        "func": "const state = msg.payload ? \"ON\" : \"OFF\";\nmsg.payload = {\n  \"state\": state,\n};\nconst m2 = Object.assign({}, msg); // copy\nm2.payload = {\n  \"state\": state,\n  \"brightness\": 255,\n  \"color\": JSON.stringify({\"hex\": \"#FFFFFF\"}),\n  \"color_temp\": 230,\n}\n// highest brightness for Osram_Strip_RGBW_Kitchen:\n// {\"brightness\": 255, \"color\": {\"hex\": \"#FFFFFF\"}, \"color_temp\": 230}\n// returning m2 somehow started making problems on 30.08.2020:\n// ON/OFF still works, but errors (0x10: MEM_ERROR) if setting color/color_temp\nreturn [msg, msg];",
+        "func": "const state = msg.payload ? \"ON\" : \"OFF\";\nmsg.payload = {\n  \"state\": state,\n};\nconst msg2 = Object.assign({}, msg); // copy\nmsg2.payload = {\n  \"state\": state,\n  // \"brightness\": 255,\n  // \"color\": JSON.stringify({\"hex\": \"#FFFFFF\"}),\n  \"color_temp\": 230,\n}\n// highest brightness for Osram_Strip_RGBW_Kitchen:\n// {\"brightness\": 255, \"color\": {\"hex\": \"#FFFFFF\"}, \"color_temp\": 230}\n// returning msg2 somehow started making problems on 30.08.2020:\n// ON/OFF still works, but errors (0x10: MEM_ERROR) if setting color/color_temp\nreturn [msg, msg2];",
         "outputs": 2,
         "noerr": 0,
+        "initialize": "",
+        "finalize": "",
         "x": 590,
         "y": 380,
         "wires": [
