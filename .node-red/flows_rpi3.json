@@ -44,7 +44,7 @@
     {
         "id": "abafeffb.7205",
         "type": "tab",
-        "label": "Door",
+        "label": "presence",
         "disabled": false,
         "info": ""
     },
@@ -3922,11 +3922,11 @@
         "service": "urn:dslforum-org:service:Hosts:1",
         "action": "GetSpecificHostEntry",
         "arguments": "{\n  \"NewMACAddress\": \"value\"\n}",
-        "x": 230,
-        "y": 160,
+        "x": 270,
+        "y": 200,
         "wires": [
             [
-                "24ddd626.8357fa"
+                "30fd7e32.fa8e62"
             ]
         ]
     },
@@ -3935,14 +3935,15 @@
         "type": "debug",
         "z": "abafeffb.7205",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 390,
+        "x": 550,
         "y": 160,
         "wires": []
     },
@@ -3950,28 +3951,155 @@
         "id": "566f3b7d.747d44",
         "type": "inject",
         "z": "abafeffb.7205",
-        "name": "",
+        "name": "phone 10s",
         "props": [
             {
                 "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "10",
         "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
+        "once": true,
+        "onceDelay": "1",
         "topic": "",
         "payload": "{\"NewMACAddress\":\"B4:F7:A1:E3:7D:26\"}",
         "payloadType": "json",
-        "x": 90,
-        "y": 160,
+        "x": 110,
+        "y": 200,
         "wires": [
             [
                 "ccd7ef18.14dc"
+            ]
+        ]
+    },
+    {
+        "id": "8aae9476.7d5ca8",
+        "type": "mqtt in",
+        "z": "abafeffb.7205",
+        "name": "Aqara_Door_Apt",
+        "topic": "zigbee2mqtt/Aqara_Door_Apt",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "75898696.612e28",
+        "x": 100,
+        "y": 300,
+        "wires": [
+            [
+                "e33117ba.c0a118"
+            ]
+        ]
+    },
+    {
+        "id": "9e224c7c.3087c",
+        "type": "function",
+        "z": "abafeffb.7205",
+        "name": "store, duration",
+        "func": "const c = msg.payload.contact;\nif(c === undefined) return;\nflow.set('contact-apt', c);\nif(c){\n  node.status({fill:\"red\", shape:\"ring\", text:\"closed\"});\n} else {\n  node.status({fill:\"green\", shape:\"dot\", text:\"open\"});\n}\n\n// we only react when the door is closed\nif (!c) return;\nconst last = flow.get('last-closed-apt');\nflow.set('last-closed-apt', Date.now());\nif (!last) return; // no value yet since node-red was restarted\nconst diff = Date.now() - last; // duration in ms\n// duration as string hh:mm:ss\nconst dur = new Date(diff).toISOString().substr(11, 8);\nconst time = new Date().toLocaleTimeString('en-US', { hour12: false }); // de-DE is available in the browser but not in node-red\nmsg.payload = {\n    \"content\": `Door was last closed ${dur} ago. Now it's ${time}.`,\n    \"type\": \"message\",\n    \"chatId\": 1150640683,\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 400,
+        "y": 300,
+        "wires": [
+            [
+                "153f366.19a5eca",
+                "581809c.e2504f8"
+            ]
+        ]
+    },
+    {
+        "id": "153f366.19a5eca",
+        "type": "debug",
+        "z": "abafeffb.7205",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "581809c.e2504f8",
+        "type": "telegram sender",
+        "z": "abafeffb.7205",
+        "name": "",
+        "bot": "a496418f.7eb54",
+        "x": 590,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "30fd7e32.fa8e62",
+        "type": "rbe",
+        "z": "abafeffb.7205",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "property": "payload.NewActive",
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "24ddd626.8357fa",
+                "24f773b7.c07eac"
+            ]
+        ]
+    },
+    {
+        "id": "24f773b7.c07eac",
+        "type": "function",
+        "z": "abafeffb.7205",
+        "name": "store, msg",
+        "func": "const c = msg.payload.NewActive == 1;\nflow.set('phone-wifi', c);\nif(c){\n  node.status({fill:\"green\", shape:\"dot\", text:\"connected\"});\n} else {\n  node.status({fill:\"red\", shape:\"ring\", text:\"disconnected\"});\n  \n}\nconst time = new Date().toLocaleTimeString('en-US', { hour12: false }); // de-DE is available in the browser but not in node-red\nmsg.payload = {\n    \"content\": `Phone ${c ? 'connected to' : 'disconnected from'} WiFi at ${time}.`,\n    \"type\": \"message\",\n    \"chatId\": 1150640683,\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 550,
+        "y": 200,
+        "wires": [
+            [
+                "269cceea.250782"
+            ]
+        ]
+    },
+    {
+        "id": "269cceea.250782",
+        "type": "telegram sender",
+        "z": "abafeffb.7205",
+        "name": "",
+        "bot": "a496418f.7eb54",
+        "x": 730,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e33117ba.c0a118",
+        "type": "rbe",
+        "z": "abafeffb.7205",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "property": "payload.contact",
+        "x": 250,
+        "y": 300,
+        "wires": [
+            [
+                "9e224c7c.3087c"
             ]
         ]
     }
