@@ -42,6 +42,13 @@
         "info": ""
     },
     {
+        "id": "abafeffb.7205",
+        "type": "tab",
+        "label": "Door",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "84605b6b.268ff8",
         "type": "subflow",
         "name": "Network Map",
@@ -134,16 +141,6 @@
         "willTopic": "",
         "willQos": "0",
         "willPayload": ""
-    },
-    {
-        "id": "1d05d2aa.63026d",
-        "type": "server",
-        "z": "",
-        "name": "Home Assistant",
-        "legacy": true,
-        "hassio": false,
-        "rejectUnauthorizedCerts": true,
-        "ha_boolean": "y|yes|true|on|home|open"
     },
     {
         "id": "7cf0578.b836da8",
@@ -351,6 +348,40 @@
         "token": ""
     },
     {
+        "id": "a496418f.7eb54",
+        "type": "telegram bot",
+        "z": "",
+        "botname": "voglerr_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "b731d344.87a9",
+        "type": "fritzbox-config",
+        "z": "",
+        "name": "",
+        "host": "fritz.box",
+        "port": "49000",
+        "ssl": false,
+        "user": "admin"
+    },
+    {
         "id": "37f45842.c145b8",
         "type": "mqtt in",
         "z": "fd431505.e8a028",
@@ -520,13 +551,13 @@
         "type": "inject",
         "z": "84605b6b.268ff8",
         "name": "",
-        "topic": "",
-        "payload": "graphviz",
-        "payloadType": "str",
         "repeat": "60",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "graphviz",
+        "payloadType": "str",
         "x": 120,
         "y": 80,
         "wires": [
@@ -785,13 +816,13 @@
         "type": "inject",
         "z": "c38ba4b8.bda008",
         "name": "Request Device List",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "4",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 360,
         "y": 60,
         "wires": [
@@ -990,13 +1021,13 @@
         "type": "inject",
         "z": "9b9cce8d.ace2d",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "3",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 350,
         "y": 140,
         "wires": [
@@ -1772,13 +1803,13 @@
         "type": "inject",
         "z": "c2f84bd6.7cec18",
         "name": "",
-        "topic": "",
-        "payload": "graphviz",
-        "payloadType": "str",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": "2",
+        "topic": "",
+        "payload": "graphviz",
+        "payloadType": "str",
         "x": 340,
         "y": 40,
         "wires": [
@@ -2100,13 +2131,13 @@
         "type": "inject",
         "z": "fd431505.e8a028",
         "name": "",
-        "topic": "",
-        "payload": "test",
-        "payloadType": "str",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "test",
+        "payloadType": "str",
         "x": 550,
         "y": 480,
         "wires": [
@@ -2140,6 +2171,7 @@
         "id": "7870b3aa.191e6c",
         "type": "trigger",
         "z": "c2f84bd6.7cec18",
+        "name": "",
         "op1": "1",
         "op2": "0",
         "op1type": "val",
@@ -2149,7 +2181,7 @@
         "units": "ms",
         "reset": "",
         "bytopic": "all",
-        "name": "",
+        "outputs": 1,
         "x": 440,
         "y": 480,
         "wires": [
@@ -2468,6 +2500,7 @@
         "id": "4a5b10c9.6971d",
         "type": "trigger",
         "z": "b635b24c.eee61",
+        "name": "off after 60s",
         "op1": "",
         "op2": "OFF",
         "op1type": "nul",
@@ -2477,7 +2510,7 @@
         "units": "s",
         "reset": "reset",
         "bytopic": "all",
-        "name": "off after 60s",
+        "outputs": 1,
         "x": 610,
         "y": 120,
         "wires": [
@@ -2590,6 +2623,7 @@
         "id": "4a6f7292.4c12fc",
         "type": "trigger",
         "z": "b635b24c.eee61",
+        "name": "off after 10s",
         "op1": "",
         "op2": "OFF",
         "op1type": "nul",
@@ -2599,7 +2633,7 @@
         "units": "s",
         "reset": "reset",
         "bytopic": "all",
-        "name": "off after 10s",
+        "outputs": 1,
         "x": 610,
         "y": 180,
         "wires": [
@@ -2860,19 +2894,24 @@
         "name": "",
         "account": "c4597d9.54e398",
         "routineNode": {
-            "type": "speak",
+            "type": "speakAtVolume",
             "payload": {
                 "type": "regular",
                 "text": {
                     "type": "str",
                     "value": "Hallo"
                 },
+                "volume": {
+                    "type": "num",
+                    "value": "50"
+                },
+                "mode": "set",
                 "devices": [
                     "G090LF1072021P6R"
                 ]
             }
         },
-        "x": 520,
+        "x": 550,
         "y": 700,
         "wires": [
             []
@@ -2883,7 +2922,7 @@
         "type": "debug",
         "z": "eb78f2d0.07849",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -2897,13 +2936,13 @@
         "type": "inject",
         "z": "eb78f2d0.07849",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 300,
         "y": 700,
         "wires": [
@@ -3079,7 +3118,7 @@
                 },
                 "volume": {
                     "type": "num",
-                    "value": "90"
+                    "value": "50"
                 },
                 "mode": "set",
                 "devices": [
@@ -3098,13 +3137,13 @@
         "type": "inject",
         "z": "eb78f2d0.07849",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 360,
         "y": 580,
         "wires": [
@@ -3213,13 +3252,13 @@
         "type": "inject",
         "z": "5579b405.ff7b4c",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 100,
         "y": 200,
         "wires": [
@@ -3246,13 +3285,13 @@
         "type": "inject",
         "z": "5579b405.ff7b4c",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 100,
         "y": 280,
         "wires": [
@@ -3280,13 +3319,13 @@
         "type": "inject",
         "z": "5579b405.ff7b4c",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 100,
         "y": 120,
         "wires": [
@@ -3329,13 +3368,13 @@
         "type": "inject",
         "z": "5579b405.ff7b4c",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 100,
         "y": 160,
         "wires": [
@@ -3376,13 +3415,13 @@
         "type": "inject",
         "z": "5579b405.ff7b4c",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 100,
         "y": 240,
         "wires": [
@@ -3409,13 +3448,13 @@
         "type": "inject",
         "z": "5579b405.ff7b4c",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 100,
         "y": 320,
         "wires": [
@@ -3442,13 +3481,13 @@
         "type": "inject",
         "z": "5579b405.ff7b4c",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 100,
         "y": 360,
         "wires": [
@@ -3475,13 +3514,13 @@
         "type": "inject",
         "z": "5579b405.ff7b4c",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 680,
         "y": 80,
         "wires": [
@@ -3508,13 +3547,13 @@
         "type": "inject",
         "z": "5579b405.ff7b4c",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 680,
         "y": 120,
         "wires": [
@@ -3541,13 +3580,13 @@
         "type": "inject",
         "z": "5579b405.ff7b4c",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 680,
         "y": 160,
         "wires": [
@@ -3616,13 +3655,13 @@
         "type": "inject",
         "z": "5579b405.ff7b4c",
         "name": "",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
         "x": 100,
         "y": 60,
         "wires": [
@@ -3669,6 +3708,7 @@
         "id": "ba0f847f.6423d8",
         "type": "trigger",
         "z": "eb78f2d0.07849",
+        "name": "off after 10min",
         "op1": "",
         "op2": "off",
         "op1type": "nul",
@@ -3678,7 +3718,7 @@
         "units": "min",
         "reset": "",
         "bytopic": "all",
-        "name": "off after 10min",
+        "outputs": 1,
         "x": 600,
         "y": 400,
         "wires": [
@@ -3757,7 +3797,7 @@
         "name": "",
         "topic": "zigbee2mqtt/Osram_Strip_RGBW_Kitchen/set",
         "qos": "2",
-        "retain": "true",
+        "retain": "false",
         "broker": "75898696.612e28",
         "x": 720,
         "y": 520,
@@ -3776,6 +3816,160 @@
         "wires": [
             [
                 "b44bcb0.e72b938"
+            ]
+        ]
+    },
+    {
+        "id": "16e7d2c9.5a228d",
+        "type": "telegram receiver",
+        "z": "abafeffb.7205",
+        "name": "",
+        "bot": "a496418f.7eb54",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 100,
+        "y": 40,
+        "wires": [
+            [
+                "332d5efa.22dcc2"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5961aef4.4bbaf",
+        "type": "telegram sender",
+        "z": "abafeffb.7205",
+        "name": "",
+        "bot": "a496418f.7eb54",
+        "x": 460,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "332d5efa.22dcc2",
+        "type": "debug",
+        "z": "abafeffb.7205",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "bdf92daf.add7e",
+        "type": "inject",
+        "z": "abafeffb.7205",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "fade38e8.193bb8"
+            ]
+        ]
+    },
+    {
+        "id": "fade38e8.193bb8",
+        "type": "function",
+        "z": "abafeffb.7205",
+        "name": "",
+        "func": "var opts = { reply_markup:\n    JSON.stringify({ \"inline_keyboard\":\n        [[ { \"text\": \"A1\", \"callback_data\": \"1\" },\n           { \"text\": \"A2\", \"callback_data\": \"2\" }] ] })\n};\nmsg.payload = {};\nmsg.payload.content = \"Selection?\";\nmsg.payload.options = opts;\nmsg.payload.chatId = 1150640683;\n// msg.payload.messageId = 99;\n// msg.payload.sentMessageId = 99;\nmsg.payload.type = \"message\";\nreturn [ msg ];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 270,
+        "y": 80,
+        "wires": [
+            [
+                "5961aef4.4bbaf"
+            ]
+        ]
+    },
+    {
+        "id": "ccd7ef18.14dc",
+        "type": "fritzbox-in",
+        "z": "abafeffb.7205",
+        "device": "b731d344.87a9",
+        "name": "",
+        "service": "urn:dslforum-org:service:Hosts:1",
+        "action": "GetSpecificHostEntry",
+        "arguments": "{\n  \"NewMACAddress\": \"value\"\n}",
+        "x": 230,
+        "y": 160,
+        "wires": [
+            [
+                "24ddd626.8357fa"
+            ]
+        ]
+    },
+    {
+        "id": "24ddd626.8357fa",
+        "type": "debug",
+        "z": "abafeffb.7205",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "566f3b7d.747d44",
+        "type": "inject",
+        "z": "abafeffb.7205",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"NewMACAddress\":\"B4:F7:A1:E3:7D:26\"}",
+        "payloadType": "json",
+        "x": 90,
+        "y": 160,
+        "wires": [
+            [
+                "ccd7ef18.14dc"
             ]
         ]
     }
