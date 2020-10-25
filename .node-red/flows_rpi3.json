@@ -3951,7 +3951,7 @@
         "id": "566f3b7d.747d44",
         "type": "inject",
         "z": "abafeffb.7205",
-        "name": "phone 10s",
+        "name": "Pixel 2 XL 10s",
         "props": [
             {
                 "p": "payload"
@@ -3964,12 +3964,10 @@
         "topic": "",
         "payload": "{\"NewMACAddress\":\"B4:F7:A1:E3:7D:26\"}",
         "payloadType": "json",
-        "x": 110,
-        "y": 200,
+        "x": 120,
+        "y": 160,
         "wires": [
-            [
-                "ccd7ef18.14dc"
-            ]
+            []
         ]
     },
     {
@@ -3994,7 +3992,7 @@
         "type": "function",
         "z": "abafeffb.7205",
         "name": "store, duration",
-        "func": "const c = msg.payload.contact;\nif(c === undefined) return;\nflow.set('contact-apt', c);\nif(c){\n  node.status({fill:\"red\", shape:\"ring\", text:\"closed\"});\n} else {\n  node.status({fill:\"green\", shape:\"dot\", text:\"open\"});\n}\n\n// we only react when the door is closed\nif (!c) return;\nconst last = flow.get('last-closed-apt');\nflow.set('last-closed-apt', Date.now());\nif (!last) return; // no value yet since node-red was restarted\nconst diff = Date.now() - last; // duration in ms\n// duration as string hh:mm:ss\nconst dur = new Date(diff).toISOString().substr(11, 8);\nconst time = new Date().toLocaleTimeString('en-US', { hour12: false }); // de-DE is available in the browser but not in node-red\nmsg.payload = {\n    \"content\": `Door was last closed ${dur} ago. Now it's ${time}.`,\n    \"type\": \"message\",\n    \"chatId\": 1150640683,\n};\nreturn msg;",
+        "func": "const c = msg.payload.contact;\nif(c === undefined) return;\nflow.set('contact-apt', c);\nif(c){\n  node.status({fill:\"red\", shape:\"ring\", text:\"closed\"});\n} else {\n  node.status({fill:\"green\", shape:\"dot\", text:\"open\"});\n}\n\n// we only react when the door is closed\nif (!c) return;\nconst last = flow.get('last-closed-apt');\nflow.set('last-closed-apt', Date.now());\nif (!last) return; // no value yet since node-red was restarted\nconst diff = Date.now() - last; // duration in ms\n// duration as string hh:mm:ss\n// const dur = new Date(diff).toISOString().substr(11, 8); // not good for more than 1 day since modulo 24h\n// duration as shortest string given units xs\nlet fmt = (t, xs) => {\n  if (xs.length === 0) return t;\n  else {\n    const d = xs.pop();\n    return (t >= d ? fmt(Math.floor(t/d), xs) + ':' : '') + (t%d+'').padStart(2, 0);\n  }\n}\nconst dur = fmt(Math.floor(diff/1000), [24,60,60]);\nconst time = new Date().toLocaleTimeString('en-US', { hour12: false }); // de-DE is available in the browser but not in node-red\nmsg.payload = {\n    \"content\": `Door was last closed ${dur} ago. Now it's ${time}.`,\n    \"type\": \"message\",\n    \"chatId\": 1150640683,\n};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -4125,6 +4123,31 @@
         "wires": [
             [
                 "c0e4cc9e.6e723"
+            ]
+        ]
+    },
+    {
+        "id": "56975d66.9b9ce4",
+        "type": "inject",
+        "z": "abafeffb.7205",
+        "name": "Pixel 5 10s",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "{\"NewMACAddress\":\"46:0D:DF:86:A2:0D\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 200,
+        "wires": [
+            [
+                "ccd7ef18.14dc"
             ]
         ]
     }
