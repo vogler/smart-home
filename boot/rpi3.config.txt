@@ -67,3 +67,6 @@ dtparam=act_led_trigger=none
 # PWR (red) /sys/class/leds/led1/trigger default is input
 dtparam=pwr_led_trigger=none
 dtparam=pwr_led_activelow=on
+
+# connected to LAN -> disable WiFi completely, see https://raspberrypi.stackexchange.com/questions/43720/disable-wifi-wlan0-on-pi-3
+dtoverlay=disable-wifi
