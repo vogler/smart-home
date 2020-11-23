@@ -37,4 +37,4 @@ def udp_filter(p):
     if name in cmds:
       system(cmds[name])
 
-sniff(prn=udp_filter, filter="udp", iface="wlan0", store=0, lfilter=lambda x: x.src in macs)
+sniff(prn=udp_filter, filter="udp", iface="eth0", store=0, lfilter=lambda x: x.src in macs)
