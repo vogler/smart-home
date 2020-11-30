@@ -64,3 +64,7 @@ devices:
   # '0x000b57fffe321252':
   #   friendly_name: Tradfri_WW_Kitchen
   #   retain: true
+  '0x7cb03eaa0a009a9c':
+    friendly_name: Osram_Strip_RGBW_Unused
+  '0x588e81fffed97f89':
+    friendly_name: 'BlitzWolf_BW-SHP13_3D-Printer'
