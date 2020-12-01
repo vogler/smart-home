@@ -343,8 +343,8 @@
         "z": "",
         "name": "UE55KS8090",
         "model": "8001",
-        "ip": "192.168.178.24",
-        "mac": "C0:97:27:19:F8:7E",
+        "ip": "192.168.178.110",
+        "mac": "CC:B1:1A:C4:31:0C",
         "token": ""
     },
     {
@@ -2263,25 +2263,6 @@
         ]
     },
     {
-        "id": "82f3b4aa.922b68",
-        "type": "exec",
-        "z": "eb78f2d0.07849",
-        "command": "~/cec.sh",
-        "addpay": true,
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "oldrc": false,
-        "name": "",
-        "x": 1060,
-        "y": 40,
-        "wires": [
-            [],
-            [],
-            []
-        ]
-    },
-    {
         "id": "a3f1b8b2.5c8418",
         "type": "http request",
         "z": "eb78f2d0.07849",
@@ -2341,6 +2322,7 @@
         "y": 140,
         "wires": [
             [
+                "be3b9a6a.85fed8",
                 "1abbe278.20911e"
             ],
             [
@@ -2352,18 +2334,22 @@
         "id": "1abbe278.20911e",
         "type": "exec",
         "z": "eb78f2d0.07849",
-        "command": "~/wol.sh",
+        "command": "~/wol.sh && ./cec.sh pc",
         "addpay": false,
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "oldrc": false,
         "name": "",
-        "x": 600,
+        "x": 650,
         "y": 120,
         "wires": [
-            [],
-            [],
+            [
+                "489c3605.6bdc68"
+            ],
+            [
+                "489c3605.6bdc68"
+            ],
             []
         ]
     },
@@ -2791,7 +2777,7 @@
         "z": "eb78f2d0.07849",
         "name": "Fernseher",
         "topic": "",
-        "x": 310,
+        "x": 300,
         "y": 40,
         "wires": [
             [
@@ -3228,16 +3214,6 @@
         ]
     },
     {
-        "id": "8c2ea543.1f4e08",
-        "type": "comment",
-        "z": "eb78f2d0.07849",
-        "name": "TV does no longer reply to cec-client since some update :(",
-        "info": "",
-        "x": 1350,
-        "y": 40,
-        "wires": []
-    },
-    {
         "id": "9f15beac.00823",
         "type": "samsung-tv-turnon",
         "z": "5579b405.ff7b4c",
@@ -3571,7 +3547,7 @@
         "device": "4b06aa47.bc1dc4",
         "name": "",
         "key": "KEY_POWEROFF",
-        "x": 880,
+        "x": 870,
         "y": 160,
         "wires": [
             []
@@ -3628,13 +3604,16 @@
         "id": "39bd4ea7.009542",
         "type": "debug",
         "z": "5579b405.ff7b4c",
-        "name": "",
+        "name": "TV is on",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
-        "x": 470,
+        "complete": "\"TV is on: \" & payload",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
         "y": 40,
         "wires": []
     },
@@ -3642,13 +3621,16 @@
         "id": "413b2b29.02c894",
         "type": "debug",
         "z": "5579b405.ff7b4c",
-        "name": "",
+        "name": "TV is off",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
-        "x": 470,
+        "complete": "\"TV is off: \" & payload",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
         "y": 80,
         "wires": []
     },
@@ -4150,5 +4132,215 @@
                 "ccd7ef18.14dc"
             ]
         ]
+    },
+    {
+        "id": "6bb33afe.30f524",
+        "type": "comment",
+        "z": "5579b405.ff7b4c",
+        "name": "run tvservice --off if cec-client can not connect",
+        "info": "",
+        "x": 360,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "3ef17627.978e2a",
+        "type": "exec",
+        "z": "5579b405.ff7b4c",
+        "command": "~/cec.sh",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 240,
+        "y": 520,
+        "wires": [
+            [
+                "aa3f6093.ba277"
+            ],
+            [
+                "aa3f6093.ba277"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "aa3f6093.ba277",
+        "type": "debug",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "4f3f8f0e.d36ba",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "on",
+        "payloadType": "str",
+        "x": 90,
+        "y": 500,
+        "wires": [
+            [
+                "3ef17627.978e2a"
+            ]
+        ]
+    },
+    {
+        "id": "c733503e.21db9",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "off",
+        "payloadType": "str",
+        "x": 90,
+        "y": 540,
+        "wires": [
+            [
+                "3ef17627.978e2a"
+            ]
+        ]
+    },
+    {
+        "id": "2d79576e.8933b8",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "status",
+        "payloadType": "str",
+        "x": 90,
+        "y": 660,
+        "wires": [
+            [
+                "3ef17627.978e2a"
+            ]
+        ]
+    },
+    {
+        "id": "f75c8922.84cf68",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "pc",
+        "payloadType": "str",
+        "x": 90,
+        "y": 580,
+        "wires": [
+            [
+                "3ef17627.978e2a"
+            ]
+        ]
+    },
+    {
+        "id": "d9aa1743.df0c18",
+        "type": "inject",
+        "z": "5579b405.ff7b4c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "tv",
+        "payloadType": "str",
+        "x": 90,
+        "y": 620,
+        "wires": [
+            [
+                "3ef17627.978e2a"
+            ]
+        ]
+    },
+    {
+        "id": "489c3605.6bdc68",
+        "type": "debug",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 120,
+        "wires": []
     }
 ]
