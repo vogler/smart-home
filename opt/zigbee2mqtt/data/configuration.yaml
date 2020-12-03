@@ -67,4 +67,4 @@ devices:
   '0x7cb03eaa0a009a9c':
     friendly_name: Osram_Strip_RGBW_Unused
   '0x588e81fffed97f89':
-    friendly_name: 'BlitzWolf_BW-SHP13_3D-Printer'
+    friendly_name: 'BlitzWolf_BW-SHP13_3D-Printer' # unused for now since it polls power every 10s
