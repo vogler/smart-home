@@ -38,6 +38,7 @@ devices:
     debounce: 1
   '0x00158d00027867a6':
     friendly_name: Aqara_Temp_Fridge
+    debounce: 1
   '0x001788010328d8bc':
     friendly_name: Hue_Motion_Bath
     occupancy_timeout: 10 # most precise, +60s context-dependent timeout in node-red
