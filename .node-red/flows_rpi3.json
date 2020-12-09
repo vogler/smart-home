@@ -4342,5 +4342,83 @@
         "x": 850,
         "y": 120,
         "wires": []
+    },
+    {
+        "id": "8dfe8e9f.43043",
+        "type": "mqtt in",
+        "z": "abafeffb.7205",
+        "name": "",
+        "topic": "doorbell",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "75898696.612e28",
+        "x": 80,
+        "y": 380,
+        "wires": [
+            [
+                "4969acbf.339bf4"
+            ]
+        ]
+    },
+    {
+        "id": "4969acbf.339bf4",
+        "type": "function",
+        "z": "abafeffb.7205",
+        "name": "store, duration",
+        "func": "const time = new Date().toLocaleTimeString('en-US', { hour12: false }); // de-DE is available in the browser but not in node-red\nmsg.payload = {\n    \"content\": `Doorbell? Noise reached ${msg.payload.hits}. Now it's ${time}.`,\n    \"type\": \"message\",\n    \"chatId\": 1150640683,\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 240,
+        "y": 380,
+        "wires": [
+            [
+                "c33b680f.951578",
+                "dd6f1813.0fa868"
+            ]
+        ]
+    },
+    {
+        "id": "c33b680f.951578",
+        "type": "telegram sender",
+        "z": "abafeffb.7205",
+        "name": "",
+        "bot": "a496418f.7eb54",
+        "x": 430,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dd6f1813.0fa868",
+        "type": "alexa-remote-routine",
+        "z": "abafeffb.7205",
+        "name": "",
+        "account": "c4597d9.54e398",
+        "routineNode": {
+            "type": "speakAtVolume",
+            "payload": {
+                "type": "regular",
+                "text": {
+                    "type": "str",
+                    "value": "Ding Dong Ding"
+                },
+                "volume": {
+                    "type": "num",
+                    "value": "75"
+                },
+                "mode": "set",
+                "devices": [
+                    "G090LF1072021P6R"
+                ]
+            }
+        },
+        "x": 450,
+        "y": 440,
+        "wires": [
+            []
+        ]
     }
 ]
