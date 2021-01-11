@@ -2363,7 +2363,7 @@
         "datatype": "auto",
         "broker": "75898696.612e28",
         "x": 110,
-        "y": 380,
+        "y": 460,
         "wires": [
             [
                 "dc8bfee7.b6068"
@@ -2379,7 +2379,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 290,
-        "y": 380,
+        "y": 460,
         "wires": [
             [
                 "5c483681.6157c8"
@@ -2396,7 +2396,7 @@
         "retain": "false",
         "broker": "75898696.612e28",
         "x": 770,
-        "y": 360,
+        "y": 440,
         "wires": []
     },
     {
@@ -2410,7 +2410,7 @@
         "initialize": "",
         "finalize": "",
         "x": 590,
-        "y": 380,
+        "y": 460,
         "wires": [
             [
                 "5056dd69.ed4434"
@@ -2670,7 +2670,7 @@
         "name": "timeout 60s",
         "info": "",
         "x": 450,
-        "y": 360,
+        "y": 440,
         "wires": []
     },
     {
@@ -2694,7 +2694,7 @@
         "name": "mqtt <-> Hue",
         "info": "",
         "x": 90,
-        "y": 580,
+        "y": 660,
         "wires": []
     },
     {
@@ -2717,7 +2717,7 @@
         "datatype": "json",
         "broker": "75898696.612e28",
         "x": 120,
-        "y": 620,
+        "y": 700,
         "wires": [
             [
                 "723b160d.cd26a8"
@@ -2734,7 +2734,7 @@
         "retain": "false",
         "broker": "75898696.612e28",
         "x": 580,
-        "y": 620,
+        "y": 700,
         "wires": []
     },
     {
@@ -2746,7 +2746,7 @@
         "groupid": "1",
         "colornamer": true,
         "x": 350,
-        "y": 620,
+        "y": 700,
         "wires": [
             [
                 "79f912a7.da9f6c"
@@ -3744,7 +3744,7 @@
         "retain": "false",
         "broker": "75898696.612e28",
         "x": 800,
-        "y": 400,
+        "y": 480,
         "wires": []
     },
     {
@@ -3754,7 +3754,7 @@
         "name": "MQTT dash (Android) does not allow json payload for color",
         "info": "",
         "x": 230,
-        "y": 480,
+        "y": 560,
         "wires": []
     },
     {
@@ -3767,7 +3767,7 @@
         "datatype": "auto",
         "broker": "75898696.612e28",
         "x": 190,
-        "y": 520,
+        "y": 600,
         "wires": [
             [
                 "e8e8cf4b.1e846"
@@ -3784,7 +3784,7 @@
         "retain": "false",
         "broker": "75898696.612e28",
         "x": 720,
-        "y": 520,
+        "y": 600,
         "wires": []
     },
     {
@@ -3796,7 +3796,7 @@
         "outputs": 1,
         "noerr": 0,
         "x": 460,
-        "y": 520,
+        "y": 600,
         "wires": [
             [
                 "b44bcb0.e72b938"
@@ -3826,6 +3826,7 @@
         "z": "abafeffb.7205",
         "name": "",
         "bot": "a496418f.7eb54",
+        "outputs": 1,
         "x": 460,
         "y": 80,
         "wires": [
@@ -4010,6 +4011,7 @@
         "z": "abafeffb.7205",
         "name": "",
         "bot": "a496418f.7eb54",
+        "outputs": 1,
         "x": 590,
         "y": 300,
         "wires": [
@@ -4059,6 +4061,7 @@
         "z": "abafeffb.7205",
         "name": "",
         "bot": "a496418f.7eb54",
+        "outputs": 1,
         "x": 730,
         "y": 200,
         "wires": [
@@ -4101,7 +4104,7 @@
         "payload": "{\"state\":\"OFF\",\"color_temp\":230}",
         "payloadType": "json",
         "x": 590,
-        "y": 420,
+        "y": 500,
         "wires": [
             [
                 "c0e4cc9e.6e723"
@@ -4374,8 +4377,7 @@
         "y": 380,
         "wires": [
             [
-                "c33b680f.951578",
-                "dd6f1813.0fa868"
+                "c33b680f.951578"
             ]
         ]
     },
@@ -4385,6 +4387,7 @@
         "z": "abafeffb.7205",
         "name": "",
         "bot": "a496418f.7eb54",
+        "outputs": 1,
         "x": 430,
         "y": 380,
         "wires": [
@@ -4419,6 +4422,41 @@
         "y": 440,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "6dfb6f14.0d38d",
+        "type": "mqtt in",
+        "z": "b635b24c.eee61",
+        "name": "",
+        "topic": "toothbrush",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "75898696.612e28",
+        "x": 80,
+        "y": 360,
+        "wires": [
+            [
+                "57a06f3f.b30b9"
+            ]
+        ]
+    },
+    {
+        "id": "57a06f3f.b30b9",
+        "type": "function",
+        "z": "b635b24c.eee61",
+        "name": "running?",
+        "func": "var p = msg.payload;\nif(p.running == 3){\n    node.status({fill:\"red\", shape:\"ring\", text:p.time+\"s\"});\n    return msg;\n} else {\n    node.status({fill:\"green\", shape:\"dot\", text:\"off\"});\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 280,
+        "y": 360,
+        "wires": [
+            [
+                "a1e67a5.fc05788"
+            ]
         ]
     }
 ]
