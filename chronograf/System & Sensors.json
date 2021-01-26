@@ -12,9 +12,144 @@
 		"id": "3",
 		"cells": [
 			{
+				"i": "dbdcca66-0f12-4674-9b34-1094df2cb648",
+				"x": 8,
+				"y": 14,
+				"w": 4,
+				"h": 3,
+				"name": "CPU temp",
+				"queries": [
+					{
+						"query": "SELECT mean(\"temp\") AS \"mean_temp\" FROM \"telegraf\".\"autogen\".\"temp\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"sensor\"='cpu_thermal_input' GROUP BY time(:interval:) FILL(null)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "temp",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_temp",
+									"args": [
+										{
+											"value": "temp",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"sensor": [
+									"cpu_thermal_input"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "null",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "0e43f7cb-21bc-4f35-8c12-158a327a7f32",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "8d2f6c32-dc47-4941-8220-c43b06df8b7a",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/3/cells/dbdcca66-0f12-4674-9b34-1094df2cb648"
+				}
+			},
+			{
 				"i": "29842f3e-3588-4266-9379-197efa8d2c4a",
 				"x": 0,
-				"y": 14,
+				"y": 11,
 				"w": 6,
 				"h": 2,
 				"name": "WC",
@@ -131,7 +266,7 @@
 			{
 				"i": "8f144dd5-0402-4d22-838b-0d8e687101df",
 				"x": 6,
-				"y": 11,
+				"y": 8,
 				"w": 3,
 				"h": 3,
 				"name": "Temp & Humidity for Balcony, Bath, Fridge",
@@ -377,9 +512,9 @@
 			},
 			{
 				"i": "f04b9711-ac54-4d41-bdcb-80fe4a0e3e23",
-				"x": 9,
+				"x": 6,
 				"y": 14,
-				"w": 1,
+				"w": 2,
 				"h": 3,
 				"name": "MH-Z19B CO2 air quality thresholds",
 				"queries": [
@@ -537,7 +672,7 @@
 			{
 				"i": "ec364d94-11f1-473f-ac01-2f786572f32c",
 				"x": 0,
-				"y": 8,
+				"y": 5,
 				"w": 6,
 				"h": 3,
 				"name": "MH-Z19B CO2 Sensor (ppm)",
@@ -951,7 +1086,7 @@
 			},
 			{
 				"i": "3920ba04-6b48-40db-991a-c01bc94b4ea5",
-				"x": 6,
+				"x": 9,
 				"y": 8,
 				"w": 3,
 				"h": 3,
@@ -2465,7 +2600,7 @@
 			{
 				"i": "d7207f20-d2df-4eb8-bcf4-45ba8214853e",
 				"x": 0,
-				"y": 5,
+				"y": 13,
 				"w": 6,
 				"h": 3,
 				"name": "PMS7003 Particle Sensor (Counts and ug/m³)",
@@ -2694,8 +2829,8 @@
 			},
 			{
 				"i": "49ca44c7-7000-4a85-b766-8a4bc81e6795",
-				"x": 9,
-				"y": 8,
+				"x": 6,
+				"y": 11,
 				"w": 3,
 				"h": 3,
 				"name": "Shower Flow (ml and C)",
@@ -2842,7 +2977,7 @@
 			{
 				"i": "5d8f5ec3-be35-47ce-85c5-07fd7761064d",
 				"x": 0,
-				"y": 11,
+				"y": 8,
 				"w": 6,
 				"h": 3,
 				"name": "Doors",
