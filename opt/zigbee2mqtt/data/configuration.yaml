@@ -16,6 +16,11 @@ frontend:
   port: 8080
 experimental:
   new_api: true
+groups:
+  '65289': # workaround to switch scenes with Tradfri_Button_Bed, https://github.com/Koenkk/zigbee2mqtt.io/pull/583/files
+    friendly_name: Tradfri_Scenes # added scenes (ID color_temp brightness): 1 250 254, 2 370 254, 3 454 132; see https://github.com/Koenkk/zigbee2mqtt/issues/1232#issuecomment-767393536
+    devices:
+      - Tradfri_WS_Bed
 devices:
   '0x00158d0002b5306c':
     friendly_name: Aqara_Door_Apt
