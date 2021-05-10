@@ -11,10 +11,10 @@ from sys import stdout
 macs = {
   "ac:63:be:ba:2f:85": "Dusche", # oral-b (Bad) battery empty (noticed 18.09.2019)
   "ac:63:be:ea:5b:1b": "Dusche", # kleenex (Bad) battery empty (noticed 15.09.2020)
-  "00:fc:8b:d7:d5:3f": "Dusche", # finish (Bad)
+  "00:fc:8b:d7:d5:3f": "Dusche", # finish (Bad) battery empty (noticed 08.05.2021)
+  "18:74:2e:53:74:54": "Dusche", # nivea-men (Schrank)
   "68:37:e9:bc:f3:90": "Wäsche", # ariel (Schrank)
   "18:74:2e:3b:3c:09": "Rasur", # gillette (Bad)
-  "18:74:2e:53:74:54": "Purex", # nivea-men (Schrank)
   "18:74:2e:5b:57:ec": "Trakt", # nivea (Sofatisch)
   "b4:7c:9c:48:a3:01": "Bier", # heineken (Kühlschrank)
   "b4:7c:9c:e2:e8:5c": "Townew T1 Mülleimer Beutel gewechselt", # afri-cola (Küche)
