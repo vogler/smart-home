@@ -4,6 +4,7 @@ After=network-online.target
 
 [Service]
 Type=simple
+# needs to run as root for network sniffing; could maybe also do setcap for python3, but better like this? setcap example: https://github.com/Home-Is-Where-You-Hang-Your-Hack/sensor.goveetemp_bt_hci#installation
 User=root
 ExecStart=/bin/bash -c 'cd /home/pi/smart-home; exec stdbuf -o 0 /usr/bin/python3 -u dash.py 2>&1 | tee -a /home/pi/dash.log'
 Restart=always
