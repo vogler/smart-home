@@ -79,3 +79,7 @@ dtparam=pwr_led_activelow=on
 
 # connected to LAN -> disable WiFi completely, see https://raspberrypi.stackexchange.com/questions/43720/disable-wifi-wlan0-on-pi-3
 dtoverlay=disable-wifi
+
+# Stop the initial active source message being sent during bootup. This prevents a CEC-enabled TV from coming out of standby and channel-switching when you are rebooting your Raspberry Pi.
+# https://www.raspberrypi.org/documentation/configuration/config-txt/video.md
+hdmi_ignore_cec_init=1
