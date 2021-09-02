@@ -1,0 +1,12 @@
+[Unit]
+Description=Camera streamer for OctoPrint
+After=network-online.target OctoPrint.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart=mjpg_streamer -i 'input_uvc.so -r 1920x1080 -n -l off' -o 'output_http.so -p 8090'
+
+[Install]
+WantedBy=multi-user.target
