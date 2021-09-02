@@ -1,0 +1,48 @@
+https://plugins.octoprint.org/plugins/octolapse/
+https://plugins.octoprint.org/plugins/PrintTimeGenius/
+https://plugins.octoprint.org/plugins/DisplayLayerProgress/
+https://plugins.octoprint.org/plugins/dashboard/
+https://plugins.octoprint.org/plugins/cancelobject/
+https://plugins.octoprint.org/plugins/filemanager/
+https://plugins.octoprint.org/plugins/GcodeEditor/
+https://plugins.octoprint.org/plugins/taborder/
+https://plugins.octoprint.org/plugins/autoscroll/
+# https://plugins.octoprint.org/plugins/stlviewer/ # deactivated on 01.09.21 since it did not show anything
+https://plugins.octoprint.org/plugins/mqtt/
+https://plugins.octoprint.org/plugins/autoselect/
+https://plugins.octoprint.org/plugins/terminalcommandsextended/
+https://plugins.octoprint.org/plugins/resource_monitor/
+https://plugins.octoprint.org/plugins/PrintJobHistory/
+https://plugins.octoprint.org/plugins/preheat/
+# https://plugins.octoprint.org/plugins/filamentmanager/ # old, UI not as nice
+# replaced by SpoolManager on 01.09.2020 (only released 23.08.2020) but then enabled filamentmanager again because PrintJobHistory and costestimation use it
+# disabled FilamentManager on 24.08.2021 in favor of SpoolManager since both plugins above support it now
+https://plugins.octoprint.org/plugins/SpoolManager/
+https://plugins.octoprint.org/plugins/UltimakerFormatPackage/
+https://plugins.octoprint.org/plugins/prusaslicerthumbnails/
+https://plugins.octoprint.org/plugins/continuousprint/ # disabled since I never tried and don't need it
+https://plugins.octoprint.org/plugins/costestimation/
+https://plugins.octoprint.org/plugins/tasmota_mqtt/
+# https://plugins.octoprint.org/plugins/thespaghettidetective/ # deactivated since not using it
+https://plugins.octoprint.org/plugins/consolidatedtabs/
+https://plugins.octoprint.org/plugins/PrettyGCode/
+https://plugins.octoprint.org/plugins/terminalmessaging/
+https://plugins.octoprint.org/plugins/marlingcodedocumentation/
+https://plugins.octoprint.org/plugins/multicam/
+https://plugins.octoprint.org/plugins/firmwareupdater/
+https://plugins.octoprint.org/plugins/uicustomizer/ # disabled again since it messes up UI
+https://plugins.octoprint.org/plugins/telegram/
+https://plugins.octoprint.org/plugins/dragon_order/
+
+# upgrade Marlin, then: https://plugins.octoprint.org/plugins/meatpack/
+
+# bookmarks:
+# https://plugins.octoprint.org/plugins/arc_welder/
+# https://plugins.octoprint.org/plugins/bedlevelvisualizer/ # useful once done manual or ABL
+# https://plugins.octoprint.org/plugins/autobim/ # bed tramming using ABL
+# https://plugins.octoprint.org/plugins/octoeverywhere/
+# https://plugins.octoprint.org/plugins/excluderegion/ # alternative to cancelobject
+# https://plugins.octoprint.org/plugins/touchui/ # for use on phone - or better with app?
+# https://plugins.octoprint.org/plugins/fullscreen/
+# https://plugins.octoprint.org/plugins/calibrationcompanion/
+# https://plugins.octoprint.org/plugins/filament_scale/
