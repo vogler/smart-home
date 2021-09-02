@@ -1,31 +1,45 @@
-https://plugins.octoprint.org/plugins/octolapse/
-https://plugins.octoprint.org/plugins/PrintTimeGenius/
-https://plugins.octoprint.org/plugins/DisplayLayerProgress/
-https://plugins.octoprint.org/plugins/dashboard/
-https://plugins.octoprint.org/plugins/cancelobject/
-https://plugins.octoprint.org/plugins/filemanager/
-https://plugins.octoprint.org/plugins/GcodeEditor/
-https://plugins.octoprint.org/plugins/taborder/
-https://plugins.octoprint.org/plugins/autoscroll/
-https://plugins.octoprint.org/plugins/mqtt/
-https://plugins.octoprint.org/plugins/autoselect/
-https://plugins.octoprint.org/plugins/terminalcommandsextended/
-https://plugins.octoprint.org/plugins/resource_monitor/
-https://plugins.octoprint.org/plugins/PrintJobHistory/
-https://plugins.octoprint.org/plugins/preheat/
+# track filament, print history
 https://plugins.octoprint.org/plugins/SpoolManager/
-https://plugins.octoprint.org/plugins/UltimakerFormatPackage/
-https://plugins.octoprint.org/plugins/prusaslicerthumbnails/
-https://plugins.octoprint.org/plugins/costestimation/
-https://plugins.octoprint.org/plugins/tasmota_mqtt/
+https://plugins.octoprint.org/plugins/PrintJobHistory/
+
+# webcam, timelapse
+https://plugins.octoprint.org/plugins/multicam/ # ESP32-CAM currently not connected
+https://plugins.octoprint.org/plugins/octolapse/ # better than OctoPrint's timelapse (disabled)
+
+# remote control, automate
+https://plugins.octoprint.org/plugins/telegram/ # notifications & control via Telegram
+https://plugins.octoprint.org/plugins/mqtt/ # support for subscribing and publishing to MQTT topics
+https://plugins.octoprint.org/plugins/tasmota_mqtt/ # control power of printer + E27 LED via Tasmota WiFi socket
+
+# analysis, formats
+https://plugins.octoprint.org/plugins/PrintTimeGenius/ # better print time estimation
+https://plugins.octoprint.org/plugins/costestimation/ # estimated print cost (filament & electricity)
+https://plugins.octoprint.org/plugins/UltimakerFormatPackage/ # adds support for Ultimaker Format Package (.ufp) files. Used by OctoPrint Connection plugin in Cura to display thumbnail.
+https://plugins.octoprint.org/plugins/prusaslicerthumbnails/ # extract embedded thumbnails from gcode files created from PrusaSlicer, SuperSlicer, Cura, or Simplify3D. Not needed for printing from Cura.
+
+# better UI
 https://plugins.octoprint.org/plugins/consolidatedtabs/
-https://plugins.octoprint.org/plugins/PrettyGCode/
-https://plugins.octoprint.org/plugins/terminalmessaging/
-https://plugins.octoprint.org/plugins/marlingcodedocumentation/
-https://plugins.octoprint.org/plugins/multicam/
-https://plugins.octoprint.org/plugins/firmwareupdater/
-https://plugins.octoprint.org/plugins/telegram/
-https://plugins.octoprint.org/plugins/dragon_order/
+https://plugins.octoprint.org/plugins/taborder/
+https://plugins.octoprint.org/plugins/dragon_order/ # allows the re-ordering of navbar, sidebar, and tabs by dragging them
+
+# more info
+https://plugins.octoprint.org/plugins/DisplayLayerProgress/ # Displays the Layer, Progress and other data on "Printer-Display", "NavBar", "BrowserTab-Title"
+https://plugins.octoprint.org/plugins/prettygcode/ # 3D GCode visualizer
+
+# features
+https://plugins.octoprint.org/plugins/autoselect/ # Automatically selects freshly uploaded files for printing
+https://plugins.octoprint.org/plugins/preheat/ # adds button to preheat nozzle and bed for the current gcode file
+https://plugins.octoprint.org/plugins/GcodeEditor/ # Adds edit buttons to the items in the file list which let you edit the gcode of any file that’s not currently printing.
+https://plugins.octoprint.org/plugins/cancelobject/ # Cancel single objects during a print based on gcode comment lines
+https://plugins.octoprint.org/plugins/firmwareupdater/ # flash pre-compiled firmware from OctoPrint
+https://plugins.octoprint.org/plugins/resource_monitor/ # view the current CPU, RAM, disk and network usage
+
+# terminal
+https://plugins.octoprint.org/plugins/terminalmessaging/ # Adds styling to the terminal tab that makes it easier to see where a message is from.
+https://plugins.octoprint.org/plugins/terminalcommandsextended/ # adds custom gcode command buttons to the Terminal tab.
+https://plugins.octoprint.org/plugins/autoscroll/ # Turn on/off terminal autoscroll when scrolling up/down
+https://plugins.octoprint.org/plugins/marlingcodedocumentation/ # Provides documentation for Marlin, RepRap, and Klipper, GCode commands in the Terminal tab
+
 
 # upgrade Marlin, then: https://plugins.octoprint.org/plugins/meatpack/
 
@@ -45,6 +59,8 @@ https://plugins.octoprint.org/plugins/dragon_order/
 # replaced by SpoolManager on 01.09.2020 (only released 23.08.2020) but then enabled filamentmanager again because PrintJobHistory and costestimation use it
 # disabled FilamentManager on 24.08.2021 in favor of SpoolManager since both plugins above support it now
 # https://plugins.octoprint.org/plugins/uicustomizer/ # disabled again since it messes up UI
+# https://plugins.octoprint.org/plugins/dashboard/ # does not look nice, little info for the used space -> replaced by Consolidated Tabs
 # https://plugins.octoprint.org/plugins/continuousprint/ # disabled since I never tried and don't need it
 # https://plugins.octoprint.org/plugins/thespaghettidetective/ # deactivated since not using it
-# https://plugins.octoprint.org/plugins/stlviewer/ # deactivated on 01.09.21 since it did not show anything
+# https://plugins.octoprint.org/plugins/stlviewer/ # uninstalled on 01.09.21 since I have no stl files uploaded anyway since they need to be sliced before.
+# https://plugins.octoprint.org/plugins/filemanager/ # not needed, OctoPrint has a file panel in left sidebar
