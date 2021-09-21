@@ -6,6 +6,7 @@ Wants=network-online.target
 [Service]
 Type=simple
 User=pi
+ExecStartPre=sudo v4l2-ctl --set-ctrl=led1_mode=0,focus_auto=0,focus_absolute=25
 ExecStart=mjpg_streamer -i 'input_uvc.so -r 1920x1080 -n -l off' -o 'output_http.so -p 8090'
 
 [Install]
