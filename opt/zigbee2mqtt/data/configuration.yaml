@@ -12,6 +12,7 @@ advanced:
   cache_state: false # home assistant requires all attributes in MQTT messages, disable cache to just get the original zigbee message with only the changed attributes
   rtscts: false
   ikea_ota_use_test_url: true # https://github.com/Koenkk/zigbee2mqtt.io/blob/develop/docs/information/ota_updates.md#using-the-ikea-tradfri-test-server
+  log_symlink_current: true
 frontend:
   port: 8080
 experimental:
