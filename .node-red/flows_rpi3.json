@@ -123,7 +123,6 @@
     {
         "id": "75898696.612e28",
         "type": "mqtt-broker",
-        "z": "",
         "name": "mosquitto",
         "broker": "localhost",
         "port": "1883",
@@ -145,7 +144,6 @@
     {
         "id": "7cf0578.b836da8",
         "type": "hue-bridge",
-        "z": "",
         "name": "Philips hue",
         "bridge": "192.168.178.52",
         "key": "m6g4AVCIB96kMuIA8qxg5WrikMyLE1qE6Z2Gfczv",
@@ -165,7 +163,6 @@
     {
         "id": "2d2ce9f8.e0b986",
         "type": "ui_group",
-        "z": "",
         "name": "Status",
         "tab": "ed42c95b.a7e218",
         "order": 2,
@@ -198,7 +195,6 @@
     {
         "id": "55de67cd.90a968",
         "type": "ui_group",
-        "z": "",
         "name": "Permit Join",
         "tab": "ed42c95b.a7e218",
         "order": 3,
@@ -209,7 +205,6 @@
     {
         "id": "344d6d5a.62df12",
         "type": "ui_group",
-        "z": "",
         "name": "Rename Device",
         "tab": "ed42c95b.a7e218",
         "order": 6,
@@ -220,7 +215,6 @@
     {
         "id": "ed42c95b.a7e218",
         "type": "ui_tab",
-        "z": "",
         "name": "Zigbee2MQTT Admin Panel",
         "icon": "dashboard"
     },
@@ -323,7 +317,6 @@
     {
         "id": "c4597d9.54e398",
         "type": "alexa-remote-account",
-        "z": "",
         "name": "",
         "authMethod": "proxy",
         "proxyOwnIp": "rpi3",
@@ -340,7 +333,6 @@
     {
         "id": "4b06aa47.bc1dc4",
         "type": "samsung-tv",
-        "z": "",
         "name": "UE55KS8090",
         "model": "8001",
         "ip": "192.168.178.110",
@@ -350,7 +342,6 @@
     {
         "id": "a496418f.7eb54",
         "type": "telegram bot",
-        "z": "",
         "botname": "voglerr_bot",
         "usernames": "",
         "chatids": "",
@@ -374,7 +365,6 @@
     {
         "id": "b731d344.87a9",
         "type": "fritzbox-config",
-        "z": "",
         "name": "",
         "host": "fritz.box",
         "port": "49000",
