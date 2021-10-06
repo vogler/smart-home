@@ -17,4 +17,7 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
+# Disable LAN LEDs (/boot/config.txt method only supported from 3B+), from https://raspberrypi.stackexchange.com/a/130495
+sudo sh -c 'sudo /home/pi/lan951x-led-ctl/lan951x-led-ctl --fdx=0 --lnk=0 --spd=0'
+
 exit 0
