@@ -19,6 +19,7 @@
         "node-red-contrib-huemagic": "^3.0.0",
         "node-red-contrib-ibm-watson-iot": "^0.2.8",
         "node-red-contrib-image-tools": "^2.0.2",
+        "node-red-contrib-influxdb": "^0.6.1",
         "node-red-contrib-light-scheduler": "0.0.18",
         "node-red-contrib-os": "^0.2.1",
         "node-red-contrib-play-audio": "^2.5.0",
