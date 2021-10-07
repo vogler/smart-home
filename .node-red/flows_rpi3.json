@@ -351,6 +351,11 @@
         "user": "admin"
     },
     {
+        "id": "119e8fc6635b6db9",
+        "type": "pushbullet-config",
+        "name": "pushbullet"
+    },
+    {
         "id": "f99f16c0.376b78",
         "type": "mqtt in",
         "z": "84605b6b.268ff8",
@@ -2297,7 +2302,7 @@
                 ]
             }
         },
-        "x": 550,
+        "x": 490,
         "y": 760,
         "wires": [
             []
@@ -2433,7 +2438,7 @@
                 ]
             }
         },
-        "x": 640,
+        "x": 620,
         "y": 540,
         "wires": [
             []
@@ -2512,7 +2517,7 @@
                 ]
             }
         },
-        "x": 570,
+        "x": 530,
         "y": 600,
         "wires": [
             []
@@ -3883,5 +3888,145 @@
         "x": 460,
         "y": 360,
         "wires": []
+    },
+    {
+        "id": "40ffba0a35e1b80f",
+        "type": "exec",
+        "z": "eb78f2d0.07849",
+        "command": "~/switchbot-cmd.py e9:94:ab:b3:d1:ee press",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1090,
+        "y": 300,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "aedb8510e03290b7",
+        "type": "amazon-echo-device",
+        "z": "eb78f2d0.07849",
+        "name": "Kaffee",
+        "topic": "",
+        "x": 830,
+        "y": 300,
+        "wires": [
+            [
+                "40ffba0a35e1b80f"
+            ]
+        ]
+    },
+    {
+        "id": "66632a1d6a536b88",
+        "type": "pushbullet in",
+        "z": "eb78f2d0.07849",
+        "config": "119e8fc6635b6db9",
+        "name": "",
+        "x": 620,
+        "y": 360,
+        "wires": [
+            [
+                "20d3e2c06f71fb17",
+                "eb684c3d1b649387"
+            ]
+        ]
+    },
+    {
+        "id": "20d3e2c06f71fb17",
+        "type": "debug",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "eb684c3d1b649387",
+        "type": "function",
+        "z": "eb78f2d0.07849",
+        "name": "IFTTT out of bed?",
+        "func": "if (msg.data.sender_name == \"IFTTT\" && msg.topic.startsWith(\"Out of bed\")) {\n  return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 360,
+        "wires": [
+            [
+                "0a7d0c7a90734a2a"
+            ]
+        ]
+    },
+    {
+        "id": "1562b0530c6b8603",
+        "type": "alexa-remote-routine",
+        "z": "eb78f2d0.07849",
+        "name": "Mache Kaffee.",
+        "account": "c4597d9.54e398",
+        "routineNode": {
+            "type": "speakAtVolume",
+            "payload": {
+                "type": "regular",
+                "text": {
+                    "type": "str",
+                    "value": "Mache Kaffee."
+                },
+                "volume": {
+                    "type": "num",
+                    "value": "25"
+                },
+                "mode": "set",
+                "devices": [
+                    "G090LF1072021P6R"
+                ]
+            }
+        },
+        "x": 1180,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0a7d0c7a90734a2a",
+        "type": "delay",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "12",
+        "rateUnits": "hour",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "x": 980,
+        "y": 360,
+        "wires": [
+            [
+                "40ffba0a35e1b80f",
+                "1562b0530c6b8603"
+            ]
+        ]
     }
 ]
