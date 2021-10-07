@@ -271,7 +271,8 @@
                 "primary": "indigo",
                 "accents": "blue",
                 "warn": "red",
-                "background": "grey"
+                "background": "grey",
+                "palette": "light"
             }
         },
         "site": {
@@ -2282,7 +2283,7 @@
         "id": "cf3e12aa.82fee",
         "type": "alexa-remote-routine",
         "z": "eb78f2d0.07849",
-        "name": "",
+        "name": "Hallo",
         "account": "c4597d9.54e398",
         "routineNode": {
             "type": "speakAtVolume",
@@ -2294,7 +2295,7 @@
                 },
                 "volume": {
                     "type": "num",
-                    "value": "50"
+                    "value": "25"
                 },
                 "mode": "set",
                 "devices": [
@@ -2423,7 +2424,7 @@
         "id": "73814078.09fdd",
         "type": "alexa-remote-routine",
         "z": "eb78f2d0.07849",
-        "name": "",
+        "name": "msg.co2",
         "account": "c4597d9.54e398",
         "routineNode": {
             "type": "speak",
@@ -2497,7 +2498,7 @@
         "id": "36e9087b.e10748",
         "type": "alexa-remote-routine",
         "z": "eb78f2d0.07849",
-        "name": "",
+        "name": "co2 level ok",
         "account": "c4597d9.54e398",
         "routineNode": {
             "type": "speakAtVolume",
