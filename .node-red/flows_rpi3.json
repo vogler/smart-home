@@ -2196,14 +2196,15 @@
         "id": "3ef17627.978e2a",
         "type": "exec",
         "z": "5579b405.ff7b4c",
-        "command": "~/cec.sh",
-        "addpay": true,
+        "command": "~/smart-home/cec.sh",
+        "addpay": "payload",
         "append": "",
         "useSpawn": "false",
         "timer": "",
+        "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 240,
+        "x": 280,
         "y": 520,
         "wires": [
             [
@@ -2227,7 +2228,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 390,
+        "x": 490,
         "y": 520,
         "wires": []
     },
