@@ -1,7 +1,7 @@
 ![Chronograf dashboard](https://i.imgur.com/KdjZi8j.png)
 ![node-red light automation](https://i.imgur.com/qlGAEON.png)
 
-- Raspberry Pi 3 B
+- Raspberry Pi 3 & 4:
   - First used [home-assistant](https://www.home-assistant.io/), now only [node-red](https://nodered.org/).
     - home-assistant was slow, didn't use UI anyway; node-red is much nicer for automation and for playing around.
   - [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt/) ([config](opt/zigbee2mqtt/data/configuration.yaml))
@@ -10,3 +10,17 @@
   - [Sensors](https://github.com/vogler/sensors) -> [MQTT](https://mosquitto.org/) -> [Telegraf](https://github.com/influxdata/telegraf) -> [InfluxDB](https://github.com/influxdata/influxdb) -> [Chronograf](https://github.com/influxdata/chronograf)
     - InfluxDB is not reliable on 32 bit OS, fails to allocate memory and somehow crashes the RPi every couple of days (see [issue](https://github.com/influxdata/influxdb/issues/11339#issuecomment-525500034)), maybe fixed by 64 bit Debian on RPi4, meanwhile copy to MBP, see [influxdb-fail.md](influxdb-fail.md).
 - Wemos D1 mini: [FlowMeter](https://github.com/vogler/FlowMeter) for shower usage
+
+### external access
+#### IPv6 from IPv4
+[M-net](https://www.m-net.de/hilfe-service/fragen-und-antworten/frage/show/kann-ich-mit-ipv6-auch-auf-netzwerk-ressourcen-mit-ipv4-adresse-weiterhin-zugreifen/1/internetanschluss/) is using [Dual-Stack Lite](https://en.wikipedia.org/wiki/IPv6_transition_mechanism#Dual-Stack_Lite_(DS-Lite)) ([de](https://www.elektronik-kompendium.de/sites/net/2010211.htm)) which means I only have a public IPv6 address and carrier-grade NAT for IPv4.
+Only had IPv4 on the phone with o2, but since [june 2021](https://www.teltarif.de/o2-ipv6-mobilfunknetz/news/84237.html) they also support IPv6.
+Still, when traveling, mobile/hotel WiFi might have IPv4 only. Check with https://ipv6-test.com.
+
+Free solutions for accessing IPv6 from IPv4-only connections:
+- [localtunnel](https://github.com/localtunnel/localtunnel) for each port: `npx localtunnel --port 8080`
+- [tailscale](https://tailscale.com): Point-to-point WireGuard VPN
+- [6to4 relay](https://en.wikipedia.org/wiki/6to4): have not tried
+
+#### DNS
+Using [MyFRITZ](https://www.myfritz.net/) DynDNS in FritzBox, rpi{3,4}.voglerr.de subdomains with cloudflare as nameserver for proxy/stats and [CNAME flattening](https://blog.cloudflare.com/introducing-cname-flattening-rfc-compliant-cnames-at-a-domains-root/) which allows CNAME for domain root as well.
