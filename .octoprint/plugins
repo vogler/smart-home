@@ -25,6 +25,7 @@ https://plugins.octoprint.org/plugins/dragon_order/ # allows the re-ordering of 
 # more info
 https://plugins.octoprint.org/plugins/DisplayLayerProgress/ # Displays the Layer, Progress and other data on "Printer-Display", "NavBar", "BrowserTab-Title"
 https://plugins.octoprint.org/plugins/prettygcode/ # 3D GCode visualizer
+https://plugins.octoprint.org/plugins/bedlevelvisualizer/ # for automatic or manual mesh bed leveling
 
 # features
 https://plugins.octoprint.org/plugins/autoselect/ # Automatically selects freshly uploaded files for printing
@@ -39,13 +40,13 @@ https://plugins.octoprint.org/plugins/terminalmessaging/ # Adds styling to the t
 https://plugins.octoprint.org/plugins/terminalcommandsextended/ # adds custom gcode command buttons to the Terminal tab.
 https://plugins.octoprint.org/plugins/autoscroll/ # Turn on/off terminal autoscroll when scrolling up/down
 https://plugins.octoprint.org/plugins/marlingcodedocumentation/ # Provides documentation for Marlin, RepRap, and Klipper, GCode commands in the Terminal tab
+https://plugins.octoprint.org/plugins/active_filters_extended/ # Makes the enabled terminal filters persistent between browser reloads
 
-
-# upgrade Marlin, then: https://plugins.octoprint.org/plugins/meatpack/
+# performance
+https://plugins.octoprint.org/plugins/arc_welder/
+https://plugins.octoprint.org/plugins/meatpack/
 
 # bookmarks:
-# https://plugins.octoprint.org/plugins/arc_welder/
-# https://plugins.octoprint.org/plugins/bedlevelvisualizer/ # useful once done manual or ABL
 # https://plugins.octoprint.org/plugins/autobim/ # bed tramming using ABL
 # https://plugins.octoprint.org/plugins/octoeverywhere/
 # https://plugins.octoprint.org/plugins/excluderegion/ # alternative to cancelobject
