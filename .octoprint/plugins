@@ -9,7 +9,8 @@ https://plugins.octoprint.org/plugins/octolapse/ # better than OctoPrint's timel
 # remote control, automate
 https://plugins.octoprint.org/plugins/telegram/ # notifications & control via Telegram
 https://plugins.octoprint.org/plugins/mqtt/ # support for subscribing and publishing to MQTT topics
-https://plugins.octoprint.org/plugins/tasmota_mqtt/ # control power of printer + E27 LED via Tasmota WiFi socket
+# https://plugins.octoprint.org/plugins/tasmota_mqtt/ # replaced by tasmota below since it supports to turn on on upload from Cura
+https://plugins.octoprint.org/plugins/tasmota/ # control power of printer + E27 LED via Tasmota WiFi socket
 
 # analysis, formats
 https://plugins.octoprint.org/plugins/PrintTimeGenius/ # better print time estimation
