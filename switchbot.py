@@ -17,6 +17,8 @@ if len(sys.argv) != 3:
 mac = sys.argv[1].lower()
 cmd = sys.argv[2].lower()
 
+# switch-case/pattern matching only introduced in Python 3.10... https://pakstech.com/blog/python-switch-case/
+
 # bot
 # https://github.com/OpenWonderLabs/python-host/wiki/Bot-BLE-open-API#0x01-execute-an-action
 if cmd == 'on':
