@@ -35,6 +35,14 @@
         "info": ""
     },
     {
+        "id": "c244880f71d23ef4",
+        "type": "tab",
+        "label": "WLED matrix",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "75898696.612e28",
         "type": "mqtt-broker",
         "name": "mosquitto",
@@ -3147,6 +3155,319 @@
         "wires": [
             [
                 "13b97d77aa842a60"
+            ]
+        ]
+    },
+    {
+        "id": "94e2b625ea63bae1",
+        "type": "image viewer",
+        "z": "c244880f71d23ef4",
+        "name": "",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "active": true,
+        "x": 370,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b78708205eaae06c",
+        "type": "jimp-image",
+        "z": "c244880f71d23ef4",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "",
+        "parameter1Type": "msg",
+        "parameter2": "",
+        "parameter2Type": "msg",
+        "parameter3": "",
+        "parameter3Type": "msg",
+        "parameter4": "",
+        "parameter4Type": "msg",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 0,
+        "jimpFunction": "none",
+        "selectedJimpFunction": {
+            "name": "none",
+            "fn": "none",
+            "description": "Just loads the image.",
+            "parameters": []
+        },
+        "x": 220,
+        "y": 160,
+        "wires": [
+            [
+                "94e2b625ea63bae1",
+                "f853a4ed4e4cb86f"
+            ]
+        ]
+    },
+    {
+        "id": "1f8a16cba1ffcb66",
+        "type": "inject",
+        "z": "c244880f71d23ef4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "https://placekitten.com/200/300",
+        "payloadType": "str",
+        "x": 80,
+        "y": 160,
+        "wires": [
+            [
+                "b78708205eaae06c"
+            ]
+        ]
+    },
+    {
+        "id": "f853a4ed4e4cb86f",
+        "type": "jimp-image",
+        "z": "c244880f71d23ef4",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "16",
+        "parameter1Type": "num",
+        "parameter2": "16",
+        "parameter2Type": "num",
+        "parameter3": "",
+        "parameter3Type": "none",
+        "parameter4": "",
+        "parameter4Type": "none",
+        "parameter5": "",
+        "parameter5Type": "msg",
+        "parameter6": "",
+        "parameter6Type": "msg",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 4,
+        "jimpFunction": "contain",
+        "selectedJimpFunction": {
+            "name": "contain",
+            "fn": "contain",
+            "description": "scale the image to the given width and height, some parts of the image may be letter boxed",
+            "parameters": [
+                {
+                    "name": "w",
+                    "type": "num",
+                    "required": true,
+                    "hint": "the width to resize the image to"
+                },
+                {
+                    "name": "h",
+                    "type": "num",
+                    "required": true,
+                    "hint": "the height to resize the image to"
+                },
+                {
+                    "name": "alignBits",
+                    "type": "alignMode",
+                    "required": false,
+                    "hint": "A bitmask for horizontal and vertical alignment. Jimp.HORIZONTAL_ALIGN_LEFT | Jimp.HORIZONTAL_ALIGN_CENTER | Jimp.HORIZONTAL_ALIGN_RIGHT | Jimp.VERTICAL_ALIGN_TOP | Jimp.VERTICAL_ALIGN_MIDDLE | Jimp.VERTICAL_ALIGN_BOTTOM;"
+                },
+                {
+                    "name": "mode",
+                    "type": "resizeMode",
+                    "required": false,
+                    "hint": "A scaling method (e.g. Jimp.RESIZE_BEZIER)"
+                }
+            ]
+        },
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "27b68c50a51a43ce",
+                "6c84d54f8098e615"
+            ]
+        ]
+    },
+    {
+        "id": "27b68c50a51a43ce",
+        "type": "image viewer",
+        "z": "c244880f71d23ef4",
+        "name": "",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "active": true,
+        "x": 550,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2016affe3bb86465",
+        "type": "jimp-image",
+        "z": "c244880f71d23ef4",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "FONT_SANS_8_WHITE",
+        "parameter1Type": "jimpFont",
+        "parameter2": "0",
+        "parameter2Type": "num",
+        "parameter3": "0",
+        "parameter3Type": "num",
+        "parameter4": "1234\\n5678",
+        "parameter4Type": "str",
+        "parameter5": "",
+        "parameter5Type": "none",
+        "parameter6": "",
+        "parameter6Type": "none",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 6,
+        "jimpFunction": "print",
+        "selectedJimpFunction": {
+            "name": "print",
+            "fn": "print",
+            "description": "Print text to the image",
+            "parameters": [
+                {
+                    "name": "font|str",
+                    "type": "jimpFont",
+                    "required": true,
+                    "hint": "font to print. NOTE: This can be one of the presets or the path to a fnt file"
+                },
+                {
+                    "name": "x",
+                    "type": "num",
+                    "required": true,
+                    "hint": "x coordinate to print text"
+                },
+                {
+                    "name": "y",
+                    "type": "num",
+                    "required": true,
+                    "hint": "y coordinate to print text"
+                },
+                {
+                    "name": "text",
+                    "type": "str",
+                    "required": true,
+                    "hint": "text to print"
+                },
+                {
+                    "name": "maxWidth",
+                    "type": "num",
+                    "required": false,
+                    "hint": "wrap text at maxWidth"
+                },
+                {
+                    "name": "maxHeight",
+                    "type": "num",
+                    "required": false,
+                    "hint": "max height"
+                }
+            ]
+        },
+        "x": 610,
+        "y": 40,
+        "wires": [
+            [
+                "7466a4dea7a786db"
+            ]
+        ]
+    },
+    {
+        "id": "7466a4dea7a786db",
+        "type": "image viewer",
+        "z": "c244880f71d23ef4",
+        "name": "",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "active": true,
+        "x": 730,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6c84d54f8098e615",
+        "type": "jimp-image",
+        "z": "c244880f71d23ef4",
+        "name": "",
+        "data": "payload",
+        "dataType": "msg",
+        "ret": "img",
+        "parameter1": "-1",
+        "parameter1Type": "num",
+        "parameter2": "0",
+        "parameter2Type": "num",
+        "parameter3": "0",
+        "parameter3Type": "none",
+        "parameter4": "1234",
+        "parameter4Type": "none",
+        "parameter5": "",
+        "parameter5Type": "none",
+        "parameter6": "",
+        "parameter6Type": "none",
+        "parameter7": "",
+        "parameter7Type": "msg",
+        "parameter8": "",
+        "parameter8Type": "msg",
+        "sendProperty": "payload",
+        "sendPropertyType": "msg",
+        "parameterCount": 1,
+        "jimpFunction": "brightness",
+        "selectedJimpFunction": {
+            "name": "brightness",
+            "fn": "brightness",
+            "description": "adjust the brightness",
+            "parameters": [
+                {
+                    "name": "val",
+                    "type": "num",
+                    "required": true,
+                    "hint": "adjust the brightness by a value -1.0 to 1.0"
+                }
+            ]
+        },
+        "x": 470,
+        "y": 40,
+        "wires": [
+            [
+                "2016affe3bb86465"
             ]
         ]
     }
