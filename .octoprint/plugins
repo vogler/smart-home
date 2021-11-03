@@ -45,7 +45,7 @@ https://plugins.octoprint.org/plugins/marlingcodedocumentation/ # Provides docum
 https://plugins.octoprint.org/plugins/active_filters_extended/ # Makes the enabled terminal filters persistent between browser reloads
 
 # performance
-https://plugins.octoprint.org/plugins/arc_welder/
+https://plugins.octoprint.org/plugins/arc_welder/ # disabled in favor of https://marketplace.ultimaker.com/app/cura/plugins/fieldofview/ArcWelderPlugin - issue with PrintJobHistory/SpoolManager on overwrite: https://github.com/OllisGit/OctoPrint-PrintJobHistory/issues/173
 https://plugins.octoprint.org/plugins/meatpack/
 
 # bookmarks:
