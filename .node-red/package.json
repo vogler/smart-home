@@ -28,6 +28,7 @@
         "node-red-contrib-timeout": "^1.1.5",
         "node-red-contrib-wait-paths": "^0.3.2",
         "node-red-contrib-wemo-emulator": "^1.0.4",
+        "node-red-contrib-wled2": "^2.4.4",
         "node-red-contrib-zigbee2mqtt": "^0.6.11",
         "node-red-dashboard": "^3.1.0",
         "node-red-node-google": "^0.2.2",
