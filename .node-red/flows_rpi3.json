@@ -236,6 +236,20 @@
         "base_topic": "zigbee2mqtt"
     },
     {
+        "id": "3406502b18c11d64",
+        "type": "influxdb",
+        "hostname": "rpi4",
+        "port": "8086",
+        "protocol": "http",
+        "database": "telegraf",
+        "name": "rpi4",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "1.x",
+        "url": "http://rpi4:8086",
+        "rejectUnauthorized": true
+    },
+    {
         "id": "ecc17bce.653108",
         "type": "mqtt in",
         "z": "b635b24c.eee61",
@@ -3068,6 +3082,71 @@
         "wires": [
             [
                 "e8a753bd64709253"
+            ]
+        ]
+    },
+    {
+        "id": "13b97d77aa842a60",
+        "type": "influxdb in",
+        "z": "25f51f1a963341a3",
+        "influxdb": "3406502b18c11d64",
+        "name": "last co2",
+        "query": "SELECT \"co2\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE \"topic\"='sensors/mh-z19b' ORDER BY DESC LIMIT 1",
+        "rawOutput": true,
+        "precision": "",
+        "retentionPolicy": "",
+        "org": "organisation",
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "8eb2e89e2da165c3"
+            ]
+        ]
+    },
+    {
+        "id": "8eb2e89e2da165c3",
+        "type": "debug",
+        "z": "25f51f1a963341a3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.results[0].series[0].values[0][1]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "d84f4a019d818620",
+        "type": "inject",
+        "z": "25f51f1a963341a3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "13b97d77aa842a60"
             ]
         ]
     }
