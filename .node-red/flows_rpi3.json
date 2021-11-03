@@ -41,8 +41,9 @@
         "broker": "localhost",
         "port": "1883",
         "clientid": "",
+        "autoConnect": true,
         "usetls": false,
-        "compatmode": true,
+        "protocolVersion": 4,
         "keepalive": "60",
         "cleansession": true,
         "birthTopic": "",
@@ -221,6 +222,18 @@
         "id": "119e8fc6635b6db9",
         "type": "pushbullet-config",
         "name": "pushbullet"
+    },
+    {
+        "id": "c3c95db232b48280",
+        "type": "zigbee2mqtt-server",
+        "name": "",
+        "host": "localhost",
+        "mqtt_port": "1883",
+        "mqtt_username": "",
+        "mqtt_password": "",
+        "tls": "",
+        "usetls": false,
+        "base_topic": "zigbee2mqtt"
     },
     {
         "id": "ecc17bce.653108",
