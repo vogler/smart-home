@@ -60,15 +60,15 @@ devices:
     debounce: 1
   '0x90fd9ffffede386b':
     friendly_name: Tradfri_WS_Bed
-    retain: true
+    # retain: true
   '0x90fd9ffffee0c769':
     friendly_name: Tradfri_Button_Bed
   '0x000d6ffffe1e0f1d':
     friendly_name: Tradfri_WS_Kitchen
-    retain: true
+    # retain: true
   '0x7cb03eaa00a9e97e':
     friendly_name: Osram_Strip_RGBW_Kitchen
-    retain: true
+    # retain: true
   '0x7cb03eaa0a0061ef':
     friendly_name: Osram_Strip_RGBW_Router_Kitchen
   # '0x7cb03eaa0a009a9c':
