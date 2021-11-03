@@ -753,7 +753,7 @@
         "once": true,
         "onceDelay": "1",
         "topic": "",
-        "payload": "{\"state\":\"OFF\",\"color_temp\":230}",
+        "payload": "{\"state\":\"OFF\",\"color_temp\":230,\"remember_state\":true}",
         "payloadType": "json",
         "x": 590,
         "y": 500,
