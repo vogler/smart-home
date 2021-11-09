@@ -1120,7 +1120,7 @@
         "y": 480,
         "wires": [
             [
-                "4221d209.c2a0ac"
+                "67c3c458cc0ffb7a"
             ]
         ]
     },
@@ -1133,8 +1133,8 @@
         "qos": "2",
         "retain": "true",
         "broker": "75898696.612e28",
-        "x": 970,
-        "y": 480,
+        "x": 990,
+        "y": 460,
         "wires": []
     },
     {
@@ -1679,6 +1679,24 @@
         "statusType": "auto",
         "x": 1350,
         "y": 300,
+        "wires": []
+    },
+    {
+        "id": "67c3c458cc0ffb7a",
+        "type": "mqtt out",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "topic": "lights/wled-matrix",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "75898696.612e28",
+        "x": 990,
+        "y": 500,
         "wires": []
     },
     {
