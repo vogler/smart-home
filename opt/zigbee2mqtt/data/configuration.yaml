@@ -1,19 +1,19 @@
-homeassistant: false
-permit_join: true
+homeassistant: false # using node-red
+permit_join: true # not recommended, but door sensors seemed to need it, otherwise drop out after some days?
 mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://localhost'
 serial:
   port: '/dev/serial/by-path/platform-3f980000.usb-usb-0:1.2:1.0-port0' # SONOFF Zigbee 3.0 USB Dongle Plus (CC2652P CP2102N), firmware: z2m 1.2.7.1 20210708. Before CC2530 via ch341-uart USB adapter (originally for ESP-01), firmware: CC2530_SOURCE_ROUTING_20201128. Can't use /dev/ttyUSB1 anymore since it might switch with ttyUSB0 on boot. Before CC2531 USB sniffer on /dev/ttyACM0
   # disable_led: true # only for CC2531, timeout ledControl after 6s on CC2530
+availability: true # marks devices online/offline. active devices have to check-in every 10min or will be pinged; passive devices have to check-in every 25h
 ota:
   # OTA for OSRAM kept crashing since their SSL cert expired, see https://github.com/Koenkk/zigbee2mqtt/issues/8864
   disable_automatic_update_check: true
 advanced:
   # log_level: debug
   cache_state: false # home assistant requires all attributes in MQTT messages, disable cache to just get the original zigbee message with only the changed attributes
-  rtscts: false
-  ikea_ota_use_test_url: true # https://github.com/Koenkk/zigbee2mqtt.io/blob/develop/docs/information/ota_updates.md#using-the-ikea-tradfri-test-server
+  ikea_ota_use_test_url: true # https://www.zigbee2mqtt.io/guide/usage/ota_updates.html#using-the-ikea-tradfri-test-server
   log_symlink_current: true
 frontend:
   port: 8080
@@ -24,6 +24,9 @@ groups:
     friendly_name: Tradfri_Scenes # added scenes (ID color_temp brightness): 1 250 254, 2 370 254, 3 454 132; see https://github.com/Koenkk/zigbee2mqtt/issues/1232#issuecomment-767393536
     devices:
       - Tradfri_WS_Bed
+# device_options:
+#   retain: true
+#   occupancy_timeout: 10
 devices:
   '0x00158d0002b5306c':
     friendly_name: Aqara_Door_Apt
