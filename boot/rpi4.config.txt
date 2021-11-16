@@ -58,11 +58,13 @@ dtparam=audio=on
 
 [pi4]
 # Enable DRM VC4 V3D driver on top of the dispmanx display stack
-dtoverlay=vc4-fkms-v3d
+#dtoverlay=vc4-fkms-v3d
 max_framebuffers=2
+# Run as fast as firmware / board allows; was 1.5 GHz before
+arm_boost=1 # also 1.5 GHz with this -> older chip which does not support 1.8 GHz?
 
 [all]
-#dtoverlay=vc4-fkms-v3d
+dtoverlay=vc4-kms-v3d
 enable_uart=1
 #hdmi_enable_4kp60=1
 
