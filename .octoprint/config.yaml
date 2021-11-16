@@ -1,0 +1,820 @@
+accessControl:
+  enabled: false
+  salt: !secret salt
+api:
+  key: !secret api_key
+appearance:
+  components:
+    order:
+      sidebar:
+      - plugin_firmware_check_warning
+      - plugin_firmware_check_info
+      - connection
+      - state
+      - plugin_SpoolManager
+      - files
+      - plugin_action_command_notification
+      - plugin_tasmota_mqtt
+      tab:
+      - plugin_consolidatedtabs
+      - plugin_PrintJobHistory
+      - terminal
+      - timelapse
+      - plugin_SpoolManager
+      - plugin_prettygcode
+      - plugin_gcodeviewer
+      - plugin_stlviewer
+      - plugin_cancelobject
+      - plugin_resource_monitor
+      - plugin_filemanager
+      - plugin_octolapse
+      - control
+      - temperature
+  defaultLanguage: en
+feature:
+  printCancelConfirmation: false
+  sdSupport: false
+gcodeAnalysis:
+  runAt: always
+plugins:
+  DisplayLayerProgress:
+    browserTitleMessagePattern: '[progress]% [printtime_left] [estimated_end_time]'
+    navBarMessagePattern: '[progress]%
+
+      [printtime_left]
+
+      [estimated_end_time]'
+    printerDisplayMessagePattern: '[progress]% [printtime_left] [estimated_end_time]'
+    printerDisplayOutputInterval: '30'
+    showAllPrinterMessages: false
+    showOnFileListView: false
+    showOnPrinterDisplay: false
+    updatePrinterDisplayWhilePrinting: true
+  PrintJobHistory:
+    capturePrintJobHistoryMode: always
+    pluginCheckActivated: false
+    preferedImageSource: camera
+    selectedFilamentTrackerPlugin: SpoolManager Plugin
+    showPrintJobDialogAfterPrint_jobId: 194
+    takeSnapshotAfterPrint: false
+    takeSnapshotOnGCodeCommnd: true
+  PrintTimeGenius:
+    showStars: false
+  SpoolManager:
+    hideEmptySpoolsInSidebar: true
+    reminderSelectingSpool: false
+    selectedSpoolDatabaseId: 12
+    selectedSpoolsDatabaseIds:
+    - 11
+  UltimakerFormatPackage:
+    inline_thumbnail: true
+    inline_thumbnail_scale_value: '15'
+    scale_inline_thumbnail: true
+  _disabled:
+  - dashboard
+  - octoeverywhere
+  - uicustomizer
+  - continuousprint
+  - filamentmanager
+  - thespaghettidetective
+  - filemanager
+  - tasmota_mqtt
+  active_filters_extended:
+    activeFilters:
+    - '(Send: (N\d+\s+)?M105)|(Recv:\s+(ok\s+([PBN]\d+\s+)*)?([BCLPR]|T\d*):-?\d+)'
+    - '(Send: (N\d+\s+)?M27)|(Recv: SD printing byte)|(Recv: Not SD printing)'
+    - (Send:\s+(N\d+\s+)?M114)|(Recv:\s+(ok\s+)?X:[+-]?([0-9]*[.])?[0-9]+\s+Y:[+-]?([0-9]*[.])?[0-9]+\s+Z:[+-]?([0-9]*[.])?[0-9]+\s+E\d*:[+-]?([0-9]*[.])?[0-9]+).*
+    - 'Recv: (echo:\s*)?busy:\s*processing'
+    - 'Recv: wait'
+  announcements:
+    _config_version: 1
+    channels:
+      _blog:
+        read_until: 1627392600
+      _important:
+        read_until: 1521111600
+      _octopi:
+        read_until: 1611568800
+      _plugins:
+        read_until: 1633410000
+      _releases:
+        read_until: 1635874200
+    enabled_channels:
+    - _releases
+    - _plugins
+    - _important
+  arc_welder:
+    feature_settings:
+      delete_source: auto-only
+    notification_settings:
+      show_completed_notification: false
+      show_progress_bar: false
+      show_started_notification: false
+    overwrite_source_file: true
+  bedlevelvisualizer:
+    _config_version: 1
+    command: M420 S1 V
+    mesh_timestamp: 22/10/2021, 12:15:15
+    stored_mesh:
+    - - '+0.08000'
+      - '+0.06000'
+      - '+0.03000'
+      - '+0.05000'
+      - '+0.11000'
+    - - '+0.18000'
+      - '+0.12000'
+      - '+0.08000'
+      - '+0.09000'
+      - '+0.12000'
+    - - '+0.21000'
+      - '+0.09000'
+      - '+0.06000'
+      - '+0.07000'
+      - '+0.11000'
+    - - '+0.17000'
+      - '+0.10000'
+      - '+0.07000'
+      - '+0.08000'
+      - '+0.13000'
+    - - '-0.01000'
+      - '+0.00000'
+      - '+0.01000'
+      - '+0.05000'
+      - '+0.05000'
+    stored_mesh_x:
+    - 0
+    - 55
+    - 110
+    - 165
+    - 220
+    stored_mesh_y:
+    - 0
+    - 55
+    - 110
+    - 165
+    - 220
+    stored_mesh_z_height: 250
+  calibrationcompanion:
+    abl_method_accel: M420 S1
+    abl_method_flow: M420 S1
+    abl_method_retra: M420 S1
+    abl_method_square: M420 S1
+    abl_method_temp: M420 S1
+    bed_size_x: '220'
+    bed_size_y: '220'
+    bed_size_z: '250'
+    current_e_steps: '414.2600'
+    end_gcode_accel: 'G91;relative mode
+
+      G92 E0;reset extruder
+
+      G1 F[retraction_speed] E-[retraction_distance];retract a bit to avoid oozing
+
+      G0 Z10 F[travel_speed];move up
+
+      M140 S0;set bed to 0C
+
+      M104 S0;set hotend to 0C
+
+      M107;turn off fans
+
+      G90;absolute mode
+
+      G0 F[travel_speed] Y[bed_size_y];show the print'
+    end_gcode_flow: 'G91;relative mode
+
+      G92 E0;reset extruder
+
+      G1 F[retraction_speed] E-[retraction_distance];retract a bit to avoid oozing
+
+      G0 Z10 F[travel_speed];move up
+
+      M140 S0;set bed to 0C
+
+      M104 S0;set hotend to 0C
+
+      M107;turn off fans
+
+      G90;absolute mode
+
+      G0 F[travel_speed] Y[bed_size_y];show the print'
+    end_gcode_retra: 'G91;relative mode
+
+      G92 E0;reset extruder
+
+      G1 F[retraction_speed] E-[retraction_distance];retract a bit to avoid oozing
+
+      G0 Z10 F[travel_speed];move up
+
+      M140 S0;set bed to 0C
+
+      M104 S0;set hotend to 0C
+
+      M107;turn off fans
+
+      G90;absolute mode
+
+      G0 F[travel_speed] Y[bed_size_y];show the print'
+    end_gcode_square: 'G91;relative mode
+
+      G92 E0;reset extruder
+
+      G1 F[retraction_speed] E-[retraction_distance];retract a bit to avoid oozing
+
+      G0 Z10 F[travel_speed];move up
+
+      M140 S0;set bed to 0C
+
+      M104 S0;set hotend to 0C
+
+      M107;turn off fans
+
+      G90;absolute mode
+
+      G0 F[travel_speed] Y[bed_size_y];show the print'
+    end_gcode_temp: 'G91;relative mode
+
+      G92 E0;reset extruder
+
+      G1 F[retraction_speed] E-[retraction_distance];retract a bit to avoid oozing
+
+      G0 Z10 F[travel_speed];move up
+
+      M140 S0;set bed to 0C
+
+      M104 S0;set hotend to 0C
+
+      M107;turn off fans
+
+      G90;absolute mode
+
+      G0 F[travel_speed] Y[bed_size_y];show the print'
+    fan_layer_accel: '5'
+    fan_layer_flow: '5'
+    fan_layer_retra: '5'
+    fan_layer_temp: '5'
+    fan_speed_accel: '50'
+    fan_speed_flow: '50'
+    fan_speed_retra: '50'
+    fan_speed_square: '50'
+    fan_speed_temp: '50'
+    first_layer_bed_accel: '65'
+    first_layer_bed_flow: '65'
+    first_layer_bed_retra: '65'
+    first_layer_bed_temp: '65'
+    first_layer_nozzle_accel: '205'
+    first_layer_nozzle_flow: '205'
+    first_layer_nozzle_retra: '205'
+    first_layer_nozzle_temp: '205'
+    first_layer_speed_accel: '20'
+    first_layer_speed_flow: '20'
+    first_layer_speed_retra: '20'
+    first_layer_speed_temp: '20'
+    flow_accel: '100'
+    flow_retra: '100'
+    flow_square: '100'
+    flow_temp: '100'
+    printer_name: Genius
+    regular_bed_accel: '60'
+    regular_bed_flow: '60'
+    regular_bed_retra: '60'
+    regular_bed_square: '60'
+    regular_bed_temp: '60'
+    regular_nozzle_accel: '200'
+    regular_nozzle_flow: '200'
+    regular_nozzle_retra: '200'
+    regular_nozzle_square: '200'
+    regular_speed_accel: '50'
+    regular_speed_flow: '50'
+    regular_speed_retra: '50'
+    regular_speed_square: '50'
+    regular_speed_temp: '50'
+    retraction_dist_accel: '2'
+    retraction_dist_flow: '2'
+    retraction_dist_square: '2'
+    retraction_dist_temp: '2'
+    retraction_speed_accel: '30'
+    retraction_speed_flow: '30'
+    retraction_speed_square: '30'
+    retraction_speed_temp: '30'
+    start_gcode_accel: 'G90;absolute mode
+
+      G0 F[travel_speed] X100 Y100 Z10;place the nozzle for heating
+
+      M140 S[regular_bed];set bed to [regular_bed]C
+
+      M190 S[regular_bed];wait for bed to [regular_bed]C
+
+      M104 S[regular_nozzle];set hotend to [regular_nozzle]C
+
+      M109 S[regular_nozzle];wait hotend to [regular_nozzle]C
+
+      G92 E0;reset extruder'
+    start_gcode_flow: 'G90;absolute mode
+
+      G0 F[travel_speed] X100 Y100 Z10;place the nozzle for heating
+
+      M140 S[regular_bed];set bed to [regular_bed]C
+
+      M190 S[regular_bed];wait for bed to [regular_bed]C
+
+      M104 S[regular_nozzle];set hotend to [regular_nozzle]C
+
+      M109 S[regular_nozzle];wait hotend to [regular_nozzle]C
+
+      G92 E0;reset extruder'
+    start_gcode_retra: 'G90;absolute mode
+
+      G0 F[travel_speed] X100 Y100 Z10;place the nozzle for heating
+
+      M140 S[regular_bed];set bed to [regular_bed]C
+
+      M190 S[regular_bed];wait for bed to [regular_bed]C
+
+      M104 S[regular_nozzle];set hotend to [regular_nozzle]C
+
+      M109 S[regular_nozzle];wait hotend to [regular_nozzle]C
+
+      G92 E0;reset extruder'
+    start_gcode_square: 'G90;absolute mode
+
+      G0 F[travel_speed] X100 Y100 Z10;place the nozzle for heating
+
+      M140 S[regular_bed];set bed to [regular_bed]C
+
+      M190 S[regular_bed];wait for bed to [regular_bed]C
+
+      M104 S[regular_nozzle];set hotend to [regular_nozzle]C
+
+      M109 S[regular_nozzle];wait hotend to [regular_nozzle]C
+
+      G92 E0;reset extruder'
+    start_gcode_temp: 'G90;absolute mode
+
+      G0 F[travel_speed] X100 Y100 Z10;place the nozzle for heating
+
+      M140 S[regular_bed];set bed to [regular_bed]C
+
+      M190 S[regular_bed];wait for bed to [regular_bed]C
+
+      M104 S[regular_nozzle];set hotend to [regular_nozzle]C
+
+      M109 S[regular_nozzle];wait hotend to [regular_nozzle]C
+
+      G92 E0;reset extruder'
+    travel_speed_accel: '150'
+    travel_speed_flow: '150'
+    travel_speed_retra: '150'
+    travel_speed_square: '150'
+    travel_speed_temp: '150'
+  cancelobject:
+    shownav: false
+  consolidatedtabs:
+    full_width: true
+    gridstack:
+    - h: 30
+      id: control_link
+      name: Control
+      selector: '#control'
+      w: 12
+      x: 0
+      y: 0
+    - h: 30
+      id: tab_plugin_prettygcode_link
+      name: PrettyGCode
+      selector: '#tab_plugin_prettygcode'
+      w: 12
+      x: 12
+      y: 0
+    - h: 22
+      id: temp_link
+      name: Temperature
+      selector: '#temp'
+      w: 12
+      x: 0
+      y: 30
+    - h: 36
+      id: tab_plugin_PrintJobHistory_link
+      name: Print Job History
+      selector: '#tab_plugin_PrintJobHistory'
+      w: 12
+      x: 12
+      y: 30
+    tab_order:
+    - id: control_link
+      name: Steuerung
+      scaffolding: '8'
+      selector: '#control'
+    - id: temp_link
+      name: Temperatur
+      scaffolding: '8'
+      selector: '#temp'
+  costestimation:
+    _config_version: 3
+    costOfElectricity: '0.28'
+    costOfFilament: '16'
+    powerConsumption: '0.09'
+    useFilamentManager: false
+    useSpoolManager: true
+  dashboard:
+    showLayerGraph: true
+    showLayerProgress: true
+    showPrinterMessage: true
+    showTempGaugeColors: true
+    showWebCam: true
+  firmwareupdater:
+    _config_version: 2
+    _selected_profile: 0
+    profiles:
+    - _name: Default
+      avrdude_avrmcu: m2560
+      avrdude_path: /usr/bin/avrdude
+      avrdude_programmer: wiring
+      flash_method: avrdude
+      last_url: http://rpi4:8080/firmware.hex
+      serial_port: /dev/ttyUSB0
+    save_url: true
+  gcodeviewer:
+    _config_version: 1
+  marlingcodedocumentation:
+    include_source_klipper: false
+    include_source_reprap: false
+    show_help: false
+  meatpack:
+    _config_version: 1
+    logTransmissionStats: false
+  mqtt:
+    broker:
+      url: rpi3
+    publish:
+      temperatureThreshold: '1.0'
+  multicam:
+    _config_version: 3
+    multicam_profiles:
+    - URL: http://rpi4:8090/?action=stream
+      flipH: false
+      flipV: false
+      isButtonEnabled: false
+      name: Logitech C920
+      rotate90: false
+      snapshot: http://rpi4:8090/?action=snapshot
+      streamRatio: '16:9'
+    - URL: http://esp32-cam:81/stream
+      flipH: false
+      flipV: false
+      isButtonEnabled: true
+      name: ESP32-CAM
+      rotate90: false
+      snapshot: http://
+      streamRatio: '4:3'
+  octolapse:
+    _config_version: 3
+  pi_support:
+    vcgencmd_throttle_check_enabled: false
+  preheat:
+    enable_chamber: false
+  prusaslicerthumbnails:
+    inline_thumbnail: true
+    inline_thumbnail_position_left: true
+    inline_thumbnail_scale_value: '15'
+    scale_inline_thumbnail: true
+  resource_monitor:
+    _config_version: 1
+  softwareupdate:
+    _config_version: 9
+  taborder:
+    _config_version: 5
+    hidden_tabs:
+    - icon: ''
+      icon_color: ''
+      icon_tooltip: ''
+      name: control
+      showtext: true
+      usetitle: false
+    - icon: ''
+      icon_color: ''
+      icon_tooltip: ''
+      name: temperature
+      showtext: true
+      usetitle: false
+    tabs:
+    - icon: ''
+      icon_color: ''
+      icon_tooltip: ''
+      name: plugin_consolidatedtabs
+      showtext: true
+      usetitle: false
+    - icon: fas fa-history
+      icon_color: ''
+      icon_tooltip: ''
+      name: plugin_PrintJobHistory
+      showtext: true
+      usetitle: false
+    - icon: fas fa-terminal
+      icon_color: ''
+      icon_tooltip: ''
+      name: terminal
+      showtext: true
+      usetitle: false
+    - icon: fas fa-video
+      icon_color: ''
+      icon_tooltip: ''
+      name: timelapse
+      showtext: true
+      usetitle: false
+    - icon: fas fa-dot-circle
+      icon_color: ''
+      icon_tooltip: ''
+      name: plugin_SpoolManager
+      showtext: true
+      usetitle: false
+    - icon: far fa-eye
+      icon_color: ''
+      icon_tooltip: ''
+      name: plugin_prettygcode
+      showtext: true
+      usetitle: false
+    - icon: far fa-eye
+      icon_color: ''
+      icon_tooltip: ''
+      name: gcodeviewer
+      showtext: true
+      usetitle: false
+    - icon: far fa-eye
+      icon_color: ''
+      icon_tooltip: ''
+      name: plugin_stlviewer
+      showtext: true
+      usetitle: false
+    - icon: fas fa-ban
+      icon_color: ''
+      icon_tooltip: ''
+      name: plugin_cancelobject
+      showtext: true
+      usetitle: false
+    - icon: fas fa-chart-area
+      icon_color: ''
+      icon_tooltip: ''
+      name: plugin_resource_monitor
+      showtext: true
+      usetitle: false
+    - icon: far fa-copy
+      icon_color: ''
+      icon_tooltip: ''
+      name: plugin_filemanager
+      showtext: true
+      usetitle: false
+    - icon: fas fa-video
+      icon_color: ''
+      icon_tooltip: ''
+      name: plugin_octolapse
+      showtext: true
+      usetitle: false
+  tasmota:
+    _config_version: 11
+    abortTimeout: '90'
+    arrSmartplugs:
+    - autoConnect: true
+      autoConnectDelay: '3'
+      autoDisconnect: true
+      autoDisconnectDelay: '1'
+      automaticShutdownEnabled: true
+      backlog_off_delay: 0
+      backlog_on_delay: 0
+      brightness: 50
+      currentState: unknown
+      displayWarning: false
+      event_on_connecting: false
+      event_on_disconnect: false
+      event_on_error: false
+      event_on_upload: true
+      gcodeEnabled: false
+      gcodeOffDelay: 0
+      gcodeOnDelay: 0
+      icon: icon-bolt
+      idx: '1'
+      ip: 192.168.178.49
+      is_led: false
+      label: ''
+      label_extended: ''
+      off_color: '#FF0000'
+      on_color: '#00FF00'
+      password: ''
+      sensor_identifier: ''
+      sysCmdOff: false
+      sysCmdOffDelay: 0
+      sysCmdOn: false
+      sysCmdOnDelay: 0
+      sysRunCmdOff: ''
+      sysRunCmdOn: ''
+      thermal_runaway: false
+      unknown_color: '#808080'
+      use_backlog: false
+      username: admin
+      warnPrinting: true
+    event_on_connecting_monitoring: true
+    event_on_upload_monitoring: true
+    idleTimeout: '10'
+    powerOffWhenIdle: true
+  tasmota_mqtt:
+    _config_version: 8
+    abortTimeout: '90'
+    arrRelays:
+    - automaticShutdownEnabled: true
+      connect: true
+      connectOnDelay: '2'
+      currentstate: 'ON'
+      disconnect: true
+      disconnectAutoOffDelay: 30
+      disconnectOffDelay: '3'
+      errorEvent: false
+      event_on_connect: true
+      event_on_disconnect: false
+      event_on_startup: false
+      event_on_upload: true
+      gcode: false
+      gcodeOffDelay: 0
+      gcodeOnDelay: 0
+      icon: icon-bolt
+      invertedLogic: false
+      label: ''
+      relayN: ''
+      showInNavbar: true
+      sysCmdOff: false
+      sysCmdOffDelay: 0
+      sysCmdOn: false
+      sysCmdOnDelay: 0
+      sysCmdRunOff: ''
+      sysCmdRunOn: ''
+      topic: sonoff-s26
+      warn: false
+      warnPrinting: true
+    full_topic_pattern: '%prefix%/%topic%/'
+    idleTimeout: '10'
+    powerOffWhenIdle: true
+  telegram:
+    _config_version: 5
+    chats:
+      '1150640683':
+        accept_commands: true
+        allow_users: false
+        commands:
+          /abort: true
+          /con: true
+          /ctrl: true
+          /dontshutup: true
+          /filament: true
+          /files: true
+          /gcode: true
+          /gif: true
+          /help: false
+          /off: true
+          /on: true
+          /print: true
+          /settings: true
+          /shutup: true
+          /status: true
+          /supergif: true
+          /sys: true
+          /test: false
+          /togglepause: true
+          /tune: true
+          /upload: true
+          /user: true
+          'No': false
+          SwitchOff: true
+          SwitchOn: true
+          'Yes': false
+        id: '1150640683'
+        image: /plugin/telegram/img/user/pic1150640683.jpg
+        new: false
+        newUsr: false
+        notifications:
+          Error: true
+          MovieDone: false
+          PrintDone: true
+          PrintFailed: true
+          PrintPaused: true
+          PrintResumed: true
+          PrintStarted: true
+          PrinterShutdown: true
+          PrinterStart: true
+          StatusNotPrinting: false
+          StatusPrinting: false
+          UserNotif: true
+          ZChange: true
+          gCode_M600: true
+          plugin_pause_for_user_event_notify: true
+        private: true
+        send_notifications: true
+        title: Ralf - Vogler - @voglerr
+        type: PRIVATE
+    fileOrder: true
+    messages:
+      Connected:
+        silent: true
+      Disconnected:
+        silent: true
+      Error:
+        text: '{emo:warning} Printer Error: {error_msg}'
+      MovieDone:
+        silent: true
+      PrintDone:
+        text: Finished printing {file} in {time_done}.
+      PrintStarted:
+        silent: true
+      PrinterShutdown:
+        silent: true
+      StatusPrinting:
+        combined: true
+      ZChange:
+        silent: true
+        text: '{percent}% {time_left} left ({time_finish}).
+
+          {time_done} at Z={z}.'
+    notification_height: '0'
+    notification_time: '20'
+    selectFileUpload: true
+    token: !secret telegram_token
+  terminalcommandsextended:
+    _config_version: 4
+  thespaghettidetective:
+    auth_token: !secret thespaghettidetective
+    sentry_opt: asked
+  tracking:
+    enabled: false
+  uicustomizer:
+    fixedFooter: false
+    fixedHeader: false
+    fluidLayout: false
+    responsiveMode: false
+    rows:
+    - _00#connection_wrapper: true
+      _01#files_wrapper: true
+      _02#sidebar_plugin_firmware_check_wrapper: true
+      _03#sidebar_plugin_filamentmanager_wrapper: false
+      _04#sidebar_plugin_SpoolManager_wrapper: false
+      _05#sidebar_plugin_tasmota_mqtt_wrapper: false
+    - _00div.UICmainTabs: true
+    - _00#UICWebCamWidget: true
+      _01#sidebar_plugin_action_command_notification_wrapper: true
+      _02#state_wrapper: true
+    widths:
+    - '3'
+    - '6'
+    - '3'
+  virtual_printer:
+    _config_version: 1
+printerProfiles:
+  default: _default
+serial:
+  autoconnect: true
+  baudrate: 250000
+server:
+  commands:
+    serverRestartCommand: sudo service octoprint restart
+    systemRestartCommand: sudo shutdown -r now
+  firstRun: false
+  onlineCheck:
+    enabled: false
+  pluginBlacklist:
+    enabled: true
+  secretKey: !secret server_key
+  seenWizards:
+    backup: null
+    corewizard: 3
+    telegram: 1
+    thespaghettidetective: 2
+temperature:
+  profiles:
+  - bed: 60
+    chamber: null
+    extruder: 200
+    name: PLA
+  - bed: 80
+    chamber: 0
+    extruder: 220
+    name: PETG
+  - bed: 90
+    chamber: 0
+    extruder: 230
+    name: ABS
+  - bed: 50
+    chamber: 0
+    extruder: 220
+    name: TPU
+  sendAutomatically: true
+webcam:
+  ffmpeg: /usr/bin/ffmpeg
+  ffmpegVideoCodec: libx264
+  snapshot: http://rpi4:8090/?action=snapshot
+  stream: http://rpi4:8090/?action=stream
+  timelapse:
+    fps: 25
+    options:
+      minDelay: 5.0
+      retractionZHop: 1.0
+    postRoll: 2
+    type: zchange
+  timelapseEnabled: false
+  watermark: false
