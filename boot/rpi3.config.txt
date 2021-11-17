@@ -77,6 +77,11 @@ dtparam=act_led_trigger=none
 dtparam=pwr_led_trigger=none
 dtparam=pwr_led_activelow=on
 
+# Disable Ethernet LEDs; https://forums.raspberrypi.com/viewtopic.php?t=288043
+# This is only support from RPi 3B+. For 3B, we use lan951x-led-ctl in rc.local, see commit 2e685189c9dffd3d4e6fe8e4a9bfd753dfcdc26e
+dtparam=eth_led0=14
+dtparam=eth_led1=14
+
 # connected to LAN -> disable WiFi completely, see https://raspberrypi.stackexchange.com/questions/43720/disable-wifi-wlan0-on-pi-3
 dtoverlay=disable-wifi
 
