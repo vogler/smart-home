@@ -4,7 +4,8 @@ from os.path import expanduser
 ids = []
 with open(expanduser('~/.octoprint/config.yaml'), "r") as stream:
     config = yaml.safe_load(stream)
-    ids = config['plugins'].keys()
+    plugins = config['plugins']
+    ids = [k for k in plugins.keys() if k not in plugins['_disabled'] + ['_disabled']]
 
 import urllib.request, json 
 with urllib.request.urlopen("https://plugins.octoprint.org/plugins.json") as url:
