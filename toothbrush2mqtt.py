@@ -1,5 +1,5 @@
 # setup: sudo pip install bluepy paho-mqtt
-# run: sudo python3 mqtt-toothbrush.py 04:EE:03:BB:77:88 rpi3 toothbrush
+# run: sudo python3 toothbrush2mqtt.py 04:EE:03:BB:77:88 rpi3 toothbrush
 
 # adapted from https://github.com/rfaelens/domotica/blob/master/mqtt-toothbrush.py
 # via https://github.com/vogler/toothbrush (fork, deprecated, not simple enough, too many deps, only every 10s?)
