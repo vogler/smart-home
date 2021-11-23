@@ -1,98 +1,91 @@
-#from bluepy.btle import Scanner, DefaultDelegate
-import paho.mqtt.client as mqtt
-import time
+# setup: sudo pip install bluepy paho-mqtt
+# run: sudo python3 mqtt-toothbrush.py 04:EE:03:BB:77:88 rpi3 toothbrush
+
+# adapted from https://github.com/rfaelens/domotica/blob/master/mqtt-toothbrush.py
+# via https://github.com/vogler/toothbrush (fork, deprecated, not simple enough, too many deps, only every 10s?)
+# see https://github.com/vogler/toothbrush/blob/master/notes.md
+
+# Tried https://github.com/zewelor/bt-mqtt-gateway which also only reported every 10s and did not seem as stable.
+
+# The BLE data is not as detailed as what the app shows.
+# Position/orientation is missing, pressure value just changes if so high that the red LED turns on.
+
 import sys
 import bluepy.btle as btle
+# TODO just pipe into mosquitto_pub?
+import paho.mqtt.client as mqtt
+mqttc=mqtt.Client()
+import json
 from datetime import datetime
 
-address="54:4a:16:2f:ab:0b"
-#Astrid: 54:4A:16:0C:E6:79 (unknown)
-if len(sys.argv) != 3:
-    raise Exception("Usage: mqtt-btscanner.py Address Base")
+if len(sys.argv) != 4:
+    print("Usage: sudo python3", sys.argv[0], "mac-address mqtt-host mqtt-topic")
+    exit(1)
 
-address = sys.argv[1]
-base = sys.argv[2]
-
-
-mqttc=mqtt.Client()
+address = sys.argv[1].lower()
+host = sys.argv[2]
+topic = sys.argv[3]
+debug = False
 
 # example:
-#dc00010205030000000101
-#dc00010205030000010101
-#dc00010205030000020101
-#dc00010205030000030101
-#dc00010205030000040101
-#dc00010205030000050101
-#dc00010205030000060101
-#dc00010205020000060101
-#dc00010205030000060101
-#dc00010205030000070101
-#dc00010205030000080101
-#dc00010205030000090101
-#dc00010205030000090501
-#dc000102050300000a0501
-#dc000102050300000b0501
-#dc000102050300000c0201
-#dc000102050300000d0201
-#dc000102050300000e0201
-#dc000102050300000e0401
-#dc000102050300000f0401
-#dc00010205030000100401
-#dc00010205030000100301
-#dc00010205030000110301
-#dc00010205030000120301
-#dc00010205020000120301
-# 0  1  2  3  4  5  6  7  8  9  10
-# dc 00 01 02 05 03 c0 00 09 01 01
-# dc:00:01:02:05:02:00:00:12:03:01
-# dc 00 01 02 05 03 00 01 28 01 04
-# dc 00 01 02 05 03 00 03 35 01 1f  # --> smiley van Astrid?
+# dc000471040232000000010004 {'running': 2, 'pressure': 50, 'time': 0, 'mode': 0, 'quadrant': 1, 'quadrant_percentage': 0} 0
+# dc00047104033a000001010004 {'running': 3, 'pressure': 58, 'time': 0, 'mode': 1, 'quadrant': 1, 'quadrant_percentage': 0} 0
+# dc000471040332000001010004 {'running': 3, 'pressure': 50, 'time': 0, 'mode': 1, 'quadrant': 1, 'quadrant_percentage': 0} 0
+# dc000471040332000101010304 {'running': 3, 'pressure': 50, 'time': 1, 'mode': 1, 'quadrant': 1, 'quadrant_percentage': 3} 3
+# dc000471040332000201010604 {'running': 3, 'pressure': 50, 'time': 2, 'mode': 1, 'quadrant': 1, 'quadrant_percentage': 6} 6
+# dc000471040332000301010a04 {'running': 3, 'pressure': 50, 'time': 3, 'mode': 1, 'quadrant': 1, 'quadrant_percentage': 10} 10
+# dc000471040332000401010d04 {'running': 3, 'pressure': 50, 'time': 4, 'mode': 1, 'quadrant': 1, 'quadrant_percentage': 13} 13
+# dc00047104023a000400010d04 {'running': 2, 'pressure': 58, 'time': 4, 'mode': 0, 'quadrant': 1, 'quadrant_percentage': 13} 13
+# dc000471040232000400010d04 {'running': 2, 'pressure': 50, 'time': 4, 'mode': 0, 'quadrant': 1, 'quadrant_percentage': 13} 13
+# dc000471040432000000010d04 {'running': 4, 'pressure': 50, 'time': 0, 'mode': 0, 'quadrant': 1, 'quadrant_percentage': 13} 13
 
 class ScanDelegate(btle.DefaultDelegate):
     def __init__(self):
         btle.DefaultDelegate.__init__(self)
 
     def handleDiscovery(self, dev, isNewDev, isNewData):
-        if dev.addr <> address: return
-        
-#        message = dev.addr+' '
-#        if isNewDev: message+='NEW'
-#        if isNewData: message+='UPDATE'
-#        message += "  (RSSI="+str(dev.rssi)+",updateCount="+str(dev.updateCount)+")"
-#        print message
-        if isNewDev or isNewData:
-            bytes=dev.getValueText(255).decode('hex')
-            ## BATTERY?
-            ## STARS?
-            ## SMILEY?
-#            mqttc.publish(base+"/", ord(bytes[0]) )
-#            mqttc.publish(base+"/", ord(bytes[1]) )
-#            mqttc.publish(base+"/", ord(bytes[2]) )
-#            mqttc.publish(base+"/", ord(bytes[3]) )
-#            mqttc.publish(base+"/", ord(bytes[4]) )
-            mqttc.publish(base+"/running", ord(bytes[5]) )
-            mqttc.publish(base+"/pressure", ord(bytes[6]) )
-            mqttc.publish(base+"/time", ord(bytes[7])*60 + ord(bytes[8]) )
-            mqttc.publish(base+"/mode", ord(bytes[9]) )
-            mqttc.publish(base+"/quadrant", ord(bytes[10]) )
-#            mqttc.publish(base+"/quadrant", ord(bytes[10]) & 0x03 )
+        # if isNewDev or isNewData: print(dev.addr, isNewDev, isNewData, dev.rssi, dev.updateCount, dev.getValueText(255))
+        if dev.addr == address and (isNewDev or isNewData):
+            s = dev.getValueText(255)
+            b = bytes.fromhex(s) # len 13
+            o = {
+                    # b[0] to b[4] are constant 220 0 4 113 4
+                    "running": b[5] == 3, # 2 = off, 3 = on, 4 = done?
+                    "pressure": round((b[6]-50)/192*100), # 50 (fine) or 242 (red) while running
+                    "time": b[7]*60 + b[8], # min + sec
+                    "mode": b[9], # 0 off, [1,7,2,4,3,6] cycled from top to bottom, mode (icon):
+                      # 1 Tägliche Reinigung
+                      # 7 Pro-Clean (Zahn mit Plus)
+                      # 2 Sensitiv (Feder)
+                      # 4 Aufhellen (Diamant)
+                      # 3 Zahnfleisch-Schutz (Wellen)
+                      # 6 Zungenreinigung (Zunge)
+                    # "quadrant": b[10], # just counted up every 30s, starts with 1
+                    # "quadrant_percentage": b[11], # also just increases with time, even if not moving
+                    # b[12] is constant 4
+                }
+            print(datetime.now(), list(b), o)
+            mqttc.publish(topic, json.dumps(o))
 
             for adtype, description, value in dev.getScanData():
-                print dev.addr+": [adtype='"+str(adtype)+"',descr='"+description+"',value='"+value+"'"
+                if debug: print(dev.addr+": adtype='"+str(adtype)+"', descr='"+description+"', value='"+value+"'")
+                # adtype='1', descr='Flags', value='06'
+                # adtype='255', descr='Manufacturer', value='dc00047104023a002b00022b04'
+                # adtype='2', descr='Incomplete 16b Services', value='0000fe0d-0000-1000-8000-00805f9b34fb'
+                # value of 1 and 2 is constant, 255's changes
 
-mqttc.connect("nas.lan")
+mqttc.connect(host)
 mqttc.loop_start()
 
 scanner = btle.Scanner().withDelegate(ScanDelegate())
 scanner.start(passive=True)
 while True:
-#        print "Still running..."
         try:
             scanner.process()
         except btle.BTLEException as e:
             print('Problem with the Bluetooth adapter : {}'.format(e))
             scanner.clear()
             print('Retrying...')
-#            scanner.stop()
-#            scanner.clear()
-#            scanner.start(passive=True)
+            # scanner.stop()
+            # scanner.clear()
+            # scanner.start(passive=True)
