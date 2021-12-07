@@ -1497,7 +1497,7 @@
         "id": "40ffba0a35e1b80f",
         "type": "exec",
         "z": "eb78f2d0.07849",
-        "command": "~/switchbot.py e9:94:ab:b3:d1:ee press",
+        "command": "ssh rpi4 '~/switchbot.py e9:94:ab:b3:d1:ee press'",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -1505,7 +1505,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 1080,
+        "x": 1110,
         "y": 300,
         "wires": [
             [],
@@ -1677,7 +1677,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1350,
+        "x": 1390,
         "y": 300,
         "wires": []
     },
