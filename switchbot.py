@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Send commands to SwitchBot Bot and Curtain.
 # Extended https://gist.github.com/mugifly/a29f34df7de8960d72245fcb124513c7
+# setup: pip install bluepy
 
 import sys
 import binascii
