@@ -1655,13 +1655,13 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 920,
-        "y": 400,
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 850,
+        "y": 260,
         "wires": [
             [
-                "0a7d0c7a90734a2a"
+                "40ffba0a35e1b80f"
             ]
         ]
     },
