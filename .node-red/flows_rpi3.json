@@ -2497,7 +2497,7 @@
         "broker": "75898696.612e28",
         "inputs": 0,
         "x": 100,
-        "y": 300,
+        "y": 260,
         "wires": [
             [
                 "e33117ba.c0a118"
@@ -2515,41 +2515,11 @@
         "initialize": "",
         "finalize": "",
         "x": 400,
-        "y": 300,
+        "y": 260,
         "wires": [
             [
-                "153f366.19a5eca",
-                "581809c.e2504f8"
+                "be90aa84a46f90d7"
             ]
-        ]
-    },
-    {
-        "id": "153f366.19a5eca",
-        "type": "debug",
-        "z": "abafeffb.7205",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "581809c.e2504f8",
-        "type": "telegram sender",
-        "z": "abafeffb.7205",
-        "name": "",
-        "bot": "a496418f.7eb54",
-        "outputs": 1,
-        "x": 590,
-        "y": 300,
-        "wires": [
-            []
         ]
     },
     {
@@ -2585,7 +2555,7 @@
         "y": 200,
         "wires": [
             [
-                "269cceea.250782"
+                "be90aa84a46f90d7"
             ]
         ]
     },
@@ -2596,7 +2566,7 @@
         "name": "",
         "bot": "a496418f.7eb54",
         "outputs": 1,
-        "x": 730,
+        "x": 750,
         "y": 200,
         "wires": [
             []
@@ -2613,7 +2583,7 @@
         "inout": "out",
         "property": "payload.contact",
         "x": 250,
-        "y": 300,
+        "y": 260,
         "wires": [
             [
                 "9e224c7c.3087c"
@@ -3052,6 +3022,59 @@
         "wires": [
             [
                 "332d5efa.22dcc2"
+            ]
+        ]
+    },
+    {
+        "id": "ed57f950a53f8c3a",
+        "type": "file",
+        "z": "abafeffb.7205",
+        "name": "",
+        "filename": "/home/pi/presence.tsv",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 900,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "23be851ba13e08c8",
+        "type": "debug",
+        "z": "abafeffb.7205",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "be90aa84a46f90d7",
+        "type": "function",
+        "z": "abafeffb.7205",
+        "name": "tsv",
+        "func": "const datetime = (new Date()).toLocaleString('sv'); // toISOString() is UTC instead of local, Sweden uses ISO8601 format and same time zone (CET/CEST) https://stackoverflow.com/a/58633651\nmsg.payload = `${datetime}\\t${msg.payload.content}`;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 260,
+        "wires": [
+            [
+                "23be851ba13e08c8",
+                "ed57f950a53f8c3a"
             ]
         ]
     },
