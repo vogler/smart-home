@@ -2343,7 +2343,7 @@
         "bot": "a496418f.7eb54",
         "saveDataDir": "",
         "filterCommands": false,
-        "x": 100,
+        "x": 620,
         "y": 40,
         "wires": [
             [
@@ -2359,8 +2359,8 @@
         "name": "",
         "bot": "a496418f.7eb54",
         "outputs": 1,
-        "x": 460,
-        "y": 80,
+        "x": 410,
+        "y": 40,
         "wires": [
             []
         ]
@@ -2377,8 +2377,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 280,
-        "y": 40,
+        "x": 810,
+        "y": 60,
         "wires": []
     },
     {
@@ -2402,8 +2402,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
-        "y": 80,
+        "x": 100,
+        "y": 40,
         "wires": [
             [
                 "fade38e8.193bb8"
@@ -2414,14 +2414,15 @@
         "id": "fade38e8.193bb8",
         "type": "function",
         "z": "abafeffb.7205",
-        "name": "",
-        "func": "var opts = { reply_markup:\n    JSON.stringify({ \"inline_keyboard\":\n        [[ { \"text\": \"A1\", \"callback_data\": \"1\" },\n           { \"text\": \"A2\", \"callback_data\": \"2\" }] ] })\n};\nmsg.payload = {};\nmsg.payload.content = \"Selection?\";\nmsg.payload.options = opts;\nmsg.payload.chatId = 1150640683;\n// msg.payload.messageId = 99;\n// msg.payload.sentMessageId = 99;\nmsg.payload.type = \"message\";\nreturn [ msg ];",
+        "name": "at home?",
+        "func": "var opts = { reply_markup:\n    JSON.stringify({ \"inline_keyboard\":\n        [[ { \"text\": \"yes\", \"callback_data\": \"yes\" },\n           { \"text\": \"no\", \"callback_data\":  \"no\" }] ] })\n};\nmsg.payload = {};\nmsg.payload.content = \"Are you at home?\";\nmsg.payload.options = opts;\nmsg.payload.chatId = 1150640683;\n// msg.payload.messageId = 99;\n// msg.payload.sentMessageId = 99;\nmsg.payload.type = \"message\";\nreturn [ msg ];",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 270,
-        "y": 80,
+        "libs": [],
+        "x": 240,
+        "y": 40,
         "wires": [
             [
                 "5961aef4.4bbaf"
@@ -3035,6 +3036,22 @@
         "wires": [
             [
                 "93d124e052adf2f4"
+            ]
+        ]
+    },
+    {
+        "id": "7282abb01d07f770",
+        "type": "telegram event",
+        "z": "abafeffb.7205",
+        "name": "",
+        "bot": "a496418f.7eb54",
+        "event": "callback_query",
+        "autoanswer": true,
+        "x": 620,
+        "y": 100,
+        "wires": [
+            [
+                "332d5efa.22dcc2"
             ]
         ]
     },
