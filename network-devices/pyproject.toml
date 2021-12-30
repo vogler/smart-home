@@ -2,14 +2,10 @@
 name = "network-devices"
 version = "0.1.0"
 description = "Get connected network devices from fritz.box"
+license = "MIT"
 authors = ["Ralf Vogler <ralf.vogler@gmail.com>"]
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-fritzconnection = "^1.2.1"
-
-[tool.poetry.dev-dependencies]
-
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+fritzconnection = "^1.8.0"

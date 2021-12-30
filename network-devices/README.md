@@ -1,14 +1,15 @@
 Checks which devices are connected to my FritzBox.
-See https://fritzconnection.readthedocs.io/en/1.2.1/sources/library.html#fritzhosts.
+See https://fritzconnection.readthedocs.io/en/1.8.0/sources/library.html#fritzhosts.
 
-~~~
-poetry install
+First install [poetry](https://github.com/python-poetry/poetry), then
+~~~console
+$ poetry install
 # lists all devices
-poetry run fritzhosts -p <password>
+$ poetry run fritzhosts -p <password>
 # lists active devices (supply fritz_pwd in config.py)
-poetry run python active-hosts.py
+$ poetry run python active-hosts.py
 # True/False (supply phone_mac in config.py)
-poetry run python phone-connected.py
+$ poetry run python phone-connected.py
 ~~~
 
 ## Presence detection via phone, MQTT:
