@@ -42,7 +42,8 @@ devices:
   '0x00158d0002ca364e':
     friendly_name: Aqara_Door_Balcony
   '0x00158d0002b127f4':
-    friendly_name: Aqara_Vibration_Bed
+    friendly_name: Aqara_Vibration_Chair
+    vibration_timeout: 10
   '0x00158d00027419e4':
     friendly_name: Aqara_Temp_Bath
     debounce: 1
