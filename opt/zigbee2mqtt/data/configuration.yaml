@@ -25,8 +25,8 @@ groups:
     friendly_name: Tradfri_Scenes # added scenes (ID color_temp brightness): 1 250 254, 2 370 254, 3 454 132; see https://github.com/Koenkk/zigbee2mqtt/issues/1232#issuecomment-767393536
     devices:
       - Tradfri_WS_Bed
-# device_options:
-#   retain: true
+device_options:
+  retain: true
 #   occupancy_timeout: 10
 devices:
   '0x00158d0002b5306c':
@@ -64,21 +64,17 @@ devices:
     debounce: 1
   '0x90fd9ffffede386b':
     friendly_name: Tradfri_WS_Bed
-    # retain: true
   '0x90fd9ffffee0c769':
     friendly_name: Tradfri_Button_Bed
   '0x000d6ffffe1e0f1d':
     friendly_name: Tradfri_WS_Kitchen
-    # retain: true
   '0x7cb03eaa00a9e97e':
     friendly_name: Osram_Strip_RGBW_Kitchen
-    # retain: true
   '0x7cb03eaa0a0061ef':
     friendly_name: Osram_Strip_RGBW_Router_Kitchen
   # '0x7cb03eaa0a009a9c':
   #   friendly_name: Osram_Strip_RGBW_Unused
   # '0x000b57fffe321252':
   #   friendly_name: Tradfri_WW_Kitchen
-  #   retain: true
   # '0x588e81fffed97f89':
   #   friendly_name: 'BlitzWolf_BW-SHP13_3D-Printer' # unused for now since it polls power every 10s
