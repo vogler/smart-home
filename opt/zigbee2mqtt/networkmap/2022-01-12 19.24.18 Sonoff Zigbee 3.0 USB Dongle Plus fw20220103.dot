@@ -1,0 +1,36 @@
+digraph G {
+node[shape=record];
+  "0x00124b001bb835e1" [style="bold, filled", fillcolor="#e04e5d", fontcolor="#ffffff", label="{Coordinator|0x00124b001bb835e1 (0x0000)|0 seconds ago}"];
+  "0x00124b001bb835e1" -> "0x7cb03eaa00a9e97e" [penwidth=0.5, weight=0, color="#994444", label="52"]
+  "0x00124b001bb835e1" -> "0x000d6ffffe1e0f1d" [penwidth=0.5, weight=0, color="#994444", label="144"]
+  "0x001788010328d8bc" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Hue_Motion_Bath|0x001788010328d8bc (0xe115)|Philips Hue motion sensor (9290012607)|1 minute, 11 seconds ago}"];
+  "0x001788010328d8bc" -> "0x000d6ffffe1e0f1d" [penwidth=1, weight=0, color="#994444", label="190"]
+  "0x0017880103283554" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Hue_Motion_Living|0x0017880103283554 (0xe175)|Philips Hue motion sensor (9290012607)|4 minutes, 13 seconds ago}"];
+  "0x0017880103283554" -> "0x000d6ffffe1e0f1d" [penwidth=1, weight=0, color="#994444", label="178"]
+  "0x7cb03eaa00a9e97e" [style="rounded, filled", fillcolor="#4ea3e0", fontcolor="#ffffff", label="{Osram_Strip_RGBW_Kitchen|0x7cb03eaa00a9e97e (0x6bf8)|OSRAM Flex RGBW (4052899926110)|9 minutes, 55 seconds ago}"];
+  "0x7cb03eaa00a9e97e" -> "0x00124b001bb835e1" [penwidth=0.5, weight=0, color="#994444", label="47"]
+  "0x7cb03eaa00a9e97e" -> "0x000d6ffffe1e0f1d" [penwidth=0.5, weight=0, color="#994444", label="143"]
+  "0x001788010213554f" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Hue_Motion_Kitchen|0x001788010213554f (0x76ef)|Philips Hue motion sensor (9290012607)|3 minutes, 49 seconds ago}"];
+  "0x001788010213554f" -> "0x000d6ffffe1e0f1d" [penwidth=1, weight=0, color="#994444", label="255"]
+  "0x90fd9ffffee0c769" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Tradfri_Button_Bed|0x90fd9ffffee0c769 (0x1a83)|IKEA TRADFRI remote control (E1524/E1810)|2 months ago}"];
+  "0x00158d0002b127f4" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Vibration_Chair|0x00158d0002b127f4 (0xb59b)|Xiaomi Aqara vibration sensor (DJT11LM)|1 hour, 24 minutes ago}"];
+  "0x7cb03eaa0a0061ef" [style="rounded, filled", fillcolor="#4ea3e0", fontcolor="#ffffff", label="{Osram_Strip_RGBW_Router_Kitchen|0x7cb03eaa0a0061ef (0xb768)failed: lqi|OSRAM Flex RGBW (4052899926110)|1 year, 3 months ago}"];
+  "0x00158d0002ca364e" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Door_Balcony|0x00158d0002ca364e (0xc6a8)|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|8 minutes, 40 seconds ago}"];
+  "0x00158d0002ca364e" -> "0x000d6ffffe1e0f1d" [penwidth=1, weight=0, color="#994444", label="152"]
+  "0x00158d0002c5bf49" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Door_Living|0x00158d0002c5bf49 (0xceb5)|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|7 minutes, 37 seconds ago}"];
+  "0x00158d0002c5bf49" -> "0x7cb03eaa00a9e97e" [penwidth=1, weight=0, color="#994444", label="72"]
+  "0x00158d000312f723" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Door_Fridge|0x00158d000312f723 (0x6e7e)|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|9 minutes, 55 seconds ago}"];
+  "0x00158d000312f723" -> "0x7cb03eaa00a9e97e" [penwidth=1, weight=0, color="#994444", label="66"]
+  "0x00158d0002b5306c" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Door_Apt|0x00158d0002b5306c (0x3d8d)|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|10 minutes, 20 seconds ago}"];
+  "0x00158d00032b69d1" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Door_WC|0x00158d00032b69d1 (0x7364)|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|8 minutes, 59 seconds ago}"];
+  "0x00158d00032b69d1" -> "0x7cb03eaa00a9e97e" [penwidth=1, weight=0, color="#994444", label="54"]
+  "0x00158d000243567e" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Door_Bath|0x00158d000243567e (0xeb37)|Xiaomi Aqara door & window contact sensor (MCCGQ11LM)|11 minutes, 16 seconds ago}"];
+  "0x00158d000243567e" -> "0x7cb03eaa00a9e97e" [penwidth=1, weight=0, color="#994444", label="72"]
+  "0x00158d00027419e4" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Temp_Bath|0x00158d00027419e4 (0xe762)|Xiaomi Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)|3 minutes, 51 seconds ago}"];
+  "0x00158d00023280c7" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Temp_Balcony|0x00158d00023280c7 (0x89c3)|Xiaomi Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)|2 months, 3 weeks ago}"];
+  "0x00158d00027867a6" [style="rounded, dashed, filled", fillcolor="#fff8ce", fontcolor="#000000", label="{Aqara_Temp_Fridge|0x00158d00027867a6 (0x317c)|Xiaomi Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)|1 minute, 4 seconds ago}"];
+  "0x00158d00027867a6" -> "0x000d6ffffe1e0f1d" [penwidth=1, weight=0, color="#994444", label="123"]
+  "0x000d6ffffe1e0f1d" [style="rounded, filled", fillcolor="#4ea3e0", fontcolor="#ffffff", label="{Tradfri_WS_Kitchen|0x000d6ffffe1e0f1d (0x57c3)|IKEA TRADFRI LED bulb E26/E27 980 lumen, dimmable, white spectrum, opal white (LED1545G12)|8 minutes, 48 seconds ago}"];
+  "0x000d6ffffe1e0f1d" -> "0x00124b001bb835e1" [penwidth=0.5, weight=0, color="#994444", label="72"]
+  "0x000d6ffffe1e0f1d" -> "0x7cb03eaa00a9e97e" [penwidth=0.5, weight=0, color="#994444", label="72"]
+}
