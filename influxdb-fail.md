@@ -89,7 +89,7 @@ InfluxDB v1.8.10 (git: 1.8 688e697c51fd)
 # rpi:
 $ sudo journalctl -u influxdb.service > infldb
 $ grep 'cannot allocate memory' infldb | wc -l
-11768
+124056
 $ grep -o 'db_shard_id=.*"cannot allocate memory"' infldb | sort | uniq
 db_shard_id=957 error="cannot allocate memory"
 db_shard_id=963 error="cannot allocate memory"
