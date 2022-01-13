@@ -71,3 +71,37 @@ ts=2019-10-23T23:24:25.276000Z lvl=info msg="Snapshot for path written" log_id=0
 ~~~
 
 Chronograf said that InfluxDB was down on 2019-11-22 when I checked at 9:34. Did the copy-to-MBP-and-back procedure above and was running again at 10:40. Noticed afterwards that last data in DB before is from 2019-11-18 1:40, i.e., lost data from Mo-Fr despite Chronograf displaying data normally during that time.
+
+---
+
+#### 2022-01-13
+Was running fine without errors for a long time after changing to 64 bit kernel (`arm_64bit=1` in `/boot/config.txt`).
+Only now noticed constant >50% CPU load due to InfluxDB failing the compaction again. But this time it kept running instead of crashing.
+Used date picker in Chronograf and found that CPU usage was already 30% after 2021-10-17 and then constantly >50% after 2021-10-30.
+Didn't change anything in that time, just did some 3D printing -> maybe too many metrics via MQTT from new OctoPrint plugin?
+
+~~~console
+mac $ influxd version
+InfluxDB 2.1.1 (git: 657e1839de) build_date: 2021-11-08T18:37:04Z
+rpi $ influxd version
+InfluxDB v1.8.10 (git: 1.8 688e697c51fd)
+
+# rpi:
+$ sudo journalctl -u influxdb.service > infldb
+$ grep 'cannot allocate memory' infldb | wc -l
+11768
+$ grep -o 'db_shard_id=.*"cannot allocate memory"' infldb | sort | uniq
+db_shard_id=957 error="cannot allocate memory"
+db_shard_id=963 error="cannot allocate memory"
+db_shard_id=964 error="cannot allocate memory"
+db_shard_id=966 error="cannot allocate memory"
+db_shard_id=967 error="cannot allocate memory"
+db_shard_id=968 error="cannot allocate memory"
+db_shard_id=969 error="cannot allocate memory"
+
+$ sudo du -h -d1 /var/lib/influxdb
+8.2M    /var/lib/influxdb/wal
+16K     /var/lib/influxdb/meta
+5.5G    /var/lib/influxdb/data
+5.5G    /var/lib/influxdb
+~~~
