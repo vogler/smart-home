@@ -105,3 +105,16 @@ $ sudo du -h -d1 /var/lib/influxdb
 5.5G    /var/lib/influxdb/data
 5.5G    /var/lib/influxdb
 ~~~
+
+`/etc/influxdb/influxdb.conf`:
+Tried `max-concurrent-compactions = 1` # avoid running multiple compactions at once ([comment](https://github.com/influxdata/influxdb/pull/12362#issuecomment-824086930)) but did not help.
+Tried to disable in-memory by switching the sharding method to `index-version = "tsi1"` ([comment](https://github.com/influxdata/influxdb/issues/11339#issuecomment-757575790)), but did also not help - old shards still seem to use the in-memory setting...
+Did the whole dance of letting it do the compaction on the old MBP:
+~~~console
+rpi $ sudo systemctl stop chronograf telegraf influxdb
+mac $ ./rpi-sync.sh rpi4 var/lib/influxdb`
+mac $ brew services stop influxdb@1
+# rest see above
+~~~
+Afterwards no failing compaction and low CPU usage again.
+Kept `max-concurrent-compactions = 1` and `index-version = "tsi1"` to hopefully avoid it in the future.
