@@ -7,8 +7,10 @@
 
 # Tried https://github.com/zewelor/bt-mqtt-gateway which also only reported every 10s and did not seem as stable.
 
-# The BLE data is not as detailed as what the app shows.
-# Position/orientation is missing, pressure value just changes if so high that the red LED turns on.
+# The BLE data is not as detailed as what the app shows:
+# Position and orientation are missing, pressure value just changes if it is so high that the red LED turns on.
+# The toothbrush is not publishing via BLE if it's connected in the Oral-B app! So this script only captures data when brushing without the app open.
+# Could try to make a connection similar to the app to get detailed data without the app.
 
 import sys
 import bluepy.btle as btle
