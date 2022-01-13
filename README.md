@@ -7,8 +7,8 @@
   - [zigbee2mqtt](https://github.com/Koenkk/zigbee2mqtt/) ([config](opt/zigbee2mqtt/data/configuration.yaml))
     - Aqara door sensors, Hue motion sensors, Hue and Ikea Tradfri lights
     - First used CC2531 USB stick, now CC2530 via UART USB because of supposed better range.
-  - [Sensors](https://github.com/vogler/sensors) -> [MQTT](https://mosquitto.org/) -> [Telegraf](https://github.com/influxdata/telegraf) -> [InfluxDB](https://github.com/influxdata/influxdb) -> [Chronograf](https://github.com/influxdata/chronograf)
-    - InfluxDB is not reliable on 32 bit OS, fails to allocate memory and somehow crashes the RPi every couple of days (see [issue](https://github.com/influxdata/influxdb/issues/11339#issuecomment-525500034)), maybe fixed by 64 bit Debian on RPi4, meanwhile copy to MBP, see [influxdb-fail.md](influxdb-fail.md).
+  - [Sensors](https://github.com/vogler/sensors) -> [MQTT](https://mosquitto.org/) -> [Telegraf](https://github.com/influxdata/telegraf) (collects metrics) -> [InfluxDB](https://github.com/influxdata/influxdb) (TSDB) -> [Chronograf](https://github.com/influxdata/chronograf) (web GUI, graphs)
+    - InfluxDB is not reliable on 32 bit OS, fails to allocate memory and somehow crashes the RPi every couple of days (see [issue](https://github.com/influxdata/influxdb/issues/11339#issuecomment-525500034)), partially fixed by switching to 64 bit kernel on RPi4, see [influxdb-fail.md](influxdb-fail.md).
 - Wemos D1 mini: [FlowMeter](https://github.com/vogler/FlowMeter) for shower usage
 
 ### external access
@@ -24,3 +24,7 @@ Free solutions for accessing IPv6 from IPv4-only connections:
 
 #### DNS
 Using [MyFRITZ](https://www.myfritz.net/) DynDNS in FritzBox, rpi{3,4}.voglerr.de subdomains with cloudflare as nameserver for proxy/stats and [CNAME flattening](https://blog.cloudflare.com/introducing-cname-flattening-rfc-compliant-cnames-at-a-domains-root/) which allows CNAME for domain root as well.
+
+#### VPN
+Using [PiVPN](https://www.pivpn.io/) for WireGuard with clients on MBA and phone.
+Unfortunately can't access the VPN IPs if the foreign network happens to use the same subnet (all FritzBox seem to use 192.168.178.1 - could change mine to e.g. 192.168.0.1, but that's not a failsafe solution).
