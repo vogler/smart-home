@@ -79,3 +79,4 @@ devices:
   #   friendly_name: Tradfri_WW_Kitchen
   # '0x588e81fffed97f89':
   #   friendly_name: 'BlitzWolf_BW-SHP13_3D-Printer' # unused for now since it polls power every 10s
+  #   calibration.power: -15 # https://github.com/Koenkk/zigbee2mqtt/issues/5137#issuecomment-1017820742
