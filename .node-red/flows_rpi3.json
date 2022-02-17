@@ -69,8 +69,7 @@
         "type": "hue-bridge",
         "name": "Philips hue",
         "bridge": "192.168.178.52",
-        "key": "m6g4AVCIB96kMuIA8qxg5WrikMyLE1qE6Z2Gfczv",
-        "interval": "3000"
+        "key": "m6g4AVCIB96kMuIA8qxg5WrikMyLE1qE6Z2Gfczv"
     },
     {
         "id": "465d0087.4b2ce",
@@ -659,7 +658,6 @@
         "name": "Wohnzimmer",
         "bridge": "7cf0578.b836da8",
         "groupid": "1",
-        "colornamer": true,
         "x": 350,
         "y": 700,
         "wires": [
@@ -1698,6 +1696,75 @@
         "x": 990,
         "y": 500,
         "wires": []
+    },
+    {
+        "id": "1e2354720a454020",
+        "type": "rpi-gpio out",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "pin": "23",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 520,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "7f44ebceee14bdb8",
+        "type": "trigger",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "250",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 360,
+        "y": 900,
+        "wires": [
+            [
+                "1e2354720a454020"
+            ]
+        ]
+    },
+    {
+        "id": "17503bed5bfd9f8c",
+        "type": "inject",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 900,
+        "wires": [
+            [
+                "7f44ebceee14bdb8"
+            ]
+        ]
     },
     {
         "id": "9f15beac.00823",
