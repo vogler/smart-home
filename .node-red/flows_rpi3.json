@@ -69,7 +69,9 @@
         "type": "hue-bridge",
         "name": "Philips hue",
         "bridge": "192.168.178.52",
-        "key": "m6g4AVCIB96kMuIA8qxg5WrikMyLE1qE6Z2Gfczv"
+        "key": "m6g4AVCIB96kMuIA8qxg5WrikMyLE1qE6Z2Gfczv",
+        "worker": "5",
+        "disableupdates": false
     },
     {
         "id": "465d0087.4b2ce",
@@ -658,6 +660,8 @@
         "name": "Wohnzimmer",
         "bridge": "7cf0578.b836da8",
         "groupid": "1",
+        "skipevents": false,
+        "initevents": false,
         "x": 350,
         "y": 700,
         "wires": [
