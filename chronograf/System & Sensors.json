@@ -20,7 +20,7 @@
 				"name": "CPU temp",
 				"queries": [
 					{
-						"query": "SELECT mean(\"temp\") AS \"mean_temp\" FROM \"telegraf\".\"autogen\".\"temp\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"sensor\"='cpu_thermal_input' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT mean(\"temp\") AS \"mean_temp\" FROM \"telegraf\".\"autogen\".\"temp\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: GROUP BY time(:interval:) FILL(null)",
 						"queryConfig": {
 							"database": "telegraf",
 							"measurement": "temp",
@@ -39,16 +39,12 @@
 									]
 								}
 							],
-							"tags": {
-								"sensor": [
-									"cpu_thermal_input"
-								]
-							},
+							"tags": {},
 							"groupBy": {
 								"time": "auto",
 								"tags": []
 							},
-							"areTagsAccepted": true,
+							"areTagsAccepted": false,
 							"fill": "null",
 							"rawText": null,
 							"range": null,
