@@ -13,7 +13,6 @@
         "node-red-contrib-fritz": "^1.4.5",
         "node-red-contrib-hourglass": "^1.5.0",
         "node-red-contrib-huemagic": "^4.2.2",
-        "node-red-contrib-ibm-watson-iot": "^0.2.8",
         "node-red-contrib-image-tools": "^2.0.4",
         "node-red-contrib-influxdb": "^0.6.1",
         "node-red-contrib-light-scheduler": "0.0.18",
