@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.8.5",
+		"chronografVersion": "1.9.1",
 		"sources": {
 			"1": {
 				"name": "Influx 1",
@@ -2836,7 +2836,7 @@
 				"name": "Shower Flow (ml and C)",
 				"queries": [
 					{
-						"query": "SELECT mean(\"flow\") AS \"mean_flow\", mean(\"temp\") AS \"mean_temp\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND \"topic\"='sensors/shower/flow' GROUP BY time(:interval:) FILL(null)",
+						"query": "SELECT mean(\"flow\") AS \"mean_flow\", mean(\"temp\") AS \"mean_temp\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"topic\"='sensors/shower/flow' GROUP BY time(:interval:) FILL(0)",
 						"queryConfig": {
 							"database": "telegraf",
 							"measurement": "mqtt_consumer",
@@ -2877,7 +2877,7 @@
 								"tags": []
 							},
 							"areTagsAccepted": true,
-							"fill": "null",
+							"fill": "0",
 							"rawText": null,
 							"range": null,
 							"shifts": null

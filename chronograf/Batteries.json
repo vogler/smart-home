@@ -1,0 +1,1509 @@
+{
+	"meta": {
+		"chronografVersion": "1.9.1",
+		"sources": {
+			"1": {
+				"name": "Influx 1",
+				"link": "/chronograf/v1/sources/1"
+			}
+		}
+	},
+	"dashboard": {
+		"id": "6",
+		"cells": [
+			{
+				"i": "3f067734-b7a5-4091-a474-fcf65b2fba82",
+				"x": 0,
+				"y": 6,
+				"w": 3,
+				"h": 3,
+				"name": "Hue_Motion_Bath",
+				"queries": [
+					{
+						"query": "SELECT mean(\"battery\") AS \"mean_battery\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"topic\"='zigbee2mqtt/Hue_Motion_Bath' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "mqtt_consumer",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_battery",
+									"args": [
+										{
+											"value": "battery",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"topic": [
+									"zigbee2mqtt/Hue_Motion_Bath"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "614b0e3c-4347-4408-ab63-79778d5154bd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "648e368e-d885-476c-a3c7-1a23e9724dd7",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/3f067734-b7a5-4091-a474-fcf65b2fba82"
+				}
+			},
+			{
+				"i": "480a6846-96b7-4b7d-bfd2-eb6503e5a1a1",
+				"x": 9,
+				"y": 3,
+				"w": 3,
+				"h": 3,
+				"name": "Aqara_Temp_Balcony",
+				"queries": [
+					{
+						"query": "SELECT mean(\"battery\") AS \"mean_battery\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"topic\"='zigbee2mqtt/Aqara_Temp_Balcony' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "mqtt_consumer",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_battery",
+									"args": [
+										{
+											"value": "battery",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"topic": [
+									"zigbee2mqtt/Aqara_Temp_Balcony"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "614b0e3c-4347-4408-ab63-79778d5154bd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "648e368e-d885-476c-a3c7-1a23e9724dd7",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/480a6846-96b7-4b7d-bfd2-eb6503e5a1a1"
+				}
+			},
+			{
+				"i": "7d73c028-cd04-4574-b431-090e641da5ba",
+				"x": 6,
+				"y": 3,
+				"w": 3,
+				"h": 3,
+				"name": "Aqara_Temp_Bath",
+				"queries": [
+					{
+						"query": "SELECT mean(\"battery\") AS \"mean_battery\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"topic\"='zigbee2mqtt/Aqara_Temp_Bath' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "mqtt_consumer",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_battery",
+									"args": [
+										{
+											"value": "battery",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"topic": [
+									"zigbee2mqtt/Aqara_Temp_Bath"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "614b0e3c-4347-4408-ab63-79778d5154bd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "648e368e-d885-476c-a3c7-1a23e9724dd7",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/7d73c028-cd04-4574-b431-090e641da5ba"
+				}
+			},
+			{
+				"i": "08e3d676-eca8-425e-9cb4-e3d23d0033a7",
+				"x": 3,
+				"y": 3,
+				"w": 3,
+				"h": 3,
+				"name": "Aqara_Door_Balcony",
+				"queries": [
+					{
+						"query": "SELECT mean(\"battery\") AS \"mean_battery\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"topic\"='zigbee2mqtt/Aqara_Door_Balcony' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "mqtt_consumer",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_battery",
+									"args": [
+										{
+											"value": "battery",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"topic": [
+									"zigbee2mqtt/Aqara_Door_Balcony"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "614b0e3c-4347-4408-ab63-79778d5154bd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "648e368e-d885-476c-a3c7-1a23e9724dd7",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/08e3d676-eca8-425e-9cb4-e3d23d0033a7"
+				}
+			},
+			{
+				"i": "1070c39f-7117-4db5-a86b-e4cb167fdf6a",
+				"x": 0,
+				"y": 3,
+				"w": 3,
+				"h": 3,
+				"name": "Aqara_Door_Living",
+				"queries": [
+					{
+						"query": "SELECT mean(\"battery\") AS \"mean_battery\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"topic\"='zigbee2mqtt/Aqara_Door_Living' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "mqtt_consumer",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_battery",
+									"args": [
+										{
+											"value": "battery",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"topic": [
+									"zigbee2mqtt/Aqara_Door_Living"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "614b0e3c-4347-4408-ab63-79778d5154bd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "648e368e-d885-476c-a3c7-1a23e9724dd7",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/1070c39f-7117-4db5-a86b-e4cb167fdf6a"
+				}
+			},
+			{
+				"i": "e317ce17-4da8-4e9c-951f-a0e85eb0c5a3",
+				"x": 9,
+				"y": 0,
+				"w": 3,
+				"h": 3,
+				"name": "Aqara_Door_Fridge",
+				"queries": [
+					{
+						"query": "SELECT mean(\"battery\") AS \"mean_battery\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"topic\"='zigbee2mqtt/Aqara_Door_Fridge' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "mqtt_consumer",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_battery",
+									"args": [
+										{
+											"value": "battery",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"topic": [
+									"zigbee2mqtt/Aqara_Door_Fridge"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "614b0e3c-4347-4408-ab63-79778d5154bd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "648e368e-d885-476c-a3c7-1a23e9724dd7",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/e317ce17-4da8-4e9c-951f-a0e85eb0c5a3"
+				}
+			},
+			{
+				"i": "70f6da32-2b00-474d-8b9d-784b84735c53",
+				"x": 6,
+				"y": 0,
+				"w": 3,
+				"h": 3,
+				"name": "Aqara_Door_WC",
+				"queries": [
+					{
+						"query": "SELECT mean(\"battery\") AS \"mean_battery\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"topic\"='zigbee2mqtt/Aqara_Door_WC' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "mqtt_consumer",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_battery",
+									"args": [
+										{
+											"value": "battery",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"topic": [
+									"zigbee2mqtt/Aqara_Door_WC"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "614b0e3c-4347-4408-ab63-79778d5154bd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "648e368e-d885-476c-a3c7-1a23e9724dd7",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/70f6da32-2b00-474d-8b9d-784b84735c53"
+				}
+			},
+			{
+				"i": "19f9e845-51a2-4f77-9528-2ac54b80556c",
+				"x": 3,
+				"y": 0,
+				"w": 3,
+				"h": 3,
+				"name": "Aqara_Door_Bath",
+				"queries": [
+					{
+						"query": "SELECT mean(\"battery\") AS \"mean_battery\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"topic\"='zigbee2mqtt/Aqara_Door_Bath' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "mqtt_consumer",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_battery",
+									"args": [
+										{
+											"value": "battery",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"topic": [
+									"zigbee2mqtt/Aqara_Door_Bath"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "614b0e3c-4347-4408-ab63-79778d5154bd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "648e368e-d885-476c-a3c7-1a23e9724dd7",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/19f9e845-51a2-4f77-9528-2ac54b80556c"
+				}
+			},
+			{
+				"i": "de27d7cc-6dc7-4575-868f-582aecdfe7de",
+				"x": 0,
+				"y": 0,
+				"w": 3,
+				"h": 3,
+				"name": "Aqara_Door_Apt",
+				"queries": [
+					{
+						"query": "SELECT mean(\"battery\") AS \"mean_battery\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"topic\"='zigbee2mqtt/Aqara_Door_Apt' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "mqtt_consumer",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_battery",
+									"args": [
+										{
+											"value": "battery",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"topic": [
+									"zigbee2mqtt/Aqara_Door_Apt"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "614b0e3c-4347-4408-ab63-79778d5154bd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "648e368e-d885-476c-a3c7-1a23e9724dd7",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/de27d7cc-6dc7-4575-868f-582aecdfe7de"
+				}
+			},
+			{
+				"i": "dc7d6efa-dddf-4e7b-bbc9-15c9d6776580",
+				"x": 3,
+				"y": 6,
+				"w": 3,
+				"h": 3,
+				"name": "Hue_Motion_Kitchen",
+				"queries": [
+					{
+						"query": "SELECT mean(\"battery\") AS \"mean_battery\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"topic\"='zigbee2mqtt/Hue_Motion_Kitchen' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "mqtt_consumer",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_battery",
+									"args": [
+										{
+											"value": "battery",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"topic": [
+									"zigbee2mqtt/Hue_Motion_Kitchen"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "614b0e3c-4347-4408-ab63-79778d5154bd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "648e368e-d885-476c-a3c7-1a23e9724dd7",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/dc7d6efa-dddf-4e7b-bbc9-15c9d6776580"
+				}
+			},
+			{
+				"i": "9c5f71dc-6b3d-4434-9069-b92b0edba908",
+				"x": 6,
+				"y": 6,
+				"w": 3,
+				"h": 3,
+				"name": "Hue_Motion_Living",
+				"queries": [
+					{
+						"query": "SELECT mean(\"battery\") AS \"mean_battery\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"topic\"='zigbee2mqtt/Hue_Motion_Living' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "mqtt_consumer",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "mean_battery",
+									"args": [
+										{
+											"value": "battery",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"topic": [
+									"zigbee2mqtt/Hue_Motion_Living"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					}
+				],
+				"axes": {
+					"x": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					},
+					"y2": {
+						"bounds": [
+							"",
+							""
+						],
+						"label": "",
+						"prefix": "",
+						"suffix": "",
+						"base": "10",
+						"scale": "linear"
+					}
+				},
+				"type": "line-plus-single-stat",
+				"colors": [
+					{
+						"id": "base",
+						"type": "scale",
+						"hex": "#31C0F6",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "614b0e3c-4347-4408-ab63-79778d5154bd",
+						"type": "scale",
+						"hex": "#A500A5",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					},
+					{
+						"id": "648e368e-d885-476c-a3c7-1a23e9724dd7",
+						"type": "scale",
+						"hex": "#FF7E27",
+						"name": "Nineteen Eighty Four",
+						"value": "0"
+					}
+				],
+				"legend": {},
+				"tableOptions": {
+					"verticalTimeAxis": true,
+					"sortBy": {
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					},
+					"wrapping": "truncate",
+					"fixFirstColumn": true
+				},
+				"fieldOptions": [
+					{
+						"internalName": "time",
+						"displayName": "",
+						"visible": true
+					}
+				],
+				"timeFormat": "MM/DD/YYYY HH:mm:ss",
+				"decimalPlaces": {
+					"isEnforced": true,
+					"digits": 2
+				},
+				"note": "",
+				"noteVisibility": "default",
+				"links": {
+					"self": "/chronograf/v1/dashboards/6/cells/9c5f71dc-6b3d-4434-9069-b92b0edba908"
+				}
+			}
+		],
+		"templates": [],
+		"name": "Batteries",
+		"organization": "default",
+		"links": {
+			"self": "/chronograf/v1/dashboards/6",
+			"cells": "/chronograf/v1/dashboards/6/cells",
+			"templates": "/chronograf/v1/dashboards/6/templates"
+		}
+	}
+}

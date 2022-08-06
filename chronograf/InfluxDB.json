@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"chronografVersion": "1.7.14",
+		"chronografVersion": "1.9.1",
 		"sources": {
 			"1": {
 				"name": "Influx 1",
@@ -9,7 +9,7 @@
 		}
 	},
 	"dashboard": {
-		"id": 2,
+		"id": "2",
 		"cells": [
 			{
 				"i": "410ffbc3-e950-4546-b69f-4550d4c7fbd2",
@@ -2446,6 +2446,7 @@
 					"tagKey": "host",
 					"fieldKey": ""
 				},
+				"sourceID": "dynamic",
 				"links": {
 					"self": "/chronograf/v1/dashboards/2/templates/f1d2e42a-6f26-4812-a5e4-cb2d67e407e2"
 				}
