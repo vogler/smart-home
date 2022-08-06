@@ -155,7 +155,7 @@
 				"name": "Temperature (C)",
 				"queries": [
 					{
-						"query": "SELECT mean(\"temperature\") AS \"mean_temperature\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND \"topic\"='sensors/bme280' GROUP BY time(:interval:) FILL(previous)",
+						"query": "SELECT mean(\"temperature\") AS \"inside_bme280\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"topic\"='sensors/bme280' GROUP BY time(:interval:) FILL(previous)",
 						"queryConfig": {
 							"database": "telegraf",
 							"measurement": "mqtt_consumer",
@@ -164,7 +164,7 @@
 								{
 									"value": "mean",
 									"type": "func",
-									"alias": "mean_temperature",
+									"alias": "inside_bme280",
 									"args": [
 										{
 											"value": "temperature",
@@ -177,6 +177,44 @@
 							"tags": {
 								"topic": [
 									"sensors/bme280"
+								]
+							},
+							"groupBy": {
+								"time": "auto",
+								"tags": []
+							},
+							"areTagsAccepted": true,
+							"fill": "previous",
+							"rawText": null,
+							"range": null,
+							"shifts": null
+						},
+						"source": "",
+						"type": "influxql"
+					},
+					{
+						"query": "SELECT mean(\"temperature\") AS \"outside_aqara\" FROM \"telegraf\".\"autogen\".\"mqtt_consumer\" WHERE time > :dashboardTime: AND time < :upperDashboardTime: AND \"topic\"='zigbee2mqtt/Aqara_Temp_Balcony' GROUP BY time(:interval:) FILL(previous)",
+						"queryConfig": {
+							"database": "telegraf",
+							"measurement": "mqtt_consumer",
+							"retentionPolicy": "autogen",
+							"fields": [
+								{
+									"value": "mean",
+									"type": "func",
+									"alias": "outside_aqara",
+									"args": [
+										{
+											"value": "temperature",
+											"type": "field",
+											"alias": ""
+										}
+									]
+								}
+							],
+							"tags": {
+								"topic": [
+									"zigbee2mqtt/Aqara_Temp_Balcony"
 								]
 							},
 							"groupBy": {
