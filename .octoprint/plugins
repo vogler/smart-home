@@ -34,7 +34,7 @@ https://plugins.octoprint.org/plugins/preheat/ # adds button to preheat nozzle a
 https://plugins.octoprint.org/plugins/GcodeEditor/ # Adds edit buttons to the items in the file list which let you edit the gcode of any file that’s not currently printing.
 https://plugins.octoprint.org/plugins/cancelobject/ # Cancel single objects during a print based on gcode comment lines
 https://plugins.octoprint.org/plugins/firmwareupdater/ # flash pre-compiled firmware from OctoPrint
-https://plugins.octoprint.org/plugins/resource_monitor/ # view the current CPU, RAM, disk and network usage
+# https://plugins.octoprint.org/plugins/resource_monitor/ # view the current CPU, RAM, disk and network usage - disabled for now due to https://github.com/Renaud11232/OctoPrint-Resource-Monitor/issues/37
 https://plugins.octoprint.org/plugins/calibrationcompanion/ # calibrate PID, first layer, E-steps, flow, retraction, temperatur, acceleration
 
 # terminal
