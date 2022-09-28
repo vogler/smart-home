@@ -32,12 +32,15 @@ grafana.localhost:80 {
 	handle_path /grafana/* {
 		reverse_proxy :3000
 	}
-	# redirects to /login, but works with haproxy config
+	# working with correct headers: https://community.octoprint.org/t/reverse-proxy-configuration-examples/1107
 	redir /octoprint /octoprint/
 	handle_path /octoprint/* {
-		reverse_proxy :5000
+		reverse_proxy :5000 {
+			header_up X-Scheme {scheme}
+			header_up X-Script-Name /octoprint
+		}
 	}
-	# working
+	# working, used in octoprint
 	redir /webcam /webcam/
 	handle_path /webcam/* {
 		reverse_proxy :8090
