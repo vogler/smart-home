@@ -28,9 +28,9 @@ grafana.localhost:80 {
 	import sub news 8080
 	# working
 	import sub swm 8081
-	# empty page, loads /*.{js,css}
+	# empty page, loads /*.{js,css} - need to set BASE_PATH: https://github.com/influxdata/chronograf/issues/845
 	import sub chronograf 8888
-	# redirects to /login
+	# redirects to /login - need to set subpath: https://grafana.com/tutorials/run-grafana-behind-a-proxy/
 	import sub grafana 3000
 	# working with correct headers: https://community.octoprint.org/t/reverse-proxy-configuration-examples/1107
 	redir /octoprint /octoprint/
