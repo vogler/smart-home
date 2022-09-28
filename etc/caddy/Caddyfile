@@ -10,28 +10,28 @@ grafana.localhost:80 {
 	reverse_proxy :3000
 }
 
-# Reverse proxy into subpaths - see comments what works.
+# Reverse proxy with subpaths:
+# We need `redir /foo /foo/` instead of `rewrite /foo /foo/` for links to have the correct base!
+# We need `handle_path` instead of just a matcher to strip the matched path prefix from the request!
+
+# snippet for common case: import sub $path $port
+(sub) {
+	redir /{args.0} /{args.0}/
+	handle_path /{args.0}/* {
+		reverse_proxy :{args.1}
+	}
+}
+
+# only use http for now, host without port means https
 :80 {
 	# working
-	redir /news /news/
-	handle_path /news/* {
-		reverse_proxy :8080
-	}
+	import sub news 8080
 	# working
-	redir /swm /swm/
-	handle_path /swm/* {
-		reverse_proxy :8081
-	}
+	import sub swm 8081
 	# empty page, loads /*.{js,css}
-	redir /chronograf /chronograf/
-	handle_path /chronograf/* {
-		reverse_proxy :8888
-	}
+	import sub chronograf 8888
 	# redirects to /login
-	redir /grafana /grafana/
-	handle_path /grafana/* {
-		reverse_proxy :3000
-	}
+	import sub grafana 3000
 	# working with correct headers: https://community.octoprint.org/t/reverse-proxy-configuration-examples/1107
 	redir /octoprint /octoprint/
 	handle_path /octoprint/* {
@@ -41,13 +41,7 @@ grafana.localhost:80 {
 		}
 	}
 	# working, used in octoprint
-	redir /webcam /webcam/
-	handle_path /webcam/* {
-		reverse_proxy :8090
-	}
+	import sub webcam 8090
 	# redirects to /web, but can set base URL: https://jellyfin.org/docs/general/networking/caddy.html
-	redir /jellyfin /jellyfin/
-	handle_path /jellyfin/* {
-		reverse_proxy :8096
-	}
+	import sub jellyfin 8096
 }
