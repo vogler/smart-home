@@ -68,8 +68,8 @@
         "id": "7cf0578.b836da8",
         "type": "hue-bridge",
         "name": "Philips hue",
-        "bridge": "192.168.178.52",
-        "key": "m6g4AVCIB96kMuIA8qxg5WrikMyLE1qE6Z2Gfczv",
+        "bridge": "192.168.178.23",
+        "key": "bHbySDyO5Hgffi0m6GC8lKnQC9100WYTFTAXTvzZ",
         "worker": "5",
         "disableupdates": false
     },
@@ -647,7 +647,7 @@
         "z": "b635b24c.eee61",
         "name": "Wohnzimmer",
         "bridge": "7cf0578.b836da8",
-        "groupid": "1",
+        "groupid": "8aa69f79-0d2d-4325-8e66-d3ee925cfe14",
         "skipevents": false,
         "initevents": false,
         "x": 350,
@@ -786,6 +786,185 @@
         "wires": [
             [
                 "a1e67a5.fc05788"
+            ]
+        ]
+    },
+    {
+        "id": "f9015c753baf26bd",
+        "type": "template",
+        "z": "b635b24c.eee61",
+        "name": "toggle",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"toggle\": true\n}",
+        "output": "json",
+        "x": 490,
+        "y": 780,
+        "wires": [
+            [
+                "112afa77e17c164b",
+                "723b160d.cd26a8"
+            ]
+        ]
+    },
+    {
+        "id": "cb0442b4656180d1",
+        "type": "mqtt in",
+        "z": "b635b24c.eee61",
+        "name": "",
+        "topic": "zigbee2mqtt/Moes_4xSwitch",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "75898696.612e28",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 140,
+        "y": 860,
+        "wires": [
+            [
+                "687fe0981bf2c89e",
+                "94a976c85f160bc2"
+            ]
+        ]
+    },
+    {
+        "id": "687fe0981bf2c89e",
+        "type": "switch",
+        "z": "b635b24c.eee61",
+        "name": "single",
+        "property": "payload.action",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1_single",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2_single",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "3_single",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "4_single",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 350,
+        "y": 820,
+        "wires": [
+            [
+                "f9015c753baf26bd",
+                "6ea6fe5e430a0c7a"
+            ],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "94a976c85f160bc2",
+        "type": "switch",
+        "z": "b635b24c.eee61",
+        "name": "double",
+        "property": "payload.action",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1_double",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "2_double",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "3_double",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "4_double",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 350,
+        "y": 900,
+        "wires": [
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "112afa77e17c164b",
+        "type": "debug",
+        "z": "b635b24c.eee61",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "c7e931f9bec39edb",
+        "type": "mqtt out",
+        "z": "b635b24c.eee61",
+        "name": "",
+        "topic": "cmnd/sonoff-strip/POWER",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "75898696.612e28",
+        "x": 680,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "6ea6fe5e430a0c7a",
+        "type": "template",
+        "z": "b635b24c.eee61",
+        "name": "toggle",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "toggle",
+        "output": "str",
+        "x": 490,
+        "y": 820,
+        "wires": [
+            [
+                "c7e931f9bec39edb"
             ]
         ]
     },
