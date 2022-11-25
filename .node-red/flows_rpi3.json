@@ -233,18 +233,6 @@
         "name": "pushbullet"
     },
     {
-        "id": "c3c95db232b48280",
-        "type": "zigbee2mqtt-server",
-        "name": "",
-        "host": "localhost",
-        "mqtt_port": "1883",
-        "mqtt_username": "",
-        "mqtt_password": "",
-        "tls": "",
-        "usetls": false,
-        "base_topic": "zigbee2mqtt"
-    },
-    {
         "id": "3406502b18c11d64",
         "type": "influxdb",
         "hostname": "rpi4",
