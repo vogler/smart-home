@@ -938,7 +938,7 @@
         "name": "",
         "topic": "cmnd/sonoff-strip/POWER",
         "qos": "2",
-        "retain": "true",
+        "retain": "false",
         "respTopic": "",
         "contentType": "",
         "userProps": "",
