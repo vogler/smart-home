@@ -869,7 +869,9 @@
                 "f9015c753baf26bd",
                 "6ea6fe5e430a0c7a"
             ],
-            [],
+            [
+                "6ea6fe5e430a0c7a"
+            ],
             [],
             []
         ]
@@ -920,7 +922,7 @@
         "type": "debug",
         "z": "b635b24c.eee61",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -967,6 +969,16 @@
                 "c7e931f9bec39edb"
             ]
         ]
+    },
+    {
+        "id": "7aec34e5eb8f698e",
+        "type": "comment",
+        "z": "b635b24c.eee61",
+        "name": "patched node-red-contrib-huemagic",
+        "info": "https://github.com/Foddy/node-red-contrib-huemagic/issues/373#issuecomment-1150817250",
+        "x": 400,
+        "y": 660,
+        "wires": []
     },
     {
         "id": "a3f1b8b2.5c8418",
