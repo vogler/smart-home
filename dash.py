@@ -37,7 +37,16 @@ def udp_filter(p):
     if name in cmds:
       system(cmds[name])
 
-sniff(prn=udp_filter, filter="udp", iface="eth0", store=0, lfilter=lambda x: x.src in macs)
+sniff(prn=udp_filter, filter="udp and port 67 and ether dst ff:ff:ff:ff:ff:ff", iface="eth0", store=0, lfilter=lambda x: x.src in macs)
+# just had 'udp' as filter before, but that sometimes resulted in >60% CPU usage
+# https://0xbharath.github.io/art-of-packet-crafting-with-scapy/scapy/sniffing/index.html
+# 'Scapy sniffer is not designed to be super fast so it can miss packets sometimes. Always use use tcpdump when you can, which is more simpler and efficient.'
+# sudo tcpdump -i eth0 -l -e -nn -vvv udp and port 67 and ether dst ff:ff:ff:ff:ff:ff
+# -l     Make stdout line buffered.  Useful if you want to see the data while capturing it.
+# -e     Print the link-level header on each dump line.  This can be used, for example, to print MAC layer addresses for protocols such as Ethernet and IEEE 802.11.
+# -n     Don't convert addresses (i.e., host addresses, port numbers, etc.) to names.
+# -vvv   Most verbose output with additional fields.
+# port 67 is Bootstrap Protocol (BOOTP) DHCP server port for receiving client requests, 68 is client port for receiving server responses
 
 
 # Notes on faster detection via extra wifi, firmware, AAA battery replacement:
