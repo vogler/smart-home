@@ -38,3 +38,18 @@ def udp_filter(p):
       system(cmds[name])
 
 sniff(prn=udp_filter, filter="udp", iface="eth0", store=0, lfilter=lambda x: x.src in macs)
+
+
+# Notes on faster detection via extra wifi, firmware, AAA battery replacement:
+
+# https://serverless.industries/2022/03/11/hack-the-dashbutton.html
+# https://github.com/ridiculousfish/one-second-dash
+# https://mpetroff.net/2016/07/new-amazon-dash-button-teardown-jk29lp/ teardown - I have rev02 with a AAA Duracell alkaline battery which is replaceable, but one has to pry open and damage the case
+# https://kapuablog.wordpress.com/2018/03/18/amazon-dash-buttons-a-little-bit-of-iot/
+
+# https://www.npmjs.com/package/homebridge-amazondash-mac
+# 'By December 31, 2019, Amazon removed the capability to set up a Dash button for connection to a network. Also at that time, all Dash buttons that were connected to a network received an over-the-air update that disabled the button—a process Amazon refers to as "deregistration."'
+
+# Programming rev01:
+# https://github.com/dekuNukem/Amazon_Dash_Button components and pinouts for rev01
+# https://learn.adafruit.com/dash-hacking-bare-metal-stm32-programming/overview
