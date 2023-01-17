@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # coding=utf8
-from scapy.all import *
+from scapy.all import sniff
 from datetime import datetime
 from os import system
 from sys import stdout
@@ -28,10 +28,10 @@ cmds = {
 }
 
 def udp_filter(p):
-  # print p.show()
-  if p[IP].id == 1:
+  # print(p.show())
+  if p["IP"].id == 1:
     name = macs[p.src]
-    # print datetime.now(), name, p.summary()
+    # print(datetime.now(), name, p.summary())
     print(datetime.now(), name)
     stdout.flush()
     if name in cmds:
