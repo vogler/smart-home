@@ -1,5 +1,5 @@
 [Unit]
-Description=news/videos http-server
+Description=video-dl http-server
 After=network.target
 
 [Service]
