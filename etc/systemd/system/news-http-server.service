@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=pi
 ExecStart=npx http-server -a '::'
-WorkingDirectory=/home/pi/news/videos
+WorkingDirectory=/home/pi/video-dl/videos
 Restart=always
 RestartSec=10
 
