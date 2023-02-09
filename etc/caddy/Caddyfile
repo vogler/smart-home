@@ -1,5 +1,8 @@
 # Caddy docs: https://caddyserver.com/docs/caddyfile
-# ln -s this file to /etc/caddy/Caddyfile to make caddy.service use it
+# `ln -s` this file to /etc/caddy/Caddyfile to make caddy.service use it.
+# Use `caddy reload` to make it check and reload this config instead of restarting the whole service.
+
+# TODO try https://nginxproxymanager.com instead of managing this config.
 
 # Many web apps don't work when put into a subpath (see file Caddyfile-subpaths).
 # So we use a subdomain for each app.
@@ -9,27 +12,43 @@
 
 # If no port is specified it defaults to https (443) and redirects http (80) to it.
 
+# Basic auth to avoid unnecessary traffic.
+# https://github.com/greenpau/caddy-security looked too complex.
+# https://josheli.com/knob/2021/02/24/single-sign-on-in-caddy-server-using-only-the-caddyfile-and-basic-authentication/
+# Create a file auth.caddy with the following content, where the password is generated with `caddy hash-password`:
+# basicauth {
+# 	${USER} ${PASSWORD}
+# }
+
 # https://github.com/vogler/video-dl
 videos.rpi4.voglerr.de:80 {
+	import auth.caddy
 	reverse_proxy :8080
 }
 # https://github.com/vogler/swm
 swm.rpi4.voglerr.de:80 {
+	import auth.caddy
 	reverse_proxy :8081
 }
 
+# most of these have additional auth of their own
 chronograf.rpi4.voglerr.de:80 {
+	import auth.caddy
 	reverse_proxy :8888
 }
 grafana.rpi4.voglerr.de:80 {
+	import auth.caddy
 	reverse_proxy :3000
 }
 octoprint.rpi4.voglerr.de:80 {
+	import auth.caddy
 	reverse_proxy :5000
 }
 webcam.rpi4.voglerr.de:80 {
+	import auth.caddy
 	reverse_proxy :8090
 }
 jellyfin.rpi4.voglerr.de:80 {
+	import auth.caddy
 	reverse_proxy :8096
 }
