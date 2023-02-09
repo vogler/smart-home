@@ -1,14 +1,8 @@
-# Refer to the Caddy docs for more information:
-# https://caddyserver.com/docs/caddyfile
+# Caddy docs: https://caddyserver.com/docs/caddyfile
 
 # Problem is that many web apps don't work when put into a subpath:
 # https://caddy.community/t/the-subfolder-problem-or-why-cant-i-reverse-proxy-my-app-into-a-subfolder/8575
-
-# Easiest to make a subdomain for each app, but then we need to take care of DNS.
-# For example sub.localhost only works if /etc/hosts is adjusted. Also tried sub.rpi4, sub.rpi4.fritz.box, but apparently no wildcard subdomains.
-grafana.localhost:80 {
-	reverse_proxy :3000
-}
+# -> Easiest to make a subdomain for each app (see Caddyfile), but then we need to take care of DNS.
 
 # Reverse proxy with subpaths:
 # We need `redir /foo /foo/` instead of `rewrite /foo /foo/` for links to have the correct base!

@@ -1,0 +1,35 @@
+# Caddy docs: https://caddyserver.com/docs/caddyfile
+# ln -s this file to /etc/caddy/Caddyfile to make caddy.service use it
+
+# Many web apps don't work when put into a subpath (see file Caddyfile-subpaths).
+# So we use a subdomain for each app.
+# sub.localhost only works if each client is adjusted (/etc/hosts).
+# sub.rpi4 would require to be whitelisted in DNS rebind protection of FritzBox (for each subdomain, no wildcards like *.rpi4).
+# sub.rpi4.voglerr.de works in intranet and internet (if ports have been opened in FritzBox).
+
+# If no port is specified it defaults to https (443) and redirects http (80) to it.
+
+# https://github.com/vogler/video-dl
+videos.rpi4.voglerr.de:80 {
+	reverse_proxy :8080
+}
+# https://github.com/vogler/swm
+swm.rpi4.voglerr.de:80 {
+	reverse_proxy :8081
+}
+
+chronograf.rpi4.voglerr.de:80 {
+	reverse_proxy :8888
+}
+grafana.rpi4.voglerr.de:80 {
+	reverse_proxy :3000
+}
+octoprint.rpi4.voglerr.de:80 {
+	reverse_proxy :5000
+}
+webcam.rpi4.voglerr.de:80 {
+	reverse_proxy :8090
+}
+jellyfin.rpi4.voglerr.de:80 {
+	reverse_proxy :8096
+}
