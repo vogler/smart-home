@@ -1,5 +1,5 @@
 # Caddy docs: https://caddyserver.com/docs/caddyfile
-# Make caddy.service use this (done in dotfiles/install/apt.sh): sudo ln -s ~/smart-home/etc/caddy/Caddyfile /etc/caddy/
+# Make caddy.service use this (done in dotfiles/install/apt.sh): sudo ln -s $(realpath Caddyfile) /etc/caddy/
 # Use `caddy reload` to make it check and reload this config instead of restarting the whole service.
 
 # Also tried https://nginxproxymanager.com which has a nice admin UI for defining proxy hosts and access lists, but otherwise no benefit. Prefer to have config in git. Also, docker image was 760MB.
@@ -20,6 +20,7 @@
 # basicauth {
 # 	${USER} ${PASSWORD}
 # }
+# Either put this file in /etc/caddy or link it: sudo ln -s $(realpath auth.caddy) /etc/caddy/
 
 # Serve navbar+iframe for the subdomains below.
 # TODO generate? https://github.com/abiosoft/caddy-exec
@@ -59,4 +60,8 @@ webcam.rpi4.voglerr.de:80 {
 jellyfin.rpi4.voglerr.de:80 {
 	import auth.caddy
 	reverse_proxy :8096
+}
+portainer.rpi4.voglerr.de:80 {
+	# import auth.caddy # BasicAuth not compatible: https://github.com/portainer/portainer/issues/3893
+	reverse_proxy :9000 # http; default 9443 uses self-signed SSL certificate which Chrome does not like
 }
