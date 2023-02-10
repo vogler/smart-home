@@ -1,8 +1,8 @@
 # Caddy docs: https://caddyserver.com/docs/caddyfile
-# `ln -s` this file to /etc/caddy/Caddyfile to make caddy.service use it.
+# Make caddy.service use this (done in dotfiles/install/apt.sh): sudo ln -s ~/smart-home/etc/caddy/Caddyfile /etc/caddy/
 # Use `caddy reload` to make it check and reload this config instead of restarting the whole service.
 
-# TODO try https://nginxproxymanager.com instead of managing this config.
+# Also tried https://nginxproxymanager.com which has a nice admin UI for defining proxy hosts and access lists, but otherwise no benefit. Prefer to have config in git. Also, docker image was 760MB.
 
 # Many web apps don't work when put into a subpath (see file Caddyfile-subpaths).
 # So we use a subdomain for each app.
