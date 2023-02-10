@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>rpi4</title>
+    <style>
+      * { margin: 0 }
+      body { height: 100%; display: flex; flex-direction: column; font-family: sans-serif }
+      iframe { flex-grow: 1; border: 0 }
+      #nav { background-color: #eee; padding: 0.2em 0.5em }
+      #nav * { padding: 0 .2em }
+      #nav a { text-decoration: none; font-weight: bold }
+      a { color: #333 }
+      #info { color: #666; margin-left: 1em }
+    </style>
+  </head>
+  <body>
+    <div id="nav">
+      <a target="c" href="http://videos.rpi4.voglerr.de">videos</a>
+      <a target="c" href="http://swm.rpi4.voglerr.de">swm</a>
+      <a target="c" href="http://chronograf.rpi4.voglerr.de/sources/1/dashboards/3?tempVars%5Bhost%5D=rpi4&lower=now%28%29%20-%206h&refresh=10s">Chronograf</a>
+      <a target="c" href="http://grafana.rpi4.voglerr.de">Grafana*</a>
+      <a target="c" href="http://octoprint.rpi4.voglerr.de">OctoPrint*</a>
+      <a target="c" href="http://jellyfin.rpi4.voglerr.de">Jellyfin</a>
+      <span id="info">* don't load in iframe</span>
+    </div>
+    <iframe name="c" src="http://videos.rpi4.voglerr.de">need iframes</iframe>
+  </body>
+</html>

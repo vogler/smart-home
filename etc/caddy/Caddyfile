@@ -14,11 +14,19 @@
 
 # Basic auth to avoid unnecessary traffic.
 # https://github.com/greenpau/caddy-security looked too complex.
+# https://github.com/DoTheEvo/selfhosted-apps-docker/tree/master/caddy_v2
 # https://josheli.com/knob/2021/02/24/single-sign-on-in-caddy-server-using-only-the-caddyfile-and-basic-authentication/
 # Create a file auth.caddy with the following content, where the password is generated with `caddy hash-password`:
 # basicauth {
 # 	${USER} ${PASSWORD}
 # }
+
+# Serve navbar+iframe for the subdomains below.
+# TODO generate? https://github.com/abiosoft/caddy-exec
+rpi4.voglerr.de:80 {
+	root * /home/pi/smart-home/etc/caddy/public
+	file_server
+}
 
 # https://github.com/vogler/video-dl
 videos.rpi4.voglerr.de:80 {
