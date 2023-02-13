@@ -52,11 +52,14 @@ grafana.rpi4.voglerr.de:80 {
 octoprint.rpi4.voglerr.de:80 {
 	import auth.caddy
 	reverse_proxy :5000
+	handle_path /webcam* {
+		reverse_proxy :8090
+	}
 }
-webcam.rpi4.voglerr.de:80 {
-	import auth.caddy
-	reverse_proxy :8090
-}
+# webcam.rpi4.voglerr.de:80 {
+# 	import auth.caddy
+# 	reverse_proxy :8090
+# }
 jellyfin.rpi4.voglerr.de:80 {
 	import auth.caddy
 	reverse_proxy :8096
