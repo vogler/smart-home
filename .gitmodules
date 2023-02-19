@@ -1,3 +1,6 @@
 [submodule "sensors"]
 	path = sensors
 	url = https://github.com/vogler/sensors.git
+[submodule "LED-matrix"]
+	path = LED-matrix
+	url = https://github.com/vogler/LED-matrix
