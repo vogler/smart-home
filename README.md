@@ -11,7 +11,7 @@ Devices:
   - [Sensors](https://github.com/vogler/sensors) -> [MQTT](https://mosquitto.org/) -> [Telegraf](https://github.com/influxdata/telegraf) (collects metrics) -> [InfluxDB](https://github.com/influxdata/influxdb) (TSDB) -> [Chronograf](https://github.com/influxdata/chronograf) (web GUI, graphs)
     - InfluxDB is not reliable on 32 bit OS, fails to allocate memory and somehow crashes the RPi every couple of days (see [issue](https://github.com/influxdata/influxdb/issues/11339#issuecomment-525500034)), partially fixed by switching to 64 bit kernel on RPi4, see [influxdb-fail.md](influxdb-fail.md).
 - Wemos D1 mini: [FlowMeter](https://github.com/vogler/FlowMeter) for shower usage
-- Wemos D1 mini: 16x16 WS2812B LED matrix with [WLED](https://github.com/Aircoookie/WLED) and custom [wled.py](https://github.com/vogler/smart-home/blob/master/wled.py) to show CO2 level and other numbers. In 3D-printed case with black PLA grid to separate pixels, sandwich paper as diffusor and dark acrylic glass plate as screen cover.
+- Wemos D1 mini: 16x16 WS2812B [LED-matrix](https://github.com/vogler/LED-matrix) with [WLED](https://github.com/Aircoookie/WLED) and custom [wled.py](https://github.com/vogler/smart-home/blob/master/wled.py) to show CO2 level and other numbers. In 3D-printed case with black PLA grid to separate pixels, sandwich paper as diffusor and dark acrylic glass plate as screen cover.
 - Artillery Genius 3D printer, see [gist](https://gist.github.com/vogler/588c577a37f5a573afa5b1000307d41b) for modifications & config
 - switches/sockets:
   - Flashed with [Tasmota](https://github.com/arendst/Tasmota):
