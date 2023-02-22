@@ -7,7 +7,7 @@
         "node-red-contrib-aggregator": "^2.0.0",
         "node-red-contrib-alexa-remote2": "^3.10.4",
         "node-red-contrib-amazon-echo": "^0.1.10",
-        "node-red-contrib-bigtimer": "^2.8.3",
+        "node-red-contrib-bigtimer": "^2.8.5",
         "node-red-contrib-bool-gate": "^1.0.2",
         "node-red-contrib-dsm": "^0.14.1",
         "node-red-contrib-fritz": "^1.4.5",
