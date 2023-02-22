@@ -1524,7 +1524,7 @@
                     "value": "co2"
                 },
                 "devices": [
-                    "G090LF1072021P6R"
+                    "G091MK0614850G2F"
                 ]
             }
         },
@@ -1588,7 +1588,7 @@
         "id": "36e9087b.e10748",
         "type": "alexa-remote-routine",
         "z": "eb78f2d0.07849",
-        "name": "co2 level ok",
+        "name": "co2 ok",
         "account": "c4597d9.54e398",
         "routineNode": {
             "type": "speakAtVolume",
@@ -1596,19 +1596,19 @@
                 "type": "regular",
                 "text": {
                     "type": "str",
-                    "value": "co2 level ok"
+                    "value": "co2 ok"
                 },
                 "volume": {
                     "type": "num",
-                    "value": "50"
+                    "value": "25"
                 },
                 "mode": "set",
                 "devices": [
-                    "G090LF1072021P6R"
+                    "G091MK0614850G2F"
                 ]
             }
         },
-        "x": 570,
+        "x": 550,
         "y": 640,
         "wires": [
             []
@@ -1934,11 +1934,11 @@
                 },
                 "volume": {
                     "type": "num",
-                    "value": "25"
+                    "value": "20"
                 },
                 "mode": "set",
                 "devices": [
-                    "G090LF1072021P6R"
+                    "G091MK0614850G2F"
                 ]
             }
         },
@@ -2090,6 +2090,26 @@
         "x": 550,
         "y": 600,
         "wires": []
+    },
+    {
+        "id": "baf370aa8abc5959",
+        "type": "inject",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1240,
+        "y": 400,
+        "wires": [
+            [
+                "1562b0530c6b8603"
+            ]
+        ]
     },
     {
         "id": "9f15beac.00823",
