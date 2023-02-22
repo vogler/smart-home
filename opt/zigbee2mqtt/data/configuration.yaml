@@ -4,7 +4,7 @@ mqtt:
   base_topic: zigbee2mqtt
   server: 'mqtt://localhost'
 serial:
-  port: '/dev/serial/by-path/platform-3f980000.usb-usb-0:1.2:1.0-port0' # SONOFF Zigbee 3.0 USB Dongle Plus (CC2652P CP2102N), firmware: 20220103. Before CC2530 via ch341-uart USB adapter (originally for ESP-01), firmware: CC2530_SOURCE_ROUTING_20201128. Can't use /dev/ttyUSB1 anymore since it might switch with ttyUSB0 on boot. Before CC2531 USB sniffer on /dev/ttyACM0
+  port: '/dev/serial/by-path/platform-3f980000.usb-usb-0:1.2:1.0-port0' # SONOFF Zigbee 3.0 USB Dongle Plus (CC2652P CP2102N), firmware: 20221226. Before CC2530 via ch341-uart USB adapter (originally for ESP-01), firmware: CC2530_SOURCE_ROUTING_20201128. Can't use /dev/ttyUSB1 anymore since it might switch with ttyUSB0 on boot. Before CC2531 USB sniffer on /dev/ttyACM0
   # disable_led: true # only for CC2531, timeout ledControl after 6s on CC2530
 availability: false # marks devices online/offline. active devices have to check-in every 10min or will be pinged; passive devices have to check-in every 25h. Reason why Tradfri_Button_Bed depletes a battery in a couple of days?
 ota:
