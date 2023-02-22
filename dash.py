@@ -2,8 +2,17 @@
 # coding=utf8
 from scapy.all import sniff
 from datetime import datetime
-from os import system
+# from os import system
 from sys import stdout
+import paho.mqtt.client as mqtt
+
+MQTT_BROKER = 'localhost'
+MQTT_TOPIC = 'dash/' # + name of button; content will be datetime
+
+client = mqtt.Client()
+client.on_connect = lambda client, userdata, flags, rc: print(datetime.now(), "Connected to MQTT")
+client.connect(MQTT_BROKER)
+client.loop_start() # starts a thread
 
 # blocked these macs in router to avoid notifications. however, this makes them try longer.
 # fake server: https://github.com/ide/dash-button/issues/59
@@ -34,8 +43,9 @@ def udp_filter(p):
     # print(datetime.now(), name, p.summary())
     print(datetime.now(), name)
     stdout.flush()
-    if name in cmds:
-      system(cmds[name])
+    # if name in cmds:
+    #   system(cmds[name])
+    client.publish(MQTT_TOPIC + name, str(datetime.now()))
 
 sniff(prn=udp_filter, filter="udp and port 67 and ether dst ff:ff:ff:ff:ff:ff", iface="eth0", store=0, lfilter=lambda x: x.src in macs)
 # just had 'udp' as filter before, but that sometimes resulted in >60% CPU usage
