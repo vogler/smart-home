@@ -62,7 +62,7 @@ dtparam=audio=on
 max_framebuffers=2
 
 [all]
-dtoverlay=vc4-kms-v3d
+dtoverlay=vc4-fkms-v3d
 gpu_mem=128
 
 # Add OneWire support
