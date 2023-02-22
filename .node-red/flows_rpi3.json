@@ -31,14 +31,14 @@
         "id": "25f51f1a963341a3",
         "type": "tab",
         "label": "watchdog",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "c244880f71d23ef4",
         "type": "tab",
         "label": "WLED matrix",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
