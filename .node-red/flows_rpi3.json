@@ -1518,7 +1518,7 @@
         "routineNode": {
             "type": "speak",
             "payload": {
-                "type": "regular",
+                "type": "announcement",
                 "text": {
                     "type": "msg",
                     "value": "co2"
@@ -2079,7 +2079,7 @@
             }
         ],
         "x": 250,
-        "y": 780,
+        "y": 820,
         "wires": []
     },
     {
@@ -2109,6 +2109,75 @@
             [
                 "1562b0530c6b8603"
             ]
+        ]
+    },
+    {
+        "id": "c643d963ad02115b",
+        "type": "mqtt in",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "topic": "dash/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "75898696.612e28",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 70,
+        "y": 820,
+        "wires": [
+            [
+                "bdba62ae2a99c56c",
+                "56b144834081c031",
+                "53633ddb8a619157"
+            ]
+        ]
+    },
+    {
+        "id": "56b144834081c031",
+        "type": "debug",
+        "z": "eb78f2d0.07849",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 250,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "53633ddb8a619157",
+        "type": "alexa-remote-routine",
+        "z": "eb78f2d0.07849",
+        "name": "msg.topic",
+        "account": "c4597d9.54e398",
+        "routineNode": {
+            "type": "speakAtVolume",
+            "payload": {
+                "type": "regular",
+                "text": {
+                    "type": "jsonata",
+                    "value": "$replace(topic, 'dash/', '')"
+                },
+                "volume": {
+                    "type": "num",
+                    "value": "50"
+                },
+                "mode": "set",
+                "devices": [
+                    "G091MK0614850G2F"
+                ]
+            }
+        },
+        "x": 260,
+        "y": 860,
+        "wires": [
+            []
         ]
     },
     {
