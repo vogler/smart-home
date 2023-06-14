@@ -71,11 +71,11 @@ gpu_mem=128
 enable_uart=1
 
 # disable LEDs (PWR red default input, ACT green default mmc0), https://www.jeffgeerling.com/blogs/jeff-geerling/controlling-pwr-act-leds-raspberry-pi
-# ACT (green) /sys/class/leds/led0/trigger default is mmc0
+# ACT (green) /sys/class/leds/ACT/trigger default is mmc0
 dtparam=act_led_trigger=none
-# PWR (red) /sys/class/leds/led1/trigger default is input
-dtparam=pwr_led_trigger=none
-dtparam=pwr_led_activelow=on
+# PWR (red) /sys/class/leds/PWR/trigger default is input
+dtparam=pwr_led_trigger=default-on
+dtparam=pwr_led_activelow=off
 
 # Disable Ethernet LEDs; https://forums.raspberrypi.com/viewtopic.php?t=288043
 # This is only support from RPi 3B+. For 3B, we use lan951x-led-ctl in rc.local, see commit 2e685189c9dffd3d4e6fe8e4a9bfd753dfcdc26e

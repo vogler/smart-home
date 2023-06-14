@@ -75,7 +75,7 @@ arm_64bit=1
 # ACT (green) /sys/class/leds/led0/trigger default is mmc0
 dtparam=act_led_trigger=none
 # PWR (red) /sys/class/leds/led1/trigger default is input
-dtparam=pwr_led_trigger=none
+dtparam=pwr_led_trigger=default-on
 dtparam=pwr_led_activelow=off
 # Disable ethernet port LEDs
 dtparam=eth_led0=4
