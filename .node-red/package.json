@@ -22,14 +22,14 @@
         "node-red-contrib-samsung-tv-control": "^1.4.0",
         "node-red-contrib-sunevents": "^3.1.1",
         "node-red-contrib-sunpos": "^1.4.1",
-        "node-red-contrib-telegrambot": "^15.1.4",
+        "node-red-contrib-telegrambot": "^15.1.7",
         "node-red-contrib-timed-counter": "^0.1.0",
         "node-red-contrib-timeout": "^1.1.5",
         "node-red-contrib-wait-paths": "^0.3.2",
         "node-red-contrib-wemo-emulator": "^1.0.5",
         "node-red-contrib-wled2": "^2.4.4",
         "node-red-contrib-zigbee2mqtt": "^2.7.1",
-        "node-red-dashboard": "^3.5.0",
+        "node-red-dashboard": "^3.6.0",
         "node-red-node-google": "^0.2.2",
         "node-red-node-openweathermap": "^0.5.1",
         "node-red-node-pi-gpio": "^2.0.6",
@@ -39,6 +39,6 @@
         "node-red-node-serialport": "^1.0.4",
         "node-red-node-smooth": "^0.1.2",
         "node-red-node-ui-table": "^0.4.3",
-        "typescript": "^5.1.6"
+        "typescript": "^5.2.2"
     }
 }
