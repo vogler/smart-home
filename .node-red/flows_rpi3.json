@@ -143,9 +143,9 @@
     {
         "id": "7cf0578.b836da8",
         "type": "hue-bridge",
-        "name": "Hue Bridge",
+        "name": "Philips hue",
         "bridge": "192.168.178.23",
-        "key": "Ht8UxHwadOMFWbFzBa6e3FVIUaBGmXDGnQfvVJHe",
+        "key": "bHbySDyO5Hgffi0m6GC8lKnQC9100WYTFTAXTvzZ",
         "worker": "5",
         "disableupdates": false
     },
@@ -489,9 +489,11 @@
         "broker": "75898696.612e28",
         "inputs": 0,
         "x": 110,
-        "y": 420,
+        "y": 460,
         "wires": [
-            []
+            [
+                "dc8bfee7.b6068"
+            ]
         ]
     },
     {
@@ -499,22 +501,14 @@
         "type": "function",
         "z": "b635b24c.eee61",
         "name": "occupancy",
-        "func": "// node.log(msg.payload);\n//var p = JSON.parse(msg.payload);\nvar p = msg.payload;\nflow.set('motion-kitchen', p.motion);\nif(p.motion === undefined) return; // if state_cache is off, the field does not need to be included\nif(p.motion){\n    node.status({fill:\"red\", shape:\"ring\", text:\"motion\"});\n} else {\n    node.status({fill:\"green\", shape:\"dot\", text:\"no motion\"});\n}\nconst pp = { payload: p.motion }\nif (p.motion)\n    return [pp, null];\nelse\n    return [null, pp];",
-        "outputs": 2,
-        "timeout": "",
+        "func": "// node.log(msg.payload);\nvar p = JSON.parse(msg.payload);\nflow.set('motion-kitchen', p.occupancy);\nif(p.occupancy === undefined) return; // if state_cache is off, the field does not need to be included\nif(p.occupancy){\n    node.status({fill:\"red\", shape:\"ring\", text:\"motion\"});\n} else {\n    node.status({fill:\"green\", shape:\"dot\", text:\"no motion\"});\n}\nreturn {payload: p.occupancy};",
+        "outputs": 1,
         "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
         "x": 290,
         "y": 460,
         "wires": [
             [
-                "5c483681.6157c8",
-                "ba4e56990926079e"
-            ],
-            [
-                "a70dbaa6e06d98a6"
+                "5c483681.6157c8"
             ]
         ]
     },
@@ -538,11 +532,9 @@
         "name": "on/off",
         "func": "const state = msg.payload ? \"ON\" : \"OFF\";\nmsg.payload = {\n  \"state\": state,\n};\n// const msg2 = Object.assign({}, msg); // copy\n// msg2.payload = {\n//   \"state\": state,\n//   \"brightness\": 255,\n//   \"color\": JSON.stringify({\"hex\": \"#FFFFFF\"}),\n//   \"color_temp\": 230,\n// }\n// highest brightness for Osram_Strip_RGBW_Kitchen:\n// {\"brightness\": 255, \"color\": {\"hex\": \"#FFFFFF\"}, \"color_temp\": 230}\n// returning msg2 somehow started making problems on 30.08.2020:\n// ON/OFF still works, but errors (0x10: MEM_ERROR) if setting color/color_temp\n// Somehow upon (re)start of flows the state is always on and the color_temp too blue.\n// Therefore we inject the right values once instead.\nreturn [msg, msg];",
         "outputs": 2,
-        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "libs": [],
         "x": 590,
         "y": 460,
         "wires": [
@@ -797,8 +789,8 @@
         "z": "b635b24c.eee61",
         "name": "timeout 60s",
         "info": "",
-        "x": 610,
-        "y": 340,
+        "x": 450,
+        "y": 440,
         "wires": []
     },
     {
@@ -1191,84 +1183,6 @@
         "x": 400,
         "y": 660,
         "wires": []
-    },
-    {
-        "id": "ab8da2baceef4127",
-        "type": "hue-motion",
-        "z": "b635b24c.eee61",
-        "name": "K\u00fcche",
-        "bridge": "7cf0578.b836da8",
-        "sensorid": "664b27fe-cca0-417b-9e45-38f2e6044a8a",
-        "skipevents": false,
-        "initevents": false,
-        "x": 90,
-        "y": 480,
-        "wires": [
-            [
-                "dc8bfee7.b6068",
-                "4fad6e12b1440988"
-            ]
-        ]
-    },
-    {
-        "id": "4fad6e12b1440988",
-        "type": "debug",
-        "z": "b635b24c.eee61",
-        "name": "debug 1",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 280,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "a70dbaa6e06d98a6",
-        "type": "trigger",
-        "z": "b635b24c.eee61",
-        "name": "false after 60s",
-        "op1": "",
-        "op2": "false",
-        "op1type": "nul",
-        "op2type": "bool",
-        "duration": "60",
-        "extend": true,
-        "overrideDelay": false,
-        "units": "s",
-        "reset": "reset",
-        "bytopic": "all",
-        "topic": "topic",
-        "outputs": 1,
-        "x": 480,
-        "y": 400,
-        "wires": [
-            [
-                "5c483681.6157c8"
-            ]
-        ]
-    },
-    {
-        "id": "ba4e56990926079e",
-        "type": "template",
-        "z": "b635b24c.eee61",
-        "name": "reset",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "plain",
-        "template": "reset",
-        "output": "str",
-        "x": 310,
-        "y": 400,
-        "wires": [
-            [
-                "a70dbaa6e06d98a6"
-            ]
-        ]
     },
     {
         "id": "a3f1b8b2.5c8418",
