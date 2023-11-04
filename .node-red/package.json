@@ -29,7 +29,7 @@
         "node-red-contrib-wemo-emulator": "^1.0.5",
         "node-red-contrib-wled2": "^2.4.4",
         "node-red-contrib-zigbee2mqtt": "^2.7.1",
-        "node-red-dashboard": "^3.6.0",
+        "node-red-dashboard": "^3.6.1",
         "node-red-node-google": "^0.2.2",
         "node-red-node-openweathermap": "^0.5.1",
         "node-red-node-pi-gpio": "^2.0.6",
