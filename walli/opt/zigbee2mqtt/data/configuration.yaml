@@ -1,0 +1,37 @@
+homeassistant: false
+permit_join: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: mqtt://localhost
+serial:
+  port: /dev/ttyUSB0 # CC2530 via ch341-uart USB adapter (originally for ESP-01), firmware: CC2530_SOURCE_ROUTING_20201128
+advanced:
+  log_symlink_current: true
+  ikea_ota_use_test_url: true
+  log_syslog:
+    app_name: Zigbee2MQTT
+    eol: /n
+    host: localhost
+    localhost: localhost
+    path: /dev/log
+    pid: process.pid
+    port: 514
+    protocol: udp4
+    type: '5424'
+  legacy_api: false
+frontend:
+  port: 8080
+devices:
+  '0x000b57fffe383d32':
+    friendly_name: Tradfri-Motion-Keller
+  '0x000b57fffe321252':
+    friendly_name: Tradfri-E27-WW-Keller
+  '0x8c6fb9fffecb5b01':
+    friendly_name: Tradfri-E27-WS-WZ
+  '0xb43522fffe5705e7':
+    friendly_name: STYRBAR-remote-WZ
+groups:
+  '1':
+    friendly_name: WZ
+    devices:
+      - 0x8c6fb9fffecb5b01/1
