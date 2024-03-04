@@ -1,3 +1,5 @@
+# https://www.zigbee2mqtt.io/guide/installation/01_linux.html#optional-running-as-a-daemon-with-systemctl
+
 [Unit]
 Description=zigbee2mqtt
 After=network.target
