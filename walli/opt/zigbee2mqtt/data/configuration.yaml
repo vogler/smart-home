@@ -8,16 +8,6 @@ serial:
 advanced:
   log_symlink_current: true
   ikea_ota_use_test_url: true
-  log_syslog:
-    app_name: Zigbee2MQTT
-    eol: /n
-    host: localhost
-    localhost: localhost
-    path: /dev/log
-    pid: process.pid
-    port: 514
-    protocol: udp4
-    type: '5424'
   legacy_api: false
 frontend:
   port: 8080
