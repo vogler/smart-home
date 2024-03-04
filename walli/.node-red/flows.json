@@ -1,0 +1,271 @@
+[
+    {
+        "id": "ffe319f2b2fecf29",
+        "type": "tab",
+        "label": "Licht",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "542d01715ae3c373",
+        "type": "tab",
+        "label": "Strom",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ce7ac1d0ae46b51a",
+        "type": "zigbee2mqtt-server",
+        "name": "",
+        "host": "localhost",
+        "mqtt_port": "1883",
+        "mqtt_username": "",
+        "mqtt_password": "",
+        "mqtt_qos": "0",
+        "tls": "",
+        "usetls": false,
+        "base_topic": "zigbee2mqtt"
+    },
+    {
+        "id": "4a438491c436fd41",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "29f319b8fcb8c739",
+        "type": "zigbee2mqtt-out",
+        "z": "ffe319f2b2fecf29",
+        "name": "",
+        "server": "ce7ac1d0ae46b51a",
+        "friendly_name": "Tradfri-E27-WW (LED1623G12)",
+        "device_id": "0x000b57fffe321252",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "on",
+        "payloadType": "z2m_payload",
+        "optionsValue": "",
+        "optionsType": "nothing",
+        "x": 770,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "828b5b99fb91640a",
+        "type": "zigbee2mqtt-in",
+        "z": "ffe319f2b2fecf29",
+        "name": "",
+        "server": "ce7ac1d0ae46b51a",
+        "friendly_name": "Tradfri-Motion (E1525/E1745)",
+        "device_id": "0x000b57fffe383d32",
+        "state": "occupancy",
+        "outputAtStartup": true,
+        "filterChanges": true,
+        "enableMultiple": false,
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "fad6c895951af317"
+            ]
+        ]
+    },
+    {
+        "id": "fad6c895951af317",
+        "type": "switch",
+        "z": "ffe319f2b2fecf29",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 370,
+        "y": 120,
+        "wires": [
+            [
+                "7078fe013aaf6caa"
+            ],
+            [
+                "7d97f3fcaa516939"
+            ]
+        ]
+    },
+    {
+        "id": "7d97f3fcaa516939",
+        "type": "zigbee2mqtt-out",
+        "z": "ffe319f2b2fecf29",
+        "name": "",
+        "server": "ce7ac1d0ae46b51a",
+        "friendly_name": "Tradfri-E27-WW (LED1623G12)",
+        "device_id": "0x000b57fffe321252",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "off",
+        "payloadType": "z2m_payload",
+        "optionsValue": "",
+        "optionsType": "nothing",
+        "x": 770,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7078fe013aaf6caa",
+        "type": "time-range-switch",
+        "z": "ffe319f2b2fecf29",
+        "name": "",
+        "lat": "50.267488",
+        "lon": "11.469347",
+        "startTime": "sunset",
+        "endTime": "sunrise",
+        "startOffset": "-45",
+        "endOffset": 0,
+        "x": 540,
+        "y": 100,
+        "wires": [
+            [
+                "29f319b8fcb8c739",
+                "b602fd71adf9c37f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "80368d012f510f9f",
+        "type": "zigbee2mqtt-bridge",
+        "z": "ffe319f2b2fecf29",
+        "name": "",
+        "server": "ce7ac1d0ae46b51a",
+        "topic": null,
+        "x": 120,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b602fd71adf9c37f",
+        "type": "delay",
+        "z": "ffe319f2b2fecf29",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "45",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 540,
+        "y": 180,
+        "wires": [
+            [
+                "7d97f3fcaa516939"
+            ]
+        ]
+    },
+    {
+        "id": "53a112e47ea468b7",
+        "type": "alexa-local",
+        "z": "ffe319f2b2fecf29",
+        "devicename": "Sofa",
+        "inputtrigger": false,
+        "x": 70,
+        "y": 280,
+        "wires": [
+            [
+                "a26f727611e301e4"
+            ]
+        ]
+    },
+    {
+        "id": "a26f727611e301e4",
+        "type": "zigbee2mqtt-out",
+        "z": "ffe319f2b2fecf29",
+        "name": "",
+        "server": "ce7ac1d0ae46b51a",
+        "friendly_name": "Tradfri-E27-WS-WZ (LED2201G8)",
+        "device_id": "0x8c6fb9fffecb5b01",
+        "command": "state",
+        "commandType": "z2m_cmd",
+        "payload": "payload",
+        "payloadType": "msg",
+        "optionsValue": "",
+        "optionsType": "nothing",
+        "x": 320,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "ef05b7b770b8dfc8",
+        "type": "mqtt in",
+        "z": "542d01715ae3c373",
+        "name": "",
+        "topic": "electricity/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4a438491c436fd41",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 60,
+        "wires": [
+            [
+                "c78777d22b0d36ef"
+            ]
+        ]
+    },
+    {
+        "id": "c78777d22b0d36ef",
+        "type": "debug",
+        "z": "542d01715ae3c373",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 60,
+        "wires": []
+    }
+]
