@@ -20,6 +20,10 @@ devices:
     friendly_name: Tradfri-E27-WS-WZ
   '0xb43522fffe5705e7':
     friendly_name: STYRBAR-remote-WZ
+  '0x0017880103283554':
+    friendly_name: Hue-Motion
+  '0x00158d0008e1d644':
+    friendly_name: Aqara-Contact-Mail
 groups:
   '1':
     friendly_name: WZ
