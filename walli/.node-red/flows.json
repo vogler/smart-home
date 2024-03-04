@@ -200,20 +200,6 @@
         ]
     },
     {
-        "id": "53a112e47ea468b7",
-        "type": "alexa-local",
-        "z": "ffe319f2b2fecf29",
-        "devicename": "Sofa",
-        "inputtrigger": false,
-        "x": 70,
-        "y": 280,
-        "wires": [
-            [
-                "a26f727611e301e4"
-            ]
-        ]
-    },
-    {
         "id": "a26f727611e301e4",
         "type": "zigbee2mqtt-out",
         "z": "ffe319f2b2fecf29",
@@ -227,9 +213,95 @@
         "payloadType": "msg",
         "optionsValue": "",
         "optionsType": "nothing",
-        "x": 320,
+        "x": 580,
         "y": 280,
         "wires": []
+    },
+    {
+        "id": "78e615fadae69a9c",
+        "type": "amazon-echo-hub",
+        "z": "ffe319f2b2fecf29",
+        "port": "80",
+        "processinput": 0,
+        "discovery": true,
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "fbefb2f9d6caedbf"
+            ]
+        ]
+    },
+    {
+        "id": "fbefb2f9d6caedbf",
+        "type": "amazon-echo-device",
+        "z": "ffe319f2b2fecf29",
+        "name": "Sofa",
+        "topic": "",
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "a26f727611e301e4",
+                "0e3213f25f56bd27",
+                "d76c29c26661f44a"
+            ]
+        ]
+    },
+    {
+        "id": "0e3213f25f56bd27",
+        "type": "debug",
+        "z": "ffe319f2b2fecf29",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f01eae23c55abac4",
+        "type": "zigbee2mqtt-out",
+        "z": "ffe319f2b2fecf29",
+        "name": "",
+        "server": "ce7ac1d0ae46b51a",
+        "friendly_name": "Tradfri-E27-WS-WZ (LED2201G8)",
+        "device_id": "0x8c6fb9fffecb5b01",
+        "command": "brightness",
+        "commandType": "z2m_cmd",
+        "payload": "percentage",
+        "payloadType": "msg",
+        "optionsValue": "",
+        "optionsType": "nothing",
+        "x": 580,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "d76c29c26661f44a",
+        "type": "function",
+        "z": "ffe319f2b2fecf29",
+        "name": "100 to 255",
+        "func": "msg.percentage = msg.percentage*255/100;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 340,
+        "wires": [
+            [
+                "f01eae23c55abac4"
+            ]
+        ]
     },
     {
         "id": "ef05b7b770b8dfc8",
