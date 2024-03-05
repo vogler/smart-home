@@ -213,7 +213,7 @@
         "payloadType": "msg",
         "optionsValue": "",
         "optionsType": "nothing",
-        "x": 580,
+        "x": 680,
         "y": 280,
         "wires": []
     },
@@ -242,9 +242,8 @@
         "y": 280,
         "wires": [
             [
-                "a26f727611e301e4",
                 "0e3213f25f56bd27",
-                "d76c29c26661f44a"
+                "ed80471a835d7442"
             ]
         ]
     },
@@ -252,7 +251,7 @@
         "id": "0e3213f25f56bd27",
         "type": "debug",
         "z": "ffe319f2b2fecf29",
-        "name": "debug 2",
+        "name": "debug",
         "active": false,
         "tosidebar": true,
         "console": false,
@@ -261,8 +260,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 440,
-        "y": 240,
+        "x": 430,
+        "y": 340,
         "wires": []
     },
     {
@@ -275,29 +274,40 @@
         "device_id": "0x8c6fb9fffecb5b01",
         "command": "brightness",
         "commandType": "z2m_cmd",
-        "payload": "percentage",
+        "payload": "bri",
         "payloadType": "msg",
         "optionsValue": "",
         "optionsType": "nothing",
-        "x": 580,
+        "x": 680,
         "y": 340,
         "wires": []
     },
     {
-        "id": "d76c29c26661f44a",
-        "type": "function",
+        "id": "ed80471a835d7442",
+        "type": "switch",
         "z": "ffe319f2b2fecf29",
-        "name": "100 to 255",
-        "func": "msg.percentage = msg.percentage*255/100;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 350,
-        "y": 340,
+        "name": "",
+        "property": "meta.changes",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "else"
+            },
+            {
+                "t": "hask",
+                "v": "bri",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 430,
+        "y": 280,
         "wires": [
+            [
+                "a26f727611e301e4"
+            ],
             [
                 "f01eae23c55abac4"
             ]
