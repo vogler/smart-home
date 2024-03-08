@@ -301,7 +301,7 @@
         "host": "fritz.box",
         "port": "49000",
         "ssl": false,
-        "user": "admin"
+        "user": "voglerr"
     },
     {
         "id": "119e8fc6635b6db9",
@@ -3091,9 +3091,7 @@
         "x": 110,
         "y": 200,
         "wires": [
-            [
-                "ccd7ef18.14dc"
-            ]
+            []
         ]
     },
     {
@@ -3512,6 +3510,7 @@
         "z": "abafeffb.7205",
         "name": "",
         "filename": "/home/pi/presence.tsv",
+        "filenameType": "str",
         "appendNewline": true,
         "createDir": false,
         "overwriteFile": "false",
