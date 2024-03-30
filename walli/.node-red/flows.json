@@ -213,7 +213,7 @@
         "payloadType": "msg",
         "optionsValue": "",
         "optionsType": "nothing",
-        "x": 680,
+        "x": 700,
         "y": 280,
         "wires": []
     },
@@ -236,9 +236,9 @@
         "id": "fbefb2f9d6caedbf",
         "type": "amazon-echo-device",
         "z": "ffe319f2b2fecf29",
-        "name": "Sofa",
+        "name": "Wohnzimmer",
         "topic": "",
-        "x": 290,
+        "x": 310,
         "y": 280,
         "wires": [
             [
@@ -260,7 +260,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 430,
+        "x": 450,
         "y": 340,
         "wires": []
     },
@@ -278,7 +278,7 @@
         "payloadType": "msg",
         "optionsValue": "",
         "optionsType": "nothing",
-        "x": 680,
+        "x": 700,
         "y": 340,
         "wires": []
     },
@@ -302,7 +302,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 430,
+        "x": 470,
         "y": 280,
         "wires": [
             [
