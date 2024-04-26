@@ -56,24 +56,6 @@
         "sessionExpiry": ""
     },
     {
-        "id": "29f319b8fcb8c739",
-        "type": "zigbee2mqtt-out",
-        "z": "ffe319f2b2fecf29",
-        "name": "",
-        "server": "ce7ac1d0ae46b51a",
-        "friendly_name": "Tradfri-E27-WW (LED1623G12)",
-        "device_id": "0x000b57fffe321252",
-        "command": "state",
-        "commandType": "z2m_cmd",
-        "payload": "on",
-        "payloadType": "z2m_payload",
-        "optionsValue": "",
-        "optionsType": "nothing",
-        "x": 770,
-        "y": 80,
-        "wires": []
-    },
-    {
         "id": "828b5b99fb91640a",
         "type": "zigbee2mqtt-in",
         "z": "ffe319f2b2fecf29",
@@ -118,27 +100,9 @@
                 "7078fe013aaf6caa"
             ],
             [
-                "7d97f3fcaa516939"
+                "0fa1d92ae53caf81"
             ]
         ]
-    },
-    {
-        "id": "7d97f3fcaa516939",
-        "type": "zigbee2mqtt-out",
-        "z": "ffe319f2b2fecf29",
-        "name": "",
-        "server": "ce7ac1d0ae46b51a",
-        "friendly_name": "Tradfri-E27-WW (LED1623G12)",
-        "device_id": "0x000b57fffe321252",
-        "command": "state",
-        "commandType": "z2m_cmd",
-        "payload": "off",
-        "payloadType": "z2m_payload",
-        "optionsValue": "",
-        "optionsType": "nothing",
-        "x": 770,
-        "y": 160,
-        "wires": []
     },
     {
         "id": "7078fe013aaf6caa",
@@ -151,12 +115,11 @@
         "endTime": "sunrise",
         "startOffset": "-45",
         "endOffset": 0,
-        "x": 540,
-        "y": 100,
+        "x": 560,
+        "y": 40,
         "wires": [
             [
-                "29f319b8fcb8c739",
-                "b602fd71adf9c37f"
+                "8a8ed113d2c9425b"
             ],
             []
         ]
@@ -172,31 +135,6 @@
         "y": 40,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "b602fd71adf9c37f",
-        "type": "delay",
-        "z": "ffe319f2b2fecf29",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "45",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 540,
-        "y": 180,
-        "wires": [
-            [
-                "7d97f3fcaa516939"
-            ]
         ]
     },
     {
@@ -312,6 +250,141 @@
                 "f01eae23c55abac4"
             ]
         ]
+    },
+    {
+        "id": "5a82d79311f27262",
+        "type": "http request",
+        "z": "ffe319f2b2fecf29",
+        "name": "on for 300s",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.1.116/relay/0?turn=on&timer=300",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 750,
+        "y": 100,
+        "wires": [
+            [
+                "d0b31284f34798e3"
+            ]
+        ]
+    },
+    {
+        "id": "d0b31284f34798e3",
+        "type": "debug",
+        "z": "ffe319f2b2fecf29",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "0fa1d92ae53caf81",
+        "type": "http request",
+        "z": "ffe319f2b2fecf29",
+        "name": "off",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.1.116/relay/0?turn=off",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 730,
+        "y": 140,
+        "wires": [
+            [
+                "d0b31284f34798e3"
+            ]
+        ]
+    },
+    {
+        "id": "bd6984a447e4ff05",
+        "type": "comment",
+        "z": "ffe319f2b2fecf29",
+        "name": "Shelly1-Eingang",
+        "info": "nodes for Shelly gen1/2/3, but many deps:\nhttps://flows.nodered.org/node/node-red-contrib-shelly\n\n-> just control via http request\nhttps://open-boat-projects.org/en/shelly-1-in-nodered-integrieren/\nhttps://shelly-api-docs.shelly.cloud/gen1/#shelly1-1pm-relay-0\n\nTest in browser:\nhttp://192.168.1.116/relay/0?turn=on&timer=20\nturn: on, off, toggle\ntimer only works for turn=on",
+        "x": 560,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8a8ed113d2c9425b",
+        "type": "http request",
+        "z": "ffe319f2b2fecf29",
+        "name": "state",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "http://192.168.1.116/relay/0",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 730,
+        "y": 40,
+        "wires": [
+            [
+                "d4579b47a9608cfc"
+            ]
+        ]
+    },
+    {
+        "id": "d4579b47a9608cfc",
+        "type": "switch",
+        "z": "ffe319f2b2fecf29",
+        "name": "ison",
+        "property": "payload.ison",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 850,
+        "y": 40,
+        "wires": [
+            [],
+            [
+                "5a82d79311f27262"
+            ]
+        ]
+    },
+    {
+        "id": "867578f1f4cdb25b",
+        "type": "comment",
+        "z": "ffe319f2b2fecf29",
+        "name": "off after 1m",
+        "info": "",
+        "x": 270,
+        "y": 80,
+        "wires": []
     },
     {
         "id": "ef05b7b770b8dfc8",
