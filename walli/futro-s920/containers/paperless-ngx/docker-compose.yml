@@ -29,7 +29,8 @@ services:
   broker:
     image: docker.io/library/redis:7
     restart: unless-stopped
-    network_mode: bridge
+    networks:
+      - traefik_default
     volumes:
       - redisdata:/data
 
@@ -38,7 +39,8 @@ services:
     restart: unless-stopped
     depends_on:
       - broker
-    network_mode: bridge
+    networks:
+      - traefik_default
     ports:
       - "8000:8000"
     volumes:
@@ -56,3 +58,7 @@ services:
 volumes:
   data:
   redisdata:
+
+networks:
+  traefik_default:
+    external: true

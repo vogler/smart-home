@@ -4,7 +4,8 @@ services:
     image: "germannewsmaker/myspeed"
     volumes:
       - data:/myspeed/data
-    network_mode: bridge
+    networks:
+      - traefik_default
     ports:
       - 5216:5216
     restart: unless-stopped
@@ -14,3 +15,7 @@ services:
 
 volumes:
   data:
+
+networks:
+  traefik_default:
+    external: true

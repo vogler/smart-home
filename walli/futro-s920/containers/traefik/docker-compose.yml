@@ -19,6 +19,7 @@ services:
     volumes:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
-    # by default `docker compose up` creates a network service_default for each service which leads to 'Gateway Timeout' for `curl service.localhost`
-    # here (and for all services) we avoid this by making them use the existing bridge network. TODO this breaks name resolution between services in one stack, e.g. paperless can't connect to its 'broker' service
-    network_mode: bridge
+    # By default `docker compose up` creates a network service_default for each service which leads to 'Gateway Timeout' for `curl service.localhost` since the network is not shared with traefik.
+    # Making all services use the existing bridge network works, however, this breaks name resolution between services in one stack, e.g. paperless can't connect to its 'broker' service anymore.
+    # network_mode: bridge
+    # Instead, we let compose create the network 'traefik_default' here and use it as an external network in each service...
