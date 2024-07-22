@@ -15,7 +15,9 @@ services:
       - 80:80
       # The Web UI (enabled by --api.insecure=true)
       - 8080:8080
-    # use DNS challenge to have https even for private IP? https://doc.traefik.io/traefik/user-guides/docker-compose/acme-dns/
+    # TODO use DNS challenge to have https even for private IP?
+      # https://doc.traefik.io/traefik/user-guides/docker-compose/acme-dns/
+      # https://github.com/DoTheEvo/Traefik-simplest-step-by-step/blob/master/README.md#5-lets-encrypt-certificate-dns-challenge-on-cloudflare
     volumes:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
