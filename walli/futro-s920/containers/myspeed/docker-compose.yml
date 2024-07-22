@@ -1,0 +1,14 @@
+services:
+  myspeed:
+    container_name: myspeed
+    image: "germannewsmaker/myspeed"
+    volumes:
+      - data:/myspeed/data
+    ports:
+      - 5216:5216
+    restart: unless-stopped
+    # labels:
+      # - "traefik.http.routers.homeassistant.rule=Host(`myspeed`)"
+
+volumes:
+  data:
