@@ -9,3 +9,12 @@ frontend:
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
+# https://www.reddit.com/r/docker/comments/zy1v0q/enabling_home_assistant_remote_access_via_traefik/
+# https://gist.github.com/gaieges/936bdf91e01e4cc782eb047e5873089b?permalink_comment_id=5006670#gistcomment-5006670
+http:
+ use_x_forwarded_for: true
+ trusted_proxies:
+   - 127.0.0.1
+   - ::1
+   - 172.20.0.0/16 # traefik proxy subnet

@@ -12,3 +12,5 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.homeassistant.rule=Host(`ha.edi.voglerr.de`)"
+      - "traefik.http.services.homeassistant.loadbalancer.server.port=8123"
+      # - "traefik.http.services.homeassistant.loadbalancer.server.url=http://192.168.1.127:8123"
