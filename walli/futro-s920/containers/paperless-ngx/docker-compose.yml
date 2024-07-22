@@ -29,6 +29,7 @@ services:
   broker:
     image: docker.io/library/redis:7
     restart: unless-stopped
+    network_mode: bridge
     volumes:
       - redisdata:/data
 
@@ -37,6 +38,7 @@ services:
     restart: unless-stopped
     depends_on:
       - broker
+    network_mode: bridge
     ports:
       - "8000:8000"
     volumes:
@@ -47,6 +49,9 @@ services:
     env_file: docker-compose.env
     environment:
       PAPERLESS_REDIS: redis://broker:6379
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.webserver.rule=Host(`paperless.edi.voglerr.de`)"
 
 volumes:
   data:

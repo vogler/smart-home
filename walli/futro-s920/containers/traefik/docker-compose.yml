@@ -8,13 +8,17 @@ services:
       #- "--log.level=DEBUG"
       - "--api.insecure=true"
       - "--providers.docker=true"
-      # - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.exposedbydefault=false"
       - "--entryPoints.web.address=:80"
     ports:
       # The HTTP port
-      - "80:80"
+      - 80:80
       # The Web UI (enabled by --api.insecure=true)
-      - "8080:8080"
+      - 8080:8080
+    # use DNS challenge to have https even for private IP? https://doc.traefik.io/traefik/user-guides/docker-compose/acme-dns/
     volumes:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
+    # by default `docker compose up` creates a network service_default for each service which leads to 'Gateway Timeout' for `curl service.localhost`
+    # here (and for all services) we avoid this by making them use the existing bridge network. TODO this breaks name resolution between services in one stack, e.g. paperless can't connect to its 'broker' service
+    network_mode: bridge

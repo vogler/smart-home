@@ -4,11 +4,13 @@ services:
     image: "germannewsmaker/myspeed"
     volumes:
       - data:/myspeed/data
+    network_mode: bridge
     ports:
       - 5216:5216
     restart: unless-stopped
-    # labels:
-      # - "traefik.http.routers.homeassistant.rule=Host(`myspeed`)"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.myspeed.rule=Host(`myspeed.edi.voglerr.de`)"
 
 volumes:
   data:

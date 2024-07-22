@@ -10,4 +10,5 @@ services:
     privileged: true
     network_mode: host
     labels:
-      - "traefik.http.routers.homeassistant.rule=Host(`ha.localhost`)"
+      - "traefik.enable=true"
+      - "traefik.http.routers.homeassistant.rule=Host(`ha.edi.voglerr.de`)"
