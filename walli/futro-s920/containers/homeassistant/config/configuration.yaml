@@ -18,3 +18,18 @@ http:
    - 127.0.0.1
    - ::1
    - 172.20.0.0/16 # traefik proxy subnet
+
+homeassistant:
+  customize:
+    # Add an entry for each entity that you want to overwrite.
+    # had to add missing attributes to be able to select smart meter in energy dashboard: https://www.dreamzz.io/blog/tasmota-energymeter/
+    sensor.bitshake_smartmeterreader_sgm_e_in:
+      unit_of_measurement: kWh
+      state_class: total_increasing
+      device_class: energy
+      state: >
+        {% if states('sensor.bitshake_smartmeterreader_sgm_e_in') == 'unavailable' or states('sensor.bitshake_smartmeterreader_sgm_e_in') < '1' %}
+          {{ states('sensor.zahlerstand') }}
+        {% else %}
+          {{ states('sensor.bitshake_smartmeterreader_sgm_e_in') }}
+        {% endif %}
