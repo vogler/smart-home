@@ -27,9 +27,3 @@ homeassistant:
       unit_of_measurement: kWh
       state_class: total_increasing
       device_class: energy
-      state: >
-        {% if states('sensor.bitshake_smartmeterreader_sgm_e_in') == 'unavailable' or states('sensor.bitshake_smartmeterreader_sgm_e_in') < '1' %}
-          {{ states('sensor.zahlerstand') }}
-        {% else %}
-          {{ states('sensor.bitshake_smartmeterreader_sgm_e_in') }}
-        {% endif %}
