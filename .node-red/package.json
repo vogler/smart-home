@@ -6,7 +6,7 @@
     "dependencies": {
         "node-red-contrib-aggregator": "^2.0.0",
         "node-red-contrib-alexa-remote2": "^3.10.4",
-        "node-red-contrib-amazon-echo": "^0.1.11",
+        "node-red-contrib-amazon-echo": "^0.1.14",
         "node-red-contrib-bigtimer": "^2.8.6",
         "node-red-contrib-bool-gate": "^1.0.2",
         "node-red-contrib-dsm": "^0.14.1",
@@ -15,20 +15,20 @@
         "node-red-contrib-huemagic": "^4.2.2",
         "node-red-contrib-image-tools": "^2.1.1",
         "node-red-contrib-influxdb": "^0.7.0",
-        "node-red-contrib-light-scheduler": "0.0.18",
+        "node-red-contrib-light-scheduler": "0.0.19",
         "node-red-contrib-os": "^0.2.1",
         "node-red-contrib-play-audio": "^2.5.0",
         "node-red-contrib-play-sound": "^0.2.0",
         "node-red-contrib-samsung-tv-control": "^1.4.0",
         "node-red-contrib-sunevents": "^3.1.1",
         "node-red-contrib-sunpos": "^1.4.1",
-        "node-red-contrib-telegrambot": "^16.1.0",
+        "node-red-contrib-telegrambot": "^16.3.1",
         "node-red-contrib-timed-counter": "^0.1.0",
         "node-red-contrib-timeout": "^1.1.5",
         "node-red-contrib-wait-paths": "^0.3.2",
         "node-red-contrib-wemo-emulator": "^1.0.5",
         "node-red-contrib-wled2": "^2.4.4",
-        "node-red-contrib-zigbee2mqtt": "^2.7.4",
+        "node-red-contrib-zigbee2mqtt": "^2.7.5",
         "node-red-dashboard": "^3.6.5",
         "node-red-node-google": "^0.2.3",
         "node-red-node-openweathermap": "^1.0.1",
@@ -39,6 +39,6 @@
         "node-red-node-serialport": "^2.0.3",
         "node-red-node-smooth": "^0.1.2",
         "node-red-node-ui-table": "^0.4.4",
-        "typescript": "^5.7.2"
+        "typescript": "^5.8.3"
     }
 }
