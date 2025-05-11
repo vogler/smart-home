@@ -582,8 +582,7 @@
                 "ca0f1f511f839a51"
             ],
             [
-                "69f46d4c.cfcf54",
-                "4e4ca670682407ef"
+                "69f46d4c.cfcf54"
             ]
         ]
     },
@@ -704,15 +703,19 @@
         "type": "function",
         "z": "b635b24c.eee61",
         "name": "contact, on",
-        "func": "// node.log(msg.payload);\nvar p = JSON.parse(msg.payload);\nif(p.contact === undefined) return;\nif(p.contact){\n    node.status({fill:\"green\", shape:\"dot\", text:\"closed\"});\n    if(!flow.get('contact-bath') && flow.get('sonoff-bath') == 'ON')\n        return {payload: 'OFF'};\n} else {\n    node.status({fill:\"red\", shape:\"ring\", text:\"open\"});\n}",
+        "func": "// node.log(msg.payload);\nvar p = JSON.parse(msg.payload);\nif (p.contact === undefined) return;\nlet m;\nif (p.contact) {\n    node.status({ fill: \"green\", shape: \"dot\", text: \"closed\" });\n    if (p.contact != flow.get('contact-living') && // contact changed; needed since sensor sometimes reports contact in z2m even if it does not change\n        !flow.get('contact-bath') && flow.get('sonoff-bath') == 'ON') // bathroom door open and light on\n        m = { payload: 'OFF' };\n} else {\n    node.status({ fill: \"red\", shape: \"ring\", text: \"open\" });\n}\nflow.set('contact-living', p.contact);\nif (m) return m;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
         "x": 290,
         "y": 180,
         "wires": [
             [
                 "4a6f7292.4c12fc",
-                "11574dd905f5e6fd"
+                "f245e6bc4629aba9"
             ]
         ]
     },
@@ -1228,35 +1231,6 @@
         "wires": []
     },
     {
-        "id": "29d9b746caabf3dd",
-        "type": "inject",
-        "z": "b635b24c.eee61",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 620,
-        "y": 240,
-        "wires": [
-            [
-                "f875d1bd7c03d652"
-            ]
-        ]
-    },
-    {
         "id": "f875d1bd7c03d652",
         "type": "debug",
         "z": "b635b24c.eee61",
@@ -1289,7 +1263,7 @@
         "wires": []
     },
     {
-        "id": "4e4ca670682407ef",
+        "id": "f245e6bc4629aba9",
         "type": "debug",
         "z": "b635b24c.eee61",
         "name": "debug 5",
@@ -1300,24 +1274,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 460,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "11574dd905f5e6fd",
-        "type": "debug",
-        "z": "b635b24c.eee61",
-        "name": "debug 6",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 320,
+        "x": 620,
+        "y": 220,
         "wires": []
     },
     {
