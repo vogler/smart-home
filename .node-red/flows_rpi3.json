@@ -144,8 +144,8 @@
         "id": "7cf0578.b836da8",
         "type": "hue-bridge",
         "name": "Philips hue",
-        "bridge": "192.168.178.23",
-        "key": "bHbySDyO5Hgffi0m6GC8lKnQC9100WYTFTAXTvzZ",
+        "bridge": "192.168.178.24",
+        "key": "JagQ4EkfDHLdHPdetlXubKxGyMv-rRsYnOCC7Jh7",
         "worker": "5",
         "disableupdates": false
     },
