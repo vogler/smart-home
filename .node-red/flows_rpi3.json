@@ -474,7 +474,8 @@
         "y": 240,
         "wires": [
             [
-                "a1e67a5.fc05788"
+                "a1e67a5.fc05788",
+                "eccfe5086d647a07"
             ]
         ]
     },
@@ -577,10 +578,12 @@
         "wires": [
             [
                 "a1e67a5.fc05788",
-                "cb449346.11208"
+                "cb449346.11208",
+                "ca0f1f511f839a51"
             ],
             [
-                "69f46d4c.cfcf54"
+                "69f46d4c.cfcf54",
+                "4e4ca670682407ef"
             ]
         ]
     },
@@ -623,7 +626,8 @@
         "y": 120,
         "wires": [
             [
-                "cb449346.11208"
+                "cb449346.11208",
+                "ca00040e4045defe"
             ]
         ]
     },
@@ -707,7 +711,8 @@
         "y": 180,
         "wires": [
             [
-                "4a6f7292.4c12fc"
+                "4a6f7292.4c12fc",
+                "11574dd905f5e6fd"
             ]
         ]
     },
@@ -750,7 +755,8 @@
         "y": 180,
         "wires": [
             [
-                "cb449346.11208"
+                "cb449346.11208",
+                "f875d1bd7c03d652"
             ]
         ]
     },
@@ -1187,6 +1193,131 @@
         "info": "https://github.com/Foddy/node-red-contrib-huemagic/issues/373#issuecomment-1150817250",
         "x": 400,
         "y": 660,
+        "wires": []
+    },
+    {
+        "id": "ca0f1f511f839a51",
+        "type": "debug",
+        "z": "b635b24c.eee61",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "ca00040e4045defe",
+        "type": "debug",
+        "z": "b635b24c.eee61",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "29d9b746caabf3dd",
+        "type": "inject",
+        "z": "b635b24c.eee61",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 620,
+        "y": 240,
+        "wires": [
+            [
+                "f875d1bd7c03d652"
+            ]
+        ]
+    },
+    {
+        "id": "f875d1bd7c03d652",
+        "type": "debug",
+        "z": "b635b24c.eee61",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "eccfe5086d647a07",
+        "type": "debug",
+        "z": "b635b24c.eee61",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "4e4ca670682407ef",
+        "type": "debug",
+        "z": "b635b24c.eee61",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "11574dd905f5e6fd",
+        "type": "debug",
+        "z": "b635b24c.eee61",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 320,
         "wires": []
     },
     {
