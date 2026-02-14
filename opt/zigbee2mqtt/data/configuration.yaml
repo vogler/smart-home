@@ -81,6 +81,8 @@ devices:
     friendly_name: Moes_4xSwitch # Moes ESW-0ZAA-EU: TuYa Wireless switch with 4 buttons (TS0044) - has actions n_{single, double, hold}, CR2430 coin cell, but cheap ones will fail pairing
   '0x30fb10fffee1c359':
     friendly_name: Jetstrom_WS_Living
+  '0x54ef44100120f6a9':
+    friendly_name: Aqara_Cube_T1_Pro
   # '0x7cb03eaa0a009a9c':
   #   friendly_name: Osram_Strip_RGBW_Unused
   # '0x000b57fffe321252':
