@@ -83,6 +83,8 @@ devices:
     friendly_name: Jetstrom_WS_Living
   '0x54ef44100120f6a9':
     friendly_name: Aqara_Cube_T1_Pro
+  '0x54ef441001398eb3':
+    friendly_name: Aqara_Curtain_Driver_E1
   # '0x7cb03eaa0a009a9c':
   #   friendly_name: Osram_Strip_RGBW_Unused
   # '0x000b57fffe321252':
